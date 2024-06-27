@@ -192,7 +192,7 @@ Class.trapper = {
                 WIDTH: 7,
                 ASPECT: 1.7,
                 X: 15
-            }
+            },
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap]),
                 TYPE: "trap",
