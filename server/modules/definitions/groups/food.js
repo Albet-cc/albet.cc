@@ -122,12 +122,14 @@ Class.pentagon = {
     SIZE: 21,
     COLOR: "purple",
     BODY: {
-        DAMAGE: 1.5 * basePolygonDamage,
+        DAMAGE: 3 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 10 * basePolygonHealth,
-        RESIST: 1.25,
+        HEALTH: 60 * basePolygonHealth,
+        RESIST: 30,
         PENETRATION: 1.1,
+        PUSHABILITY: 1,
         ACCELERATION: 0.0035
+
     },
     DRAW_HEALTH: true,
 };
@@ -200,13 +202,15 @@ Class.hexagon = {
     SIZE: 25,
     COLOR: "hexagon",
     BODY: {
-        DAMAGE: 3 * basePolygonDamage,
+        DAMAGE: 4 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 20 * basePolygonHealth,
-        RESIST: 1.3,
-        SHIELD: 50 * basePolygonHealth,
+        HEALTH: 120 * basePolygonHealth,
+        RESIST: 130,
+        SHIELD: 5 * basePolygonHealth,
         PENETRATION: 1.1,
+        PUSHABILITY: 0.5,
         ACCELERATION: 0.003
+
     },
     DRAW_HEALTH: true,
 };
