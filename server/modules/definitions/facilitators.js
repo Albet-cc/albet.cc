@@ -748,6 +748,7 @@ exports.makeCrasher = type => ({
     FACING_TYPE: "smoothWithMotion",
     HITS_OWN_TYPE: "hard",
     HAS_NO_MASTER: true,
+    VALUE: type.VALUE * 5,
     BODY: {
         SPEED: 1 + 5 / Math.max(2, type.TURRETS.length + type.SHAPE),
         ACCELERATION: 5,
