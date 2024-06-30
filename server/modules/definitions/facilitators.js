@@ -751,15 +751,16 @@ exports.makeCrasher = type => ({
     VALUE: type.VALUE * 5,
     BODY: {
         SPEED: 1 + 5 / Math.max(2, type.TURRETS.length + type.SHAPE),
+        HEALTH: Math.pow(type.BODY.HEALTH, 2/3),
+        DAMAGE: Math.pow(type.BODY.HEALTH, 1/3) * type.BODY.DAMAGE,
         ACCELERATION: 5,
         PUSHABILITY: 0.5,
-        DENSITY: 10,
-        RESIST: 2,
+        DENSITY: 10
     },
     AI: {
         NO_LEAD: true,
     }
-})
+});
 
 exports.makeRare = (type, level) => {
     type = ensureIsClass(type);
