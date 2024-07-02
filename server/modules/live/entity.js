@@ -1,8 +1,13 @@
 const { combineStats } = require('../definitions/facilitators');
 
-let EventEmitter = require('events'),
-    events,
-    init = g => events = g.events;
+let EventEmitter = require('events');
+
+function funnycurve(input = 0, scale = 1, exponent = 1, base = 0, startExp = 0) {
+    if (input < startExp) {
+        return base + input * scale;
+    }
+    return base + scale * (Math.pow(input - startExp, exponent) + startExp);
+}
 
 class Gun extends EventEmitter {
     constructor(body, info) {
@@ -312,9 +317,9 @@ class Gun extends EventEmitter {
         }
         // Apply recoil to motion
         if (this.recoilVelocity > 0 && this.body.recoilMultiplier) {
-            let recoilForce = -this.recoilPosition * this.trueRecoil * this.body.recoilMultiplier * 1.08 / this.body.size / Config.runSpeed;
-            this.body.accel.x += recoilForce * Math.cos(this.facing);
-            this.body.accel.y += recoilForce * Math.sin(this.facing);
+            let recoilForce = funnycurve(this.recoilPosition * this.trueRecoil * this.body.recoilMultiplier / this.body.size / Config.runSpeed, Config.LEVEL_SCALE_RECOIL, Config.LEVEL_EXPONENT_RECOIL, Config.LEVEL_BASE_RECOIL, Config.LEVEL_SCALE_START);
+            this.body.accel.x -= recoilForce * Math.cos(this.facing);
+            this.body.accel.y -= recoilForce * Math.sin(this.facing);
         }
     }
     setBulletType(type, clearChildren = false) {
@@ -1476,19 +1481,20 @@ class Entity extends EventEmitter {
             if (effect.size != null) sizeMultiplier *= effect.size;
         }
 
-        let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1);
+        let speedReduce = funnycurve(this.size / (this.coreSize || this.SIZE), Config.LEVEL_SCALE_SPEEDREDUCE, Config.LEVEL_EXPONENT_SPEEDREDUCE, Config.LEVEL_BASE_SPEEDREDUCE, Config.LEVEL_SCALE_STARTREDUCE);
         this.acceleration = (accelerationMultiplier * Config.runSpeed * this.ACCELERATION) / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
         this.topSpeed = (topSpeedMultiplier * Config.runSpeed * this.SPEED * this.skill.mob) / speedReduce;
         if (this.settings.reloadToAcceleration) this.topSpeed /= Math.sqrt(this.skill.acl);
-        this.health.set(((this.settings.healthWithLevel ? 2 * this.level : 0) + this.HEALTH) * this.skill.hlt * healthMultiplier);
+
+        this.health.set(((this.settings.healthWithLevel ? funnycurve(this.level, Config.LEVEL_SCALE_HEALTH, Config.LEVEL_EXPONENT_HEALTH, Config.LEVEL_BASE_HEALTH, Config.LEVEL_SCALE_START) : 0) + this.HEALTH) * this.skill.hlt * healthMultiplier);
         this.health.resist = 1 - 1 / Math.max(1, this.RESIST + this.skill.brst);
-        this.shield.set(((this.settings.healthWithLevel ? 0.6 * this.level : 0) + this.SHIELD) * this.skill.shi, Math.max(0, ((this.settings.healthWithLevel ? 0.006 * this.level : 0) + 1) * this.REGEN * this.skill.rgn * regenMultiplier));
+        this.shield.set(((this.settings.healthWithLevel ? funnycurve(this.level, Config.LEVEL_SCALE_SHIELD, Config.LEVEL_EXPONENT_SHIELD, Config.LEVEL_BASE_SHIELD, Config.LEVEL_SCALE_START) : 0) + this.SHIELD) * this.skill.shi, Math.max(0, ((this.settings.healthWithLevel ? funnycurve(this.level, Config.LEVEL_SCALE_REGEN, Config.LEVEL_EXPONENT_REGEN, Config.LEVEL_BASE_REGEN, Config.LEVEL_SCALE_START) : 0) + 1) * this.REGEN * this.skill.rgn * regenMultiplier));
         this.damage = damageMultiplier * this.DAMAGE * this.skill.atk;
         this.penetration = penetrationMultiplier * (this.PENETRATION + 1.5 * (this.skill.brst + 0.8 * (this.skill.atk - 1)));
         if (!this.settings.dieAtRange || !this.range) this.range = rangeMultiplier * this.RANGE;
         this.fov = fovMultiplier * this.FOV * 275 * Math.sqrt(this.size);
-        this.density = densityMultiplier * (1 + 0.08 * this.level) * this.DENSITY;
+        this.density = densityMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_DENSITY, Config.LEVEL_EXPONENT_DENSITY, Config.LEVEL_BASE_DENSITY, Config.LEVEL_SCALE_START) * this.DENSITY;
         this.stealth = stealthMultiplier * this.STEALTH;
         this.pushability = pushabilityMultiplier * this.PUSHABILITY;
         this.sizeMultiplier = sizeMultiplier;
@@ -1548,7 +1554,7 @@ class Entity extends EventEmitter {
         return Math.min(this.levelCap ?? Config.LEVEL_CAP, this.skill.level);
     }
     get size() {
-        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * (1 + this.level / 45) : this.bond.size * this.bound.size;
+        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_SIZE, Config.LEVEL_EXPONENT_SIZE, Config.LEVEL_BASE_SIZE, Config.LEVEL_SCALE_START) : this.bond.size * this.bound.size;
     }
     get mass() {
         return this.density * (this.size ** 2 + 1);
@@ -1736,8 +1742,8 @@ class Entity extends EventEmitter {
                 if (gactive) {
                     let len = Math.sqrt(g.x * g.x + g.y * g.y);
                     engine = {
-                        x: (a * g.x) / len, * 5
-                        y: (a * g.y) / len, * 5
+                        x: (a * g.x) / len * 5,
+                        y: (a * g.y) / len * 5
                     };
                 }
                 break;
