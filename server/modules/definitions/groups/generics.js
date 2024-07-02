@@ -66,7 +66,7 @@ Class.genericEntity = {
     DISPLAY_NAME: true,
     ON: [],
     BODY: {
-        ACCELERATION: 1,
+        ACCELERATION: 3,
         SPEED: 0,
         HEALTH: 1,
         RESIST: 1,
@@ -111,7 +111,7 @@ Class.genericTank = {
     REROOT_UPGRADE_TREE: "basic",
     BODY: {
         ACCELERATION: base.ACCEL,
-        SPEED: base.SPEED,
+        SPEED: base.SPEED * 0.9,
         HEALTH: base.HEALTH,
         DAMAGE: base.DAMAGE,
         PENETRATION: base.PENETRATION,
