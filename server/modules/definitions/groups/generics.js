@@ -77,7 +77,7 @@ Class.genericEntity = {
         RANGE: 0,
         FOV: 1,
         SHOCK_ABSORB: 1,
-        RECOIL_MULTIPLIER: 1,
+        RECOIL_MULTIPLIER: 2,
         DENSITY: 1,
         STEALTH: 1,
         PUSHABILITY: 1,
