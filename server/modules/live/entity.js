@@ -1736,8 +1736,8 @@ class Entity extends EventEmitter {
                 if (gactive) {
                     let len = Math.sqrt(g.x * g.x + g.y * g.y);
                     engine = {
-                        x: (g.x) / len,
-                        y: (g.y) / len,
+                        x: (a * g.x) / len, * 5
+                        y: (a * g.y) / len, * 5
                     };
                 }
                 break;
