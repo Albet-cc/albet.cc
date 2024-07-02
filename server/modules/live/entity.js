@@ -113,10 +113,12 @@ class Gun extends EventEmitter {
         }
     }
     live() {
-        if (!this.canShoot || this.codeControlOnly || this.body.master.invuln) return;
+        if (!this.canShoot || this.body.master.invuln) return;
         
         // Iterate recoil
         this.recoil();
+
+        if (this.codeControlOnly) return;
 
         // Determine shoot permission based on child counting settings
         let shootPermission = this.checkShootPermission();
@@ -257,6 +259,7 @@ class Gun extends EventEmitter {
     }
     defineIndependentBullet(bullet) {
         bullet.define(this.bulletType);
+
         // Keep track of it for child counting
         if (this.maxChildren) {
             bullet.parent = this;
@@ -413,7 +416,7 @@ class Gun extends EventEmitter {
         }
         // Go through and make sure we respect its natural properties
         for (let property in out) {
-            if (this.bulletBodyStats[property] == null || !out.hasOwnProperty(property))
+            if (this.bulletBodyStats[property] == null)
                 continue;
             out[property] *= this.bulletBodyStats[property];
         }
