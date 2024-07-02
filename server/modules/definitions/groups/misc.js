@@ -258,8 +258,8 @@ Class.crasher = {
     BODY: {
         SPEED: 5,
         ACCELERATION: 1.4,
-        HEALTH: 0.5,
-        DAMAGE: 5,
+        HEALTH: 1,
+        DAMAGE: 1.5,
         PENETRATION: 2,
         PUSHABILITY: 0.5,
         DENSITY: 10,

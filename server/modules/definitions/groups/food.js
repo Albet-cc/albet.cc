@@ -74,7 +74,7 @@ Class.square = {
     SIZE: 14,
     COLOR: "gold",
     BODY: {
-        DAMAGE: basePolygonDamage,
+        DAMAGE: 3 * basePolygonDamage,
         DENSITY: 4,
         HEALTH: basePolygonHealth,
         PENETRATION: 2,
@@ -98,7 +98,7 @@ Class.triangle = {
     SIZE: 10,
     COLOR: "orange",
     BODY: {
-        DAMAGE: basePolygonDamage,
+        DAMAGE: 5 * basePolygonDamage,
         DENSITY: 6,
         HEALTH: 3 * basePolygonHealth,
         RESIST: 1.15,
@@ -122,9 +122,9 @@ Class.pentagon = {
     SIZE: 21,
     COLOR: "purple",
     BODY: {
-        DAMAGE: 3 * basePolygonDamage,
+        DAMAGE: 10 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 60 * basePolygonHealth,
+        HEALTH: 22.5 * basePolygonHealth,
         RESIST: 30,
         PENETRATION: 1.1,
         PUSHABILITY: 1,
@@ -200,9 +200,9 @@ Class.hexagon = {
     SIZE: 25,
     COLOR: "hexagon",
     BODY: {
-        DAMAGE: 4 * basePolygonDamage,
+        DAMAGE: 16 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 120 * basePolygonHealth,
+        HEALTH: 30 * basePolygonHealth,
         RESIST: 130,
         SHIELD: 5 * basePolygonHealth,
         PENETRATION: 1.1,
