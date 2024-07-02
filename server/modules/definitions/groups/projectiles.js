@@ -442,7 +442,7 @@ Class.minion = {
     BODY: {
         FOV: 0.5,
         SPEED: 3,
-        ACCELERATION: 0.4,
+        ACCELERATION: 1.6,
         HEALTH: 5,
         SHIELD: 0,
         DAMAGE: 1.2,
