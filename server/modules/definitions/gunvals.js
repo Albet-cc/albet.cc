@@ -49,7 +49,7 @@ module.exports = {
     cyclone: { health: 1.3, damage: 1.3, pen: 1.1, speed: 1.5, maxSpeed: 1.15 },
     triAngle: { recoil: 0.9, health: 0.9, speed: 0.8, maxSpeed: 0.8, range: 0.6 },
     triAngleFront: { recoil: 0.2, speed: 1.3, maxSpeed: 1.1, range: 1.5 },
-    thruster: { recoil: 1.0, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
+    thruster: { recoil: 1, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     
 // Drones
     overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 0.35, maxSpeed: 1.2, density: 2 },
