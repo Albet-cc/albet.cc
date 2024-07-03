@@ -256,7 +256,7 @@ Class.crasher = {
         NO_LEAD: true,
     },
     BODY: {
-        SPEED: 5,
+        SPEED: 1,
         ACCELERATION: 1.4,
         HEALTH: 1,
         DAMAGE: 1.5,
