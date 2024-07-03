@@ -598,7 +598,7 @@ Class.shotTrapBox = {
 Class.pillbox = {
     PARENT: "setTrap",
     LABEL: "Pillbox",
-    CONTROLLERS: ["nearestDifferentMaster"],
+    CONTROLLERS: ["goToMasterTarget"],
     INDEPENDENT: true,
     DIE_AT_RANGE: true,
     TURRETS: [

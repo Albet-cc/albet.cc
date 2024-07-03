@@ -1,6 +1,6 @@
 module.exports = {
 // Bases
-    basic: { reload: 10.5, recoil: 0.7, shudder: 0.1, damage: 0.45, speed: 5.5, spray: 15 },
+    basic: { reload: 10.5, recoil: 0.6, shudder: 0.1, damage: 0.45, speed: 5.5, spray: 15 },
     drone: { reload: 36, recoil: 0.25, shudder: 0.1, size: 0.6, speed: 2, spray: 0.1 },
     trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.75, speed: 6.5, spray: 15, resist: 3 },
     swarm: { reload: 23, recoil: 0.25, shudder: 0.05, size: 0.4, damage: 0.75, speed: 4, spray: 5 },
@@ -88,9 +88,9 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 7, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 2, shudder: 1, size: 1.5, health: 1.75, pen: 1, speed: 0.035, maxSpeed: 0.1, range: 1.25, resist: 1.25 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.75, pen: 1, speed: 0.3, maxSpeed: 1, range: 1.25, resist: 1.25 },
     construct: { reload: 1.35, size: 0.9, maxSpeed: 1.1 },
-    boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.75, maxSpeed: 0.25, range: 1.333 },
+    boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.35, maxSpeed: 0.35, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
     hexaTrapper: { reload: 1.3, shudder: 1.25, speed: 0.8, range: 0.5 },
     trapperDominator: { reload: 1.26, recoil: 0, shudder: 0.25, health: 1.25, damage: 1.45, pen: 1.6, speed: 0.5, maxSpeed: 2, range: 0.7, spray: 0.5 },

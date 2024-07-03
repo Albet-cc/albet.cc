@@ -2455,6 +2455,7 @@ Class.builder = {
         {
             POSITION: [2, 12, 1.1, 18, 0, 0, 0],
             PROPERTIES: {
+                MAX_CHILDREN: 17,
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
@@ -2513,6 +2514,7 @@ Class.construct = { // it's "construct" and not "constructor" because "construct
         {
             POSITION: [2, 18, 1.2, 18, 0, 0, 0],
             PROPERTIES: {
+                MAX_CHILDREN: 10,
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.construct]),
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
