@@ -1743,11 +1743,9 @@ class Entity extends EventEmitter {
                     this.damp = Math.abs(a) / this.topSpeed;
                 }
                 if (gactive) {
-                    let len = Math.sqrt(g.x * g.x + g.y * g.y);
-                    engine = {
-                        x: (a * g.x) / len * 5,
-                        y: (a * g.y) / len * 5
-                    };
+                    let len = a / Math.sqrt(g.x ** 2 + g.y ** 2);
+                    engine.x = g.x * len;
+                    engine.y = g.y * len;
                 }
                 break;
             case "spgw":
