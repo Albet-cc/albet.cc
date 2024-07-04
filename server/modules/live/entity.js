@@ -1557,7 +1557,7 @@ class Entity extends EventEmitter {
         return Math.min(this.levelCap ?? Config.LEVEL_CAP, this.skill.level);
     }
     get size() {
-        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_SIZE, ((this.level / 45) ** LEVEL_EXPONENT_SIZE) ** 2 * 0.67268126081, Config.LEVEL_BASE_SIZE, Config.LEVEL_SCALE_START): this.bond.size * this.bound.size;
+        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_SIZE, ((this.level / 45) ** Config.LEVEL_EXPONENT_SIZE) ** 2 * 0.67268126081, Config.LEVEL_BASE_SIZE, Config.LEVEL_SCALE_START): this.bond.size * this.bound.size;
     }
     get realSize() {
         return this.size * lazyRealSizes[Math.floor(Math.abs(this.shape))];
