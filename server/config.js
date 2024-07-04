@@ -249,7 +249,7 @@ module.exports = {
     MODE: "ffa",
     TAG: false,
 
-    LEVEL_SCALE_START: 45,
+    LEVEL_SCALE_START: 46,
 
     LEVEL_BASE_HEALTH: 0,
     LEVEL_SCALE_HEALTH: 2,
@@ -269,7 +269,7 @@ module.exports = {
 
     LEVEL_BASE_SIZE: 1,
     LEVEL_SCALE_SIZE: 1 / 45,
-    LEVEL_EXPONENT_SIZE: 1,
+    LEVEL_EXPONENT_SIZE: 1.00145,
 
     LEVEL_BASE_SPEEDREDUCE: 0,
     LEVEL_SCALE_SPEEDREDUCE: 1,

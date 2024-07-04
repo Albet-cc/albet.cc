@@ -1496,7 +1496,7 @@ class Entity extends EventEmitter {
         this.damage = damageMultiplier * this.DAMAGE * this.skill.atk;
         this.penetration = penetrationMultiplier * (this.PENETRATION + 1.5 * (this.skill.brst + 0.8 * (this.skill.atk - 1)));
         if (!this.settings.dieAtRange || !this.range) this.range = rangeMultiplier * this.RANGE;
-        this.fov = fovMultiplier * this.FOV * 275 * Math.sqrt(this.size);
+        this.fov = fovMultiplier * this.FOV * (275 +(((this.level - 45) / 3.5)) ** 1.15) * Math.sqrt(this.size);
         this.density = densityMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_DENSITY, Config.LEVEL_EXPONENT_DENSITY, Config.LEVEL_BASE_DENSITY, Config.LEVEL_SCALE_START) * this.DENSITY;
         this.stealth = stealthMultiplier * this.STEALTH;
         this.pushability = pushabilityMultiplier * this.PUSHABILITY;
@@ -1557,8 +1557,7 @@ class Entity extends EventEmitter {
         return Math.min(this.levelCap ?? Config.LEVEL_CAP, this.skill.level);
     }
     get size() {
-        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_SIZE, Config.LEVEL_EXPONENT_SIZE, Config.LEVEL_BASE_SIZE, Config.LEVEL_SCALE_START) : this.bond.size * this.bound.size;
-    }
+        return this.bond == null ? (this.coreSize || this.SIZE) * this.sizeMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_SIZE, Config.LEVEL_EXPONENT_SIZE ** (this.level * 0.5726) - 0.1, Config.LEVEL_BASE_SIZE, Config.LEVEL_SCALE_START): this.bond.size * this.bound.size;    }
     get mass() {
         return this.density * (this.size ** 2 + 1);
     }
