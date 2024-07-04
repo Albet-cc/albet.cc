@@ -1155,6 +1155,7 @@ class Entity extends EventEmitter {
         if (set.SKILL != null && set.SKILL != []) {
             if (set.SKILL.length != 10) throw "Inappropiate skill raws.";
             this.skill.set(set.SKILL);
+            this.syncSkillsToGuns();
         }
         if (set.VALUE != null) this.skill.score = Math.max(this.skill.score, set.VALUE * this.squiggle);
         if (set.ALT_ABILITIES != null) this.abilities = set.ALT_ABILITIES;

@@ -487,7 +487,7 @@ exports.makeTurret = (type, options = {}) => {
     }
 
     let GUNS = type.GUNS;
-    let extraStats = options.extraStats ?? [];
+    let extraStats = options.extraStats ?? [g.autoTurret];
     if (!Array.isArray(extraStats)) {
         extraStats = [extraStats];
     }
@@ -495,7 +495,7 @@ exports.makeTurret = (type, options = {}) => {
         if (!gun.PROPERTIES) continue;
         if (!gun.PROPERTIES.SHOOT_SETTINGS) continue;
 
-        gun.PROPERTIES.SHOOT_SETTINGS = exports.combineStats([gun.PROPERTIES.SHOOT_SETTINGS, g.autoTurret, ...extraStats])
+        gun.PROPERTIES.SHOOT_SETTINGS = exports.combineStats([gun.PROPERTIES.SHOOT_SETTINGS, ...extraStats])
     }
 
     return {
@@ -506,6 +506,7 @@ exports.makeTurret = (type, options = {}) => {
         INDEPENDENT: options.independent ?? false,
         CONTROLLERS,
         GUNS,
+        AI: options.aiSettings,
         TURRETS: type.TURRETS,
     }
 }
