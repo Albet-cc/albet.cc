@@ -1,31 +1,59 @@
 let bases = require('../tiles/tdm.js'),
 	teams = require('../gamemodeconfigs/tdm.js').TEAMS,
-	room = Array(15).fill(() => Array(15).fill()).map(x => x()),
+	room = Array(Config.roomHeight).fill(() => Array(Config.roomWidth).fill()).map(x => x()),
 locations = [
 	[
 		[[ 0,  0], [ 1,  0], [ 0,  1]],
 		[[ 1,  1]]
 	],[
-		[[14, 14], [13, 14], [14, 13]],
-		[[13, 13]]
+		[
+			[Config.roomHeight - 1, Config.roomWidth - 1], 
+			[Config.roomHeight - 2, Config.roomWidth - 1], 
+			[Config.roomHeight - 1, Config.roomWidth - 2]
+		],
+		[[Config.roomHeight - 2, Config.roomWidth - 2]]
 	],[
-		[[ 0, 14], [ 1, 14], [ 0, 13]],
-		[[ 1, 13]]
+		[
+			[ 0, Config.roomWidth - 1], 
+			[ 1, Config.roomWidth - 1], 
+			[ 0, Config.roomWidth - 2]
+		],
+		[[ 1, Config.roomWidth - 2]]
 	],[
-		[[14,  0], [14,  1], [13,  0]],
-		[[13,  1]]
+		[
+			[Config.roomHeight - 1,  0], 
+			[Config.roomHeight - 1,  1], 
+			[Config.roomHeight - 2,  0]
+		],
+		[[Config.roomHeight - 2,  1]]
 	],[
-		[[0,  6], [1,  7], [0,  8]],
-		[[0,  7]]
+		[
+			[0,  Math.floor(Config.roomWidth / 2) - 1], 
+			[1,  Math.floor(Config.roomWidth / 2)], 
+			[0,  Math.floor(Config.roomWidth / 2) + 1]
+		],
+		[[0,  Math.floor(Config.roomWidth / 2)]]
 	],[
-		[[6,  14], [7,  13], [8,  14]],
-		[[7,  14]]
+		[
+			[Math.floor(Config.roomHeight / 2) - 1,  Config.roomWidth - 1], 
+			[Math.floor(Config.roomHeight / 2),  	 Config.roomWidth - 2], 
+			[Math.floor(Config.roomHeight / 2) + 1,  Config.roomWidth - 1]
+		],
+		[[Math.floor(Config.roomHeight / 2),  Config.roomWidth - 1]]
 	],[
-		[[14,  6], [13,  7], [14,  8]],
-		[[14,  7]]
+		[
+			[Config.roomHeight - 1,  Math.floor(Config.roomWidth / 2) - 1], 
+			[Config.roomHeight - 2,  Math.floor(Config.roomWidth / 2)], 
+			[Config.roomHeight - 1,  Math.floor(Config.roomWidth / 2) + 1]
+		],
+		[[Config.roomHeight - 1,  Math.floor(Config.roomWidth / 2)]]
 	],[
-		[[6,  0], [7,  1], [8,  0]],
-		[[7,  0]]
+		[
+			[Math.floor(Config.roomHeight / 2) - 1,  0], 
+			[Math.floor(Config.roomHeight / 2),  	 1], 
+			[Math.floor(Config.roomHeight / 2) + 1,  0]
+		],
+		[[Math.floor(Config.roomHeight / 2),  0]]
 	]
 ];
 
