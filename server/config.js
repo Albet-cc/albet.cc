@@ -277,5 +277,5 @@ module.exports = {
 
     LEVEL_BASE_RECOIL: 0,
     LEVEL_SCALE_RECOIL: 1 / 1.08,
-    LEVEL_EXPONENT_RECOIL: 1,
+    LEVEL_EXPONENT_RECOIL: 0.5,
 }
