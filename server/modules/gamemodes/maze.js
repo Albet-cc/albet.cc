@@ -19,8 +19,8 @@ let checkMazeForBlocks = (initX, initY, size, maze) => {
         maze[Math.floor(size * 0.15)] = [true, true, true, true, true, true, ...Array(size - 12).fill(false), true, true, true, true, true, true];
         maze[size - Math.floor(size * 0.15)] = [true, true, true, true, true, true, ...Array(size - 12).fill(false), true, true, true, true, true, true];
         maze[Math.floor(size * 0.5)] = Array(size).fill(false);
-        let e = 0.25;
-        let d = 0.4;
+        let e = 0.35;
+        let d = 0.5;
         maze[Math.floor(size * e)] = Array(size).fill(false);
         maze[Math.floor(size * (1 - e))] = Array(size).fill(false);
         maze[Math.floor(size * d)] = Array(size).fill(false);
@@ -50,7 +50,7 @@ let checkMazeForBlocks = (initX, initY, size, maze) => {
             for (let cell of row)
                 if (cell) cells++;
         let eroded = 0;
-        let toErode = cells * 0.55;
+        let toErode = cells * 0.4;
         toErode -= activeLocsThatWeCantPlaceIn * 10;
         if (toErode < 0) generateMaze(size + 1);
         for (let i = 0; i < toErode; i++) {
