@@ -1493,6 +1493,7 @@ class Entity extends EventEmitter {
             if (effect.size != null) sizeMultiplier *= effect.size;
         }
 
+        this.sizeMultiplier = sizeMultiplier;
         let speedReduce = funnycurve(this.size / (this.coreSize || this.SIZE), Config.LEVEL_SCALE_SPEEDREDUCE, Config.LEVEL_EXPONENT_SPEEDREDUCE, Config.LEVEL_BASE_SPEEDREDUCE, Config.LEVEL_SCALE_STARTREDUCE);
         this.acceleration = (accelerationMultiplier * Config.runSpeed * this.ACCELERATION) / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
@@ -1509,7 +1510,6 @@ class Entity extends EventEmitter {
         this.density = densityMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_DENSITY, Config.LEVEL_EXPONENT_DENSITY, Config.LEVEL_BASE_DENSITY, Config.LEVEL_SCALE_START) * this.DENSITY;
         this.stealth = stealthMultiplier * this.STEALTH;
         this.pushability = pushabilityMultiplier * this.PUSHABILITY;
-        this.sizeMultiplier = sizeMultiplier;
         this.recoilMultiplier = this.RECOIL_MULTIPLIER * recoilReceivedMultiplier;
         if (Config.SPACE_PHYSICS) {
             this.maxSpeed = this.topSpeed;
