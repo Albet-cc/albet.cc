@@ -1505,7 +1505,7 @@ class Entity extends EventEmitter {
         this.damage = damageMultiplier * this.DAMAGE * this.skill.atk;
         this.penetration = penetrationMultiplier * (this.PENETRATION + 1.5 * (this.skill.brst + 0.8 * (this.skill.atk - 1)));
         if (!this.settings.dieAtRange || !this.range) this.range = rangeMultiplier * this.RANGE;
-        this.fov = fovMultiplier * this.FOV * (275 +(((this.level - 45) / 3.5)) ** 1.15) * Math.sqrt(this.size);
+        this.fov = fovMultiplier * this.FOV * (275 +(this.level / 3.5) ** 1.15) * Math.sqrt(this.size);
         this.density = densityMultiplier * funnycurve(this.level, Config.LEVEL_SCALE_DENSITY, Config.LEVEL_EXPONENT_DENSITY, Config.LEVEL_BASE_DENSITY, Config.LEVEL_SCALE_START) * this.DENSITY;
         this.stealth = stealthMultiplier * this.STEALTH;
         this.pushability = pushabilityMultiplier * this.PUSHABILITY;
