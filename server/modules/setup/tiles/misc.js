@@ -32,6 +32,23 @@ normal = new Tile({
     }
 }),
 
+nowall = new Tile({
+    color: "white",
+    data: {
+        allowMazeWallSpawn: true,
+        foodSpawnCooldown: 0, foodCount: 0
+    },
+    init: tile => room.spawnableDefault.push(tile),
+    tick: tile => {
+        if (++tile.data.foodSpawnCooldown > Config.FOOD_SPAWN_COOLDOWN) {
+            tile.data.foodSpawnCooldown = 0;
+            if (tile.data.foodCount < Config.FOOD_CAP && Math.random() < Config.FOOD_SPAWN_CHANCE) {
+                spawnNatural(tile, Config.FOOD_TYPES, 'food');
+            }
+        }
+    }
+}),
+
 nestTick = tile => {
     if (++tile.data.enemySpawnCooldown > Config.ENEMY_SPAWN_COOLDOWN_NEST) {
         tile.data.enemySpawnCooldown = 0;
@@ -87,4 +104,4 @@ wall = new Tile({
     }
 });
 
-module.exports = { normal, nest, wall, nestNoBoss };
+module.exports = { normal, nest, wall, nowall, nestNoBoss };
