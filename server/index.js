@@ -308,6 +308,12 @@ const maintainloop = () => {
         }, Config.BOSS_SPAWN_DURATION * 30);
     }
 
+    for (let i = 0; i < naturallySpawnedBosses.length; i++) {
+        let o = naturallySpawnedBosses[i];
+        o.skill.maintain();
+        o.skillUp(ran.choose([ "atk", "hlt", "spd", "str", "pen", "dam", "rld", "mob", "rgn", "shi" ]));
+    }
+
     // upgrade existing ones
     for (let i = 0; i < bots.length; i++) {
         let o = bots[i];
