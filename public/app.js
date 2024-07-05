@@ -1356,11 +1356,12 @@ function drawFloor(px, py, ratio) {
             ctx.fillRect(left, top, right - left, bottom - top);
         }
     }
-    ctx.lineWidth = 1.25;
+    let gridsize = 30 * ratio;
+    if (gridsize < 7) return;
+    ctx.lineWidth = ratio;
     ctx.strokeStyle = settings.graphical.screenshotMode ? color.guiwhite : color.guiblack;
     ctx.globalAlpha = 0.04;
     ctx.beginPath();
-    let gridsize = 30 * ratio;
     for (let x = (global.screenWidth / 2 - px) % gridsize; x < global.screenWidth; x += gridsize) {
         ctx.moveTo(x, 0);
         ctx.lineTo(x, global.screenHeight);
