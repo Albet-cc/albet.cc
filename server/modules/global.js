@@ -1,6 +1,3 @@
-// Prepare constants
-Math.TAU = Math.PI * 2;
-
 // Global Utilities Requires
 let EventEmitter = require('events');
 global.Events = new EventEmitter();
