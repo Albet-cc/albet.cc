@@ -408,7 +408,7 @@ class io_stackGuns extends IO {
             let gun = this.body.guns[i];
             if (!gun.canShoot || !gun.stack) continue;
             let reloadStat = (gun.calculator == "necro" || gun.calculator == "fixed reload") ? 1 : gun.bulletSkills.rld,
-                readiness = (1 - gun.cycle) / (gun.settings.reload * reloadStat);
+                readiness = (1 - gun.cycle) / (gun.shootSettings.reload * reloadStat);
             if (lowestReadiness > readiness) {
                 lowestReadiness = readiness;
                 readiestGun = gun;
@@ -454,7 +454,9 @@ class io_nearestDifferentMaster extends IO {
         (this.body.aiSettings.BLIND || ((e.x - m.x) * (e.x - m.x) < sqrRange && (e.y - m.y) * (e.y - m.y) < sqrRange)) &&
         (this.body.aiSettings.SKYNET || ((e.x - mm.x) * (e.x - mm.x) < sqrRangeMaster && (e.y - mm.y) * (e.y - mm.y) < sqrRangeMaster));
     }
-    wouldHitWall = (me, enemy) => wouldHitWall(me, enemy); // Override
+    wouldHitWall (me, enemy) {
+        wouldHitWall(me, enemy); // Override
+    }
     buildList(range) {
         // Establish whom we judge in reference to
         let mostDangerous = 0,
