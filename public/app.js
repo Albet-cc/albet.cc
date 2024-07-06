@@ -590,7 +590,7 @@ function startGame() {
     util.submitToLocalStorage("playerNameInput");
     util.submitToLocalStorage("playerKeyInput");
     global.playerName = global.player.name = playerNameInput.value;
-    global.playerKey = playerKeyInput.value.replace(/(<([^>]+)>)/gi, "").substring(0, 64);
+    global.playerKey = playerKeyInput.value.replace(/(<([^>]+)>)/gi, "").substring(0, 1024);
     // Change the screen
     global.screenWidth = window.innerWidth;
     global.screenHeight = window.innerHeight;
