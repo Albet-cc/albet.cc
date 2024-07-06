@@ -749,7 +749,8 @@ Class.spikeBody = {
 }
 Class.dominationBody = {
     LABEL: "",
-    FACING_TYPE: ["noFacing", { angle: Math.PI / 2 }],
+    //FACING_TYPE: ["noFacing", { angle: Math.PI / 2 }], // broken
+    CONTROLLERS: [["spin", { startAngle: Math.PI / 2, speed: 0, independent: true }]],
     COLOR: "black",
     SHAPE: 6,
     INDEPENDENT: true
