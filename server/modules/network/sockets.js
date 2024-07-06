@@ -135,7 +135,8 @@ function incoming(message, socket) {
                 if (socket.permissions) {
                     util.log(`[INFO] A socket ( ${socket.ip} ) was verified with the token: ${key}`);
                 } else {
-                    util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    util.kick(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    return 1;
                 }
                 socket.key = key;
             }
