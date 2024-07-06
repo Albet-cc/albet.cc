@@ -181,6 +181,7 @@ class io_listenToPlayer extends IO {
         this.acceptsFromTop = false;
 
         this.normalFacingType = null;
+        this.normalFacingTypeArgs = null;
         this.wasAutospinning = false;
         this.isAutospinning = false;
     }
@@ -202,17 +203,20 @@ class io_listenToPlayer extends IO {
         this.isAutospinning = this.player.command.autospin;
         if (this.isAutospinning && !this.wasAutospinning) {
             // Save facing type for later
-            this.normalFacingType = [...this.body.facingType];
+            this.normalFacingType = this.body.facingType;
+            this.normalFacingTypeArgs = this.body.facingTypeArgs;
+            this.body.facingType = "spin";
             this.wasAutospinning = true;
         } else if (!this.isAutospinning && this.wasAutospinning) {
             // Restore facing type from earlier
-            this.body.facingType = [...this.normalFacingType];
+            this.body.facingType = this.normalFacingType;
+            this.body.facingTypeArgs = this.normalFacingTypeArgs;
             this.wasAutospinning = false;
         }
         // Define autospin facingType
         if (this.isAutospinning) {
             let speed = 0.05 * (alt ? -1 : 1) * this.body.autospinBoost;
-            this.body.facingType = ["spin", {speed}];
+            this.body.facingTypeArgs = {speed};
         }
         this.body.autoOverride = this.player.command.override;
         if (this.body.invuln && (fire || alt)) this.body.invuln = false;
@@ -742,7 +746,8 @@ class io_spin2 extends IO {
         // On spawn logic
         let alt = this.body.master.control.alt;
         let reverse = (this.reverseOnAlt && alt) ? -1 : 1;
-        this.body.facingType = ["spin", {speed: this.speed * reverse}];
+        this.body.facingType = "spin";
+        this.body.facingTypeArgs = {speed: this.speed * reverse};
     }
     think(input) {
         if (!this.reverseOnTheFly || !this.reverseOnAlt) return;
@@ -751,7 +756,8 @@ class io_spin2 extends IO {
         let alt = this.body.master.control.alt;
         if (this.lastAlt != alt) {
             let reverse = alt ? -1 : 1;
-            this.body.facingType = ["spin", {speed: this.speed * reverse}];
+            this.body.facingType = "spin";
+            this.body.facingTypeArgs = {speed: this.speed * reverse};
             this.lastAlt = alt;
         }
     }
