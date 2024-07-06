@@ -8,7 +8,7 @@ Class.autoTankGun = makeTurret({
         {
             POSITION: [22, 10, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, { recoil: 0.02}]),
                 TYPE: "bullet",
             },
         },
@@ -19,7 +19,7 @@ Class.bansheegun = makeTurret({
         {
             POSITION: [26, 10, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, { reload: 1.5 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, { reload: 1.5, recoil: 0.04 }]),
                 TYPE: "bullet",
             },
         },
@@ -30,14 +30,14 @@ Class.auto4gun = makeTurret({
         {
             POSITION: [16, 4, 1, 0, -3.5, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.twin, g.power, { speed: 0.7, maxSpeed: 0.7 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.twin, g.power, { speed: 0.7, maxSpeed: 0.7, recoil: 0.01 }]),
                 TYPE: "bullet",
             },
         },
         {
             POSITION: [16, 4, 1, 0, 3.5, 0, 0.5],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.twin, g.power, { speed: 0.7, maxSpeed: 0.7 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.twin, g.power, { speed: 0.7, maxSpeed: 0.7, recoil: 0.01 }]),
                 TYPE: "bullet",
             },
         },
@@ -73,7 +73,7 @@ Class.megaAutoTankGun = makeTurret({
         {
             POSITION: [22, 14, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, { recoil: 0.1}]),
                 TYPE: "bullet",
             },
         },
@@ -87,7 +87,7 @@ Class.architectGun = makeTurret({
         {
             POSITION: [2, 16, 1.1, 20, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, { recoil: 0.06}]),
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
             },
@@ -507,7 +507,7 @@ Class.autoTurret = makeTurret({
         {
             POSITION: [22, 10, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 1.15 }, g.turret]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 0.15 }, g.turret]),
                 TYPE: "bullet",
             },
         },

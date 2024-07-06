@@ -441,7 +441,7 @@ Class.minion = {
     FACING_TYPE: "smoothToTarget",
     BODY: {
         FOV: 0.5,
-        SPEED: 3,
+        SPEED: 1.8,
         ACCELERATION: 1.6,
         HEALTH: 5,
         SHIELD: 0,

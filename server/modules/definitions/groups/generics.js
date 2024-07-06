@@ -194,7 +194,7 @@ Class.bullet = {
     BODY: {
         PENETRATION: 1,
         SPEED: 3.75,
-        RANGE: 75,
+        RANGE: 60,
         DENSITY: 1.25,
         HEALTH: 0.165,
         DAMAGE: 6,
