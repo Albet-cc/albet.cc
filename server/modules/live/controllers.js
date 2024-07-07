@@ -163,9 +163,9 @@ class io_moveInCircles extends IO {
                 x: this.body.x + 10 * Math.cos(this.pathAngle),
                 y: this.body.y + 10 * Math.sin(this.pathAngle)
             }
+            // turnWithSpeed turn speed (but condensed over 5 ticks)
+            this.pathAngle -= ((this.body.velocity.length / 90) * Math.PI) / Config.runSpeed * 5;
         }
-        // turnWithSpeed turn speed
-        this.pathAngle -= ((this.body.velocity.length / 90) * Math.PI) / Config.runSpeed;
         return {
             goal: this.goal,
             power: this.body.ACCELERATION > 0.1 ? 0.2 : 1
