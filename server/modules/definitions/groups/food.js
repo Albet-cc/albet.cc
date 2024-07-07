@@ -117,7 +117,7 @@ Class.transTriangle = makeRare("triangle", 4);
 Class.pentagon = {
     PARENT: "food",
     LABEL: "Pentagon",
-    VALUE: 400,
+    VALUE: 750,
     SHAPE: 5,
     SIZE: 21,
     COLOR: "purple",
@@ -195,7 +195,7 @@ Class.transAlphaPentagon = makeRare("alphaPentagon", 4);
 Class.hexagon = {
     PARENT: "food",
     LABEL: "Hexagon",
-    VALUE: 1600,
+    VALUE: 3750,
     SHAPE: 6,
     SIZE: 25,
     COLOR: "hexagon",
