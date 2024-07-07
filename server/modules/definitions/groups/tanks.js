@@ -2457,6 +2457,7 @@ Class.builder = {
             PROPERTIES: {
                 MAX_CHILDREN: 17,
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                DESTROY_OLDEST_CHILD: true,
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
             }
@@ -2516,6 +2517,7 @@ Class.construct = { // it's "construct" and not "constructor" because "construct
             PROPERTIES: {
                 MAX_CHILDREN: 10,
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.construct]),
+                DESTROY_OLDEST_CHILD: true,
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
             }
@@ -2599,6 +2601,7 @@ Class.assembler = {
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
                 TYPE: 'assemblerTrap',
+                DESTROY_OLDEST_CHILD: true,
                 MAX_CHILDREN: 8,
                 STAT_CALCULATOR: "block",
             }
@@ -2770,6 +2773,8 @@ Class.conqueror = {
             POSITION: [2, 12, 1.1, 18, 0, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                DESTROY_OLDEST_CHILD: true,
+                MAX_CHILDREN: 17,
                 TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
             },
