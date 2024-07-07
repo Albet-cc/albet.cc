@@ -135,12 +135,14 @@ function incoming(message, socket) {
                 if (socket.permissions) {
                     util.log(`[INFO] A socket ( ${socket.ip} ) was verified with the token: ${key}`);
                 } else {
-                    util.kick(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+
+                    socket.kick('kicking them for not having a token');
                     return 1;
                 }
                 socket.key = key;
             }
-            socket.verified = true;
+            socket.status.verified = true;
             util.log(`[INFO] A socket ( ${socket.ip} ) has been welcomed to the server room. Waiting for spawn request.`);
             util.log("Clients: " + clients.length);
             break;
