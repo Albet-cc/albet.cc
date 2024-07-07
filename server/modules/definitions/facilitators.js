@@ -682,12 +682,8 @@ exports.makeRelic = (type, scale = 1, gem, SIZE, yBase = 8.25) => {
         fraction = 360 / casings,
         GUNS = [],
         TURRETS = [{ POSITION: [32.5, 0, 0, 0, 0, 0], TYPE: relicBody }],
-        PARENT = [type],
+        PARENT = type,
         additionalAngle = type.SHAPE % 2 === 0 ? 0 : fraction / 2;
-
-    if (SIZE) {
-        PARENT.push({ SIZE });
-    }
 
     for (let i = 0; i < casings; i++) {
         let angle = i * fraction,
@@ -725,7 +721,7 @@ exports.makeRelic = (type, scale = 1, gem, SIZE, yBase = 8.25) => {
         });
     }
 
-    return {
+    let out = {
         PARENT,
         LABEL: type.LABEL + ' Relic',
         COLOR: "white", // This is the color of the floor, this makes it look hollow.
@@ -737,6 +733,12 @@ exports.makeRelic = (type, scale = 1, gem, SIZE, yBase = 8.25) => {
         GUNS,
         TURRETS
     };
+
+    if (SIZE) {
+        out.SIZE = SIZE;
+    }
+
+    return out;
 }
 
 exports.makeCrasher = type => ({

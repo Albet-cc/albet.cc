@@ -2029,8 +2029,8 @@ function drawAvailableUpgrades(spacing, alcoveSize) {
 function drawMobileJoysticks() {
     // Draw the joysticks.
     let radius = Math.min(
-        global.screenWidth * 0.6,
-        global.screenHeight * 0.12
+        global.screenWidth * 0.8,
+        global.screenHeight * 0.16
     );
     ctx.globalAlpha = 0.3;
     ctx.fillStyle = "#ffffff";
@@ -2068,6 +2068,21 @@ function drawMobileJoysticks() {
         2 * Math.PI
     );
     ctx.fill();
+    // crosshair
+    const crosshairpos = {
+        x: global.screenWidth / 2 + global.player.target.x,
+        y: global.screenHeight / 2 + global.player.target.y
+    };
+    ctx.lineWidth = 1;
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = "#202020"
+    ctx.beginPath();
+    ctx.moveTo(crosshairpos.x, crosshairpos.y - 20);
+    ctx.lineTo(crosshairpos.x, crosshairpos.y + 20);
+    ctx.moveTo(crosshairpos.x - 20, crosshairpos.y);
+    ctx.lineTo(crosshairpos.x + 20, crosshairpos.y);
+    ctx.closePath();
+    ctx.stroke();
 }
 
 function makeButton(index, x, y, width, height, text, clickableRatio) {
