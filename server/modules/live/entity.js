@@ -1000,19 +1000,23 @@ class Entity extends EventEmitter {
             };
         }
         if (set.IGNORED_BY_AI != null) this.ignoredByAi = set.IGNORED_BY_AI;
-        if (set.MOTION_TYPE != null) this.motionType = set.MOTION_TYPE;
-        if (Array.isArray(this.motionType)) {
-            this.motionTypeArgs = this.motionType[1];
-            this.motionType = this.motionType[0];
-        } else {
-            this.motionTypeArgs = {};
+        if (set.MOTION_TYPE != null) {
+            this.motionType = set.MOTION_TYPE;
+            if (Array.isArray(this.motionType)) {
+                this.motionTypeArgs = this.motionType[1];
+                this.motionType = this.motionType[0];
+            } else {
+                this.motionTypeArgs = {};
+            }
         }
-        if (set.FACING_TYPE != null) this.facingType = set.FACING_TYPE;
-        if (Array.isArray(this.facingType)) {
-            this.facingTypeArgs = this.facingType[1];
-            this.facingType = this.facingType[0];
-        } else {
-            this.facingTypeArgs = {};
+        if (set.FACING_TYPE != null) {
+            this.facingType = set.FACING_TYPE;
+            if (Array.isArray(this.facingType)) {
+                this.facingTypeArgs = this.facingType[1];
+                this.facingType = this.facingType[0];
+            } else {
+                this.facingTypeArgs = {};
+            }
         }
         if (set.CONTROLLERS != null) {
             let toAdd = [];
