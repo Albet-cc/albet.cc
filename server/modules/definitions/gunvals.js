@@ -90,7 +90,7 @@ module.exports = {
 // Traps and blocks
     setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.75, pen: 1, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
     construct: { reload: 1.3, size: 0.9, maxSpeed: 1.1 },
-    boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.35, maxSpeed: 0.35, range: 1.333 },
+    boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
     hexaTrapper: { reload: 1.3, shudder: 1.25, speed: 0.8, range: 0.5 },
     trapperDominator: { reload: 1.26, recoil: 0, shudder: 0.25, health: 1.25, damage: 1.45, pen: 1.6, speed: 0.5, maxSpeed: 2, range: 0.7, spray: 0.5 },
