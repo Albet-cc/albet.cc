@@ -13,13 +13,13 @@ module.exports = {
     visibleListInterval: 250,
 
     // How long (in ms) a socket can be disconnected without their player dying.
-    maxHeartbeatInterval: 300000,
+    maxHeartbeatInterval: 300_000,
 
     // Flatten entity definition, which gets rid of PARENT attributes and applies the parents' attributes to the entity definition, if they're not set in the entity already.
     flattenDefintions: false,
 
     // Log speed loop warnings
-    LOGS: true,
+    LOGS: false,
 
     // The \modules\setup\gamemodeconfigs\ files to load.
     // To change specific things about specific gamemodes (such as team count for tdm), edit their config file in \modules\setup\gamemodeconfigs\.
