@@ -118,7 +118,6 @@ Class.flankGuard = {
     PARENT: "genericTank",
     LABEL: "Flank Guard",
     BODY: {
-        SPEED: 1.1 * base.SPEED
     },
     GUNS: weaponArray({
         POSITION: {
@@ -291,7 +290,6 @@ Class.tripleShot = {
     LABEL: "Triple Shot",
     DANGER: 6,
     BODY: {
-        SPEED: base.SPEED * 0.9
     },
     GUNS: [
         {
@@ -411,7 +409,6 @@ Class.pentaShot = {
     LABEL: "Penta Shot",
     DANGER: 7,
     BODY: {
-        SPEED: 0.85 * base.SPEED
     },
     GUNS: [
         {
@@ -611,7 +608,6 @@ Class.assassin = {
     DANGER: 6,
     LABEL: "Assassin",
     BODY: {
-        SPEED: 0.85 * base.SPEED,
         FOV: 1.4 * base.FOV
     },
     GUNS: [
@@ -632,7 +628,6 @@ Class.hunter = {
     LABEL: "Hunter",
     DANGER: 6,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.25
     },
     CONTROLLERS: ["zoom"],
@@ -681,7 +676,6 @@ Class.ranger = {
     LABEL: "Ranger",
     DANGER: 7,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: 1.5 * base.FOV,
     },
     GUNS: [
@@ -702,7 +696,6 @@ Class.stalker = {
     DANGER: 7,
     LABEL: "Stalker",
     BODY: {
-        SPEED: 0.85 * base.SPEED,
         FOV: 1.35 * base.FOV
     },
     INVISIBLE: [0.08, 0.03],
@@ -741,7 +734,6 @@ Class.predator = {
     LABEL: "Predator",
     DANGER: 7,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.25
     },
     CONTROLLERS: ["zoom"],
@@ -775,7 +767,6 @@ Class.xHunter = {
     LABEL: "X-Hunter",
     DANGER: 7,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.25
     },
     CONTROLLERS: [["zoom", { distance: 550 }]],
@@ -1112,7 +1103,6 @@ Class.nailgun = {
     DANGER: 7,
     BODY: {
         FOV: base.FOV * 1.1,
-        SPEED: base.SPEED * 0.9,
     },
     GUNS: [
         {
@@ -1146,7 +1136,6 @@ Class.machineGunner = {
     LABEL: "Machine Gunner",
     DANGER: 7,
     BODY: {
-        SPEED: 0.9 * base.SPEED,
     },
     GUNS: [
         {
@@ -1525,9 +1514,9 @@ Class.surfer = {
 
 // Auto-3 upgrades
 Class.auto5 = makeRadialAuto("autoTankGun", {isTurret: true, danger: 7, label: "Auto-5", count: 5})
-Class.mega3 = makeRadialAuto("megaAutoTankGun", {isTurret: true, danger: 7, size: 14, label: "Mega-3", body: {SPEED: 0.95 * base.SPEED}})
+Class.mega3 = makeRadialAuto("megaAutoTankGun", {isTurret: true, danger: 7, size: 14, label: "Mega-3", body: {SPEED: 2 * base.SPEED}})
 Class.auto4 = makeRadialAuto("auto4gun", {isTurret: true, danger: 7, size: 13, x: 6, angle: 45, label: "Auto-4", count: 4})
-Class.banshee = makeRadialAuto("bansheegun", {isTurret: true, danger: 7, size: 10, arc: 80, label: "Banshee", body: {SPEED: 0.8 * base.SPEED, FOV: 1.1 * base.FOV}})
+Class.banshee = makeRadialAuto("bansheegun", {isTurret: true, danger: 7, size: 10, arc: 80, label: "Banshee", body: {SPEED: 2 * base.SPEED, FOV: 1.1 * base.FOV}})
 Class.banshee.GUNS = weaponArray({
     POSITION: [6, 11, 1.2, 8, 0, 60, 0],
     PROPERTIES: {
@@ -1548,7 +1537,6 @@ Class.overseer = {
     DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: 0.9 * base.SPEED,
         FOV: 1.1 * base.FOV,
     },
     MAX_CHILDREN: 8,
@@ -1599,7 +1587,6 @@ Class.underseer = {
     NECRO: true,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.1,
     },
     SHAPE: 4,
@@ -1623,7 +1610,6 @@ Class.spawner = {
     DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
     GUNS: [
@@ -1652,7 +1638,6 @@ Class.manager = {
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: 0.85 * base.SPEED,
         FOV: 1.1 * base.FOV,
     },
     INVISIBLE: [0.08, 0.03],
@@ -1701,7 +1686,6 @@ Class.overlord = {
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: 1.1 * base.FOV,
     },
     MAX_CHILDREN: 8,
@@ -1723,7 +1707,6 @@ Class.overdrive = {
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: 0.9 * base.SPEED,
         FOV: 1.1 * base.FOV,
     },
     TURRETS: [
@@ -1867,7 +1850,6 @@ Class.fortress = {
     DANGER: 7,
     STAT_NAMES: statnames.mixed,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: 1.2 * base.FOV,
     },
     GUNS: [
@@ -1904,7 +1886,6 @@ Class.necromancer = {
     NECRO: true,
     STAT_NAMES: statnames.necro,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: base.FOV * 1.1,
     },
     SHAPE: 4,
@@ -1930,7 +1911,6 @@ Class.maleficitor = {
     TOOLTIP: "Press R and wait to turn your drones invisible.",
     STAT_NAMES: statnames.necro,
     BODY: {
-        SPEED: base.SPEED * 0.85,
         FOV: base.FOV * 1.1,
     },
     SHAPE: 4,
@@ -1962,7 +1942,6 @@ Class.infestor = {
     NECRO: true,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.1,
     },
     MAX_CHILDREN: 20,
@@ -2001,7 +1980,6 @@ Class.factory = {
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
     GUNS: [
@@ -2242,7 +2220,6 @@ Class.ordnance = {
     LABEL: "Ordnance",
     DANGER: 7,
     BODY: {
-        SPEED: base.SPEED * 0.9,
         FOV: base.FOV * 1.25,
     },
     CONTROLLERS: ["zoom"],
@@ -2445,7 +2422,6 @@ Class.builder = {
     DANGER: 6,
     STAT_NAMES: statnames.trap,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: 1.15 * base.FOV
     },
     GUNS: [
@@ -2505,7 +2481,6 @@ Class.construct = { // it's "construct" and not "constructor" because "construct
     STAT_NAMES: statnames.trap,
     DANGER: 7,
     BODY: {
-        SPEED: 0.7 * base.SPEED,
         FOV: 1.15 * base.FOV
     },
     GUNS: [
@@ -2530,7 +2505,7 @@ Class.engineer = {
     LABEL: "Engineer",
     STAT_NAMES: statnames.trap,
     BODY: {
-        SPEED: 0.75 * base.SPEED,
+        SPEED: 0.925 * base.SPEED,
         FOV: 1.15 * base.FOV,
     },
     GUNS: [
@@ -2563,7 +2538,6 @@ Class.boomer = {
     STAT_NAMES: statnames.trap,
     FACING_TYPE: "locksFacing",
     BODY: {
-        SPEED: base.SPEED * 0.8,
         FOV: base.FOV * 1.15,
     },
     GUNS: [
@@ -2589,7 +2563,6 @@ Class.assembler = {
     LABEL: 'Assembler',
     STAT_NAMES: statnames.trap,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
         FOV: 1.15 * base.FOV,
     },
     GUNS: [
@@ -2620,7 +2593,6 @@ Class.hexaTrapper = makeAuto({
     PARENT: "genericTank",
     DANGER: 7,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
     },
     STAT_NAMES: statnames.trap,
     HAS_NO_RECOIL: true,
@@ -2643,7 +2615,6 @@ Class.septaTrapper = {
     LABEL: "Septa-Trapper",
     DANGER: 7,
     BODY: {
-        SPEED: base.SPEED * 0.8,
     },
     STAT_NAMES: statnames.trap,
     HAS_NO_RECOIL: true,
@@ -2755,7 +2726,7 @@ Class.conqueror = {
     LABEL: "Conqueror",
     STAT_NAMES: statnames.mixed,
     BODY: {
-        SPEED: 0.8 * base.SPEED,
+        SPEED: 0.925 * base.SPEED,
     },
     REVERSE_TARGET_WITH_TANK: true,
     GUNS: [
@@ -3086,7 +3057,6 @@ Class.ranch = {
     STAT_NAMES: statnames.drone,
     UPGRADE_TOOLTIP: "[DEV NOTE] This tank does not function as intended yet!",
     BODY: {
-        SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
     GUNS: [
@@ -3290,7 +3260,7 @@ Class.megaSmasher = {
     PARENT: "genericSmasher",
     LABEL: "Mega-Smasher",
     BODY: {
-        SPEED: 1.05 * base.SPEED,
+        SPEED: 2.10 * base.SPEED,
         FOV: 1.1 * base.FOV,
         DENSITY: 4 * base.DENSITY,
     },
@@ -3305,7 +3275,7 @@ Class.spike = {
     PARENT: "genericSmasher",
     LABEL: "Spike",
     BODY: {
-        SPEED: base.SPEED * 0.9,
+        SPEED: base.SPEED * 1.9,
         DAMAGE: base.DAMAGE * 1.1,
     },
     TURRETS: [
@@ -3333,7 +3303,6 @@ Class.landmine = {
     INVISIBLE: [0.06, 0.01],
     TOOLTIP: "Stay still to turn invisible.",
     BODY: {
-        SPEED: 1.1 * base.SPEED
     },
     TURRETS: [
         {
@@ -3424,7 +3393,6 @@ Class.surgeon = {
     LABEL: "Surgeon",
     STAT_NAMES: statnames.trap,
     BODY: {
-        SPEED: base.SPEED * 0.75,
         FOV: base.FOV * 1.15,
     },
     TURRETS: [
@@ -3460,7 +3428,6 @@ Class.paramedic = {
     PARENT: "genericTank",
     LABEL: "Paramedic",
     BODY: {
-        SPEED: base.SPEED * 0.9,
     },
     TURRETS: [
         {
@@ -3576,7 +3543,6 @@ Class.overtrapper = makeOver({
     DANGER: 6,
     STAT_NAMES: statnames.mixed,
     BODY: {
-        SPEED: base.SPEED * 0.8,
         FOV: base.FOV * 1.2
     },
     GUNS: [

@@ -10,10 +10,10 @@ module.exports = {
 // Spammers
     desmos: { shudder: 0, spray: 0, size: 0.8, speed: 0.001 },
     single: { reload: 1.05, speed: 1.05 },
-    twin: { recoil: 0.5, shudder: 0.9, health: 0.9, damage: 0.65, spray: 1.2 },
+    twin: { recoil: 0.2, shudder: 0.9, health: 0.9, damage: 0.65, spray: 1.2 },
     doubleTwin: { damage: 0.9 },
     hewnDouble: { reload: 1.25, recoil: 1.5, health: 0.9, damage: 0.85, maxSpeed: 0.9 },
-    tripleShot: { reload: 1.1, shudder: 0.8, health: 0.85, pen: 0.75, density: 0.8, spray: 0.5 },
+    tripleShot: { reload: 1.1, shudder: 0.8, health: 0.85, pen: 0.75, density: 0.8, spray: 0.2 },
     spreadshotMain: { reload: 1, recoil: 0.25, shudder: 0.5, health: 0.5, speed: 1.923, maxSpeed: 2.436 },
     spreadshot: { reload: 1.2, shudder: 0.25, speed: 0.7, maxSpeed: 0.7, spray: 0.25 },
     triplet: { reload: 1.2, recoil: 0.667, shudder: 0.9, health: 0.85, damage: 0.85, pen: 0.9, density: 1.1, spray: 0.9, resist: 0.95 },
@@ -69,7 +69,7 @@ module.exports = {
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
-    destroyer: { reload: 2, recoil: 2, shudder: 0.5, health: 1.6, damage: 1.45, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
+    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.6, damage: 1.45, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
     annihilator: { reload: 1.22, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
