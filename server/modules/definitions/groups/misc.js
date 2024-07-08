@@ -560,6 +560,7 @@ Class.sentinelMinigun = {
 Class.baseProtector = {
     PARENT: "genericTank",
     LABEL: "Base",
+    TYPE: "wall",
     UPGRADE_LABEL: "Base Protector",
     ON_MINIMAP: false,
     SIZE: 64,
