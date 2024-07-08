@@ -111,7 +111,7 @@ Class.genericTank = {
     REROOT_UPGRADE_TREE: "basic",
     BODY: {
         ACCELERATION: base.ACCEL * 2,
-        SPEED: base.SPEED * 2,
+        SPEED: base.SPEED * 2.5,
         HEALTH: base.HEALTH,
         DAMAGE: base.DAMAGE,
         PENETRATION: base.PENETRATION,

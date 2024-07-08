@@ -409,7 +409,7 @@ class Gun extends EventEmitter {
                 out.PUSHABILITY = 1;
                 out.PENETRATION = Math.max(1, shoot.pen * (0.5 * (this.bulletSkills.pen - 1) + 1));
                 out.HEALTH = (shoot.health * this.bulletSkills.str) / Math.pow(this.bulletSkills.pen, 0.8);
-                out.DAMAGE = shoot.damage * this.bulletSkills.dam * Math.sqrt(sizeFactor) * shoot.pen * this.bulletSkills.pen;
+                out.DAMAGE = shoot.damage * this.bulletSkills.dam * shoot.pen * this.bulletSkills.pen;
                 out.RANGE = shoot.range * Math.sqrt(sizeFactor);
                 break;
         }

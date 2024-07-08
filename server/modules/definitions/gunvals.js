@@ -69,7 +69,7 @@ module.exports = {
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
-    destroyer: { reload: 2, recoil: 2, shudder: 0.5, health: 1.6, damage: 1.6, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
+    destroyer: { reload: 2, recoil: 2, shudder: 0.5, health: 1.6, damage: 1.45, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
     annihilator: { reload: 1.22, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
@@ -88,7 +88,7 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 1.4, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.75, pen: 1, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.45, pen: 0.8, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
     construct: { reload: 1.3, size: 0.9, maxSpeed: 1.1 },
     boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
