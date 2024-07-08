@@ -280,7 +280,7 @@ Class.trap = {
     HITS_OWN_TYPE: "push",
     DIE_AT_RANGE: true,
     BODY: {
-        HEALTH: 0.5,
+        HEALTH: 0.2,
         DAMAGE: 3,
         RANGE: 450,
         DENSITY: 2.5,
