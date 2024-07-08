@@ -52,7 +52,7 @@ module.exports = {
     thruster: { recoil: 1, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     
 // Drones
-    overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 0.35, maxSpeed: 1.2, density: 2 },
+    overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 1, maxSpeed: 1.2, density: 2 },
     overdrive: { reload: 2.5, health: 0.8, damage: 0.8, pen: 0.8, speed: 0.9, maxSpeed: 0.9, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10 },
@@ -64,7 +64,7 @@ module.exports = {
     summoner: { reload: 0.3, size: 1.125, health: 0.4, damage: 0.145, pen: 0.2, density: 0.8 },
     minionGun: { recoil: 0, shudder: 2, health: 0.4, damage: 0.4, pen: 1.2, range: 0.75, spray: 2 },
     babyfactory: { reload: 1.5, maxSpeed: 1.5 },
-    bigCheese: { reload: 1.5, size: 1.8, health: 2.4, speed: 1.3 },
+    bigCheese: { reload: 1.5, size: 1.8, health: 2.4, speed: 1.3, damage: 1.2 },
     mothership: { reload: 1.25, pen: 1.1, speed: 0.775, maxSpeed: 0.8, range: 15, resist: 1.15 },
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
@@ -88,7 +88,7 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 1.4, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.45, pen: 0.8, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.2, pen: 0.8, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
     construct: { reload: 1.3, size: 0.9, maxSpeed: 1.1 },
     boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
