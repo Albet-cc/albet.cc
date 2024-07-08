@@ -3260,7 +3260,7 @@ Class.megaSmasher = {
     PARENT: "genericSmasher",
     LABEL: "Mega-Smasher",
     BODY: {
-        SPEED: 2.35 * base.SPEED,
+        SPEED: 1.1 * base.SPEED,
         FOV: 1.1 * base.FOV,
         DENSITY: 4 * base.DENSITY,
     },
@@ -3275,7 +3275,7 @@ Class.spike = {
     PARENT: "genericSmasher",
     LABEL: "Spike",
     BODY: {
-        SPEED: base.SPEED * 2.2,
+        SPEED: base.SPEED * 0.95,
         DAMAGE: base.DAMAGE * 1.1,
     },
     TURRETS: [
