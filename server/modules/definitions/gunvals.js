@@ -56,7 +56,7 @@ module.exports = {
     overdrive: { reload: 2.5, health: 0.8, damage: 0.8, pen: 0.8, speed: 0.9, maxSpeed: 0.9, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10 },
-    battleship: { health: 1.25, damage: 1.15, maxSpeed: 0.85, resist: 1.1 },
+    battleship: { health: 1.25, damage: 3.15, maxSpeed: 0.85, resist: 1.1 },
     carrier: { reload: 1.5, damage: 0.8, speed: 1.3, maxSpeed: 1.2, range: 1.2 },
     bee: { reload: 1.3, size: 1.4, damage: 1.5, pen: 0.5, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
     sunchip: { reload: 4, size: 1.4, health: 0.45, damage: 0.3, pen: 0.5, density: 0.8 },
@@ -88,7 +88,7 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 1.4, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.2, pen: 0.8, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.1, pen: 1.2, speed: 1.3, maxSpeed: 1.5, range: 1.25, resist: 1.25 },
     construct: { reload: 1.3, size: 0.9, maxSpeed: 1.1 },
     boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },

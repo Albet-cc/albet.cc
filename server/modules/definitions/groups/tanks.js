@@ -2505,7 +2505,7 @@ Class.engineer = {
     LABEL: "Engineer",
     STAT_NAMES: statnames.trap,
     BODY: {
-        SPEED: 0.925 * base.SPEED,
+        SPEED: 0.85 * base.SPEED,
         FOV: 1.15 * base.FOV,
     },
     GUNS: [
@@ -2726,7 +2726,7 @@ Class.conqueror = {
     LABEL: "Conqueror",
     STAT_NAMES: statnames.mixed,
     BODY: {
-        SPEED: 0.925 * base.SPEED,
+        SPEED: 0.85 * base.SPEED,
     },
     REVERSE_TARGET_WITH_TANK: true,
     GUNS: [
