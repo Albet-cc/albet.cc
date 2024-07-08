@@ -1094,7 +1094,7 @@ class Entity extends EventEmitter {
             if (sockets.players.length) {
                 for (let i = 0; i < sockets.players.length; i++) {
                     const player = sockets.players[i];
-                    if (player.body.id == this.id) {
+                    if (player.body && player.body.id == this.id) {
                         player.team = this.team;
                     }
                 }
