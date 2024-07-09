@@ -16,7 +16,7 @@ module.exports = {
     tripleShot: { reload: 1.1, shudder: 0.8, health: 0.85, pen: 0.75, density: 0.8, spray: 0.2 },
     spreadshotMain: { reload: 1, recoil: 0.25, shudder: 0.5, health: 0.5, speed: 1.923, maxSpeed: 2.436 },
     spreadshot: { reload: 1.2, shudder: 0.25, speed: 0.7, maxSpeed: 0.7, spray: 0.25 },
-    triplet: { reload: 1.2, recoil: 0.667, shudder: 0.9, health: 0.85, damage: 0.9, pen: 0.9, density: 1.1, spray: 0.9, resist: 0.95 },
+    triplet: { reload: 1.2, recoil: 0.667, shudder: 0.9, health: 0.85, damage: 0.95, pen: 0.9, density: 1.1, spray: 0.9, resist: 0.95 },
     turret: { reload: 2, health: 0.8, damage: 0.6, pen: 0.7, density: 0.1, speed: 0.6 },
     autoTurret: { reload: 0.9, recoil: 0.75, shudder: 0.5, size: 0.8, health: 0.9, damage: 0.6, pen: 1.2, speed: 1.1, range: 0.8, density: 1.3, resist: 1.25 },
     
@@ -69,7 +69,7 @@ module.exports = {
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2.2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
-    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.6, damage: 1.45, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
+    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.6, damage: 1.43, pen: 1.166, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
     annihilator: { reload: 1.15, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
@@ -78,7 +78,7 @@ module.exports = {
     destroyerDominator: { reload: 6.5, recoil: 0, size: 0.975, health: 5, damage: 5, pen: 5, speed: 0.575, maxSpeed: 0.475, spray: 0.5 },
     
 // Missiles
-    launcher: { reload: 1.5, recoil: 1.5, shudder: 0.1, size: 0.72, health: 1.05, damage: 0.925, speed: 0.45, maxSpeed: 0.6, range: 1.1, resist: 1.5 },
+    launcher: { reload: 1.5, recoil: 1.5, shudder: 0.1, size: 0.72, health: 0.97, damage: 0.9, speed: 0.45, maxSpeed: 0.6, range: 1.1, resist: 1.5 },
     skimmer: { recoil: 0.8, shudder: 0.8, size: 0.9, health: 1.30, damage: 0.8, pen: 2, speed: 0.55, maxSpeed: 0.7, resist: 1.1 },
     snake: { reload: 0.4, shudder: 4, health: 1.5, damage: 0.9, pen: 1.2, speed: 0.1, maxSpeed: 0.35, density: 3, spray: 6, resist: 0.5 },
     snakeskin: { reload: 0.6, shudder: 2, health: 0.5, damage: 0.5, speed: 2, maxSpeed: 0.2, range: 0.4, spray: 5 },
