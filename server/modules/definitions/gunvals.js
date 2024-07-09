@@ -1,6 +1,6 @@
 module.exports = {
 // Bases
-    basic: { reload: 10.5, recoil: 0.6, shudder: 0.1, damage: 0.55, speed: 5.5, spray: 15 },
+    basic: { reload: 10.5, recoil: 0.6, shudder: 0.1, damage: 0.75, speed: 5.5, spray: 15 },
     drone: { reload: 36, recoil: 0.25, shudder: 0.1, size: 0.6, speed: 2, spray: 0.1 },
     trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.8, speed: 6.5, spray: 15, resist: 3 },
     swarm: { reload: 23.5, recoil: 0.35, shudder: 0.05, size: 0.4, damage: 2.4, speed: 4, spray: 5 },
@@ -10,7 +10,7 @@ module.exports = {
 // Spammers
     desmos: { shudder: 0, spray: 0, size: 0.8, speed: 0.001 },
     single: { reload: 1.05, speed: 1.05 },
-    twin: { recoil: 0.2, shudder: 0.9, health: 0.9, damage: 0.8, spray: 1.2 },
+    twin: { recoil: 0.2, shudder: 0.9, health: 0.9, damage: 0.7, spray: 1.2 },
     doubleTwin: { damage: 0.9 },
     hewnDouble: { reload: 1.25, recoil: 1.5, health: 0.9, damage: 0.85, maxSpeed: 0.9 },
     tripleShot: { reload: 1.1, shudder: 0.8, health: 0.85, pen: 0.75, density: 0.8, spray: 0.2 },
@@ -37,7 +37,7 @@ module.exports = {
     nailgun: { reload: 1, recoil: 2.5, size: 0.8, damage: 0.9, density: 2, speed: 1.25, maxSpeed: 1.15 },
     pelleter: { reload: 1.25, recoil: 0.25, shudder: 1.5, size: 1.1, damage: 0.55, pen: 1.35, speed: 0.95, maxSpeed: 0.85, density: 1.5, spray: 1.5, resist: 1.2 },
     gunner: { recoil: 0.25, shudder: 1.5, size: 1.2, health: 1.35, damage: 0.25, pen: 1.25, speed: 0.8, maxSpeed: 0.65, density: 1.5, spray: 1.5, resist: 1.2 },
-    machineGunner: { reload: 0.66, recoil: 0.8, shudder: 0.2, damage: 1.45, speed: 1.2, maxSpeed: 0.8, spray: 0.2 },
+    machineGunner: { reload: 0.66, recoil: 0.8, shudder: 0.2, damage: 1.45, speed: 1.2, maxSpeed: 0.8, spray: 1 },
     blaster: { recoil: 1.2, shudder: 1.25, size: 1.1, health: 1.5, pen: 0.6, speed: 0.8, maxSpeed: 0.33, range: 0.6, density: 0.5, spray: 1.5, resist: 0.8 },
     focal: { reload: 1.25, recoil: 1.33, shudder: 0.8, health: 0.8, pen: 1.1, speed: 1.25, maxSpeed: 1.25, range: 1.1, density: 1.25, spray: 0.5, resist: 1.1 },
     atomizer: { reload: 0.3, recoil: 0.8, size: 0.5, damage: 0.75, speed: 1.2, maxSpeed: 0.8, spray: 2.25 },
@@ -45,14 +45,14 @@ module.exports = {
     gunnerDominator: { reload: 1.1, recoil: 0, shudder: 1.1, size: 0.5, health: 0.5, damage: 0.5, speed: 1.1, density: 0.9, spray: 1.2, resist: 0.8 },
     
 // Flanks
-    flankGuard: { recoil: 1.2, health: 1.02, damage: 0.81, pen: 0.9, maxSpeed: 0.85, density: 1.2 },
-    cyclone: { health: 1.3, damage: 1.3, pen: 1.1, speed: 1.5, maxSpeed: 1.15 },
+    flankGuard: { recoil: 1.2, health: 0.85, damage: 0.7, pen: 0.9, maxSpeed: 0.85, density: 1.2 },
+    cyclone: { health: 1.3, damage: 1.3, pen: 1, speed: 1.5, maxSpeed: 1.15 },
     triAngle: { recoil: 0.9, health: 0.9, speed: 0.8, maxSpeed: 0.8, range: 0.6 },
     triAngleFront: { recoil: 0.3, speed: 1.3, maxSpeed: 1.1, range: 1.5 },
     thruster: { recoil: 1, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     
 // Drones
-    overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 1.4, maxSpeed: 1.5, density: 2 },
+    overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 1.4, maxSpeed: 1.2, density: 2 },
     overdrive: { reload: 2.5, health: 1, damage: 1.3, pen: 0.8, speed: 1.2, maxSpeed: 1.2, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10, speed: 2 },

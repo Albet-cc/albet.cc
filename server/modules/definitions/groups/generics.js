@@ -283,7 +283,7 @@ Class.trap = {
         HEALTH: 0.3,
         PENETRATION: 0.6,
         DAMAGE: 3,
-        RANGE: 450,
+        RANGE: 300,
         DENSITY: 2.5,
         RESIST: 2.5,
         SPEED: 0,

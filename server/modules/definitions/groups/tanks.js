@@ -193,7 +193,7 @@ Class.trapper = {
                 X: 15
             },
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap]),
+                SHOOT_SETTINGS: combineStats([g.trap, { recoil: 0.2 } ]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap"
             }
