@@ -2,9 +2,9 @@ module.exports = {
 // Bases
     basic: { reload: 10.5, recoil: 0.6, shudder: 0.1, damage: 0.45, speed: 5.5, spray: 15 },
     drone: { reload: 36, recoil: 0.25, shudder: 0.1, size: 0.6, speed: 2, spray: 0.1 },
-    trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.75, speed: 6.5, spray: 15, resist: 3 },
+    trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.8, speed: 6.5, spray: 15, resist: 3 },
     swarm: { reload: 23.5, recoil: 0.35, shudder: 0.05, size: 0.4, damage: 0.8, speed: 4, spray: 5 },
-    factory: { reload: 48, shudder: 0.1, size: 0.7, damage: 0.25, speed: 2, spray: 0.1 },
+    factory: { reload: 48, shudder: 0.1, size: 0.7, damage: 0.3, speed: 2.2, spray: 0.1 },
     productionist: { reload: 56, recoil: 0.25, shudder: 0.05, size: 0.7, damage: 0.75, speed: 4, range: 1.5, spray: 5 },
     
 // Spammers
@@ -22,19 +22,19 @@ module.exports = {
     
 // Snipers
     sniper: { reload: 1.35, shudder: 0.25, damage: 0.8, pen: 1.1, speed: 1.5, maxSpeed: 1.5, density: 1.5, spray: 0.2, resist: 1.15 },
-    crossbow: { reload: 2, health: 0.6, damage: 0.6, pen: 0.8 },
+    crossbow: { reload: 2.3, health: 0.6, damage: 0.8, pen: 1 },
     assassin: { reload: 1.65, shudder: 0.25, health: 1.15, pen: 1.1, speed: 1.18, maxSpeed: 1.18, density: 3, resist: 1.3 },
     hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.9, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
     hunterSecondary: { size: 0.9, health: 2, damage: 0.5, pen: 1.5, density: 1.2, resist: 1.1 },
-    predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 0.9, pen: 1.2, speed: 0.9, maxSpeed: 0.9 },
+    predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 1, pen: 1.5, speed: 0.9, maxSpeed: 0.9 },
     dual: { reload: 2, shudder: 0.8, health: 1.5, speed: 1.3, maxSpeed: 1.1, resist: 1.25 },
     rifle: { reload: 0.8, recoil: 0.8, shudder: 1.5, health: 0.8, damage: 0.8, pen: 0.9, spray: 2 },
     
 // Machine guns
     machineGun: { reload: 0.5, recoil: 0.8, shudder: 1.7, health: 0.7, damage: 0.7, maxSpeed: 0.8, spray: 2.5 },
     minigun: { reload: 1.25, recoil: 0.6, size: 0.8, health: 0.55, damage: 0.45, pen: 1.25, speed: 1.33, density: 1.25, spray: 0.5, resist: 1.1 },
-    streamliner: { reload: 1.1, recoil: 0.6, damage: 0.65, speed: 1.24 },
-    nailgun: { reload: 0.85, recoil: 2.5, size: 0.8, damage: 0.7, density: 2 },
+    streamliner: { reload: 1.1, recoil: 0.8, damage: 0.7, speed: 1.24 },
+    nailgun: { reload: 1, recoil: 2.5, size: 0.8, damage: 0.9, density: 2 },
     pelleter: { reload: 1.25, recoil: 0.25, shudder: 1.5, size: 1.1, damage: 0.35, pen: 1.35, speed: 0.9, maxSpeed: 0.8, density: 1.5, spray: 1.5, resist: 1.2 },
     gunner: { recoil: 0.25, shudder: 1.5, size: 1.2, health: 1.35, damage: 0.25, pen: 1.25, speed: 0.8, maxSpeed: 0.65, density: 1.5, spray: 1.5, resist: 1.2 },
     machineGunner: { reload: 0.66, recoil: 0.8, shudder: 2, damage: 0.75, speed: 1.2, maxSpeed: 0.8, spray: 2.5 },
