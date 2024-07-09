@@ -32,8 +32,8 @@ module.exports = {
     
 // Machine guns
     machineGun: { reload: 0.5, recoil: 0.8, shudder: 1.7, health: 0.7, damage: 1, maxSpeed: 0.8, spray: 2.5 },
-    minigun: { reload: 1.25, recoil: 0.6, size: 0.8, health: 0.55, damage: 1, pen: 1.05, speed: 1.33, density: 1.25, spray: 0.5, resist: 1.1 },
-    streamliner: { reload: 1.1, recoil: 0.8, damage: 0.9, speed: 1.24 },
+    minigun: { reload: 1.25, recoil: 0.6, size: 0.8, health: 0.55, damage: 0.86, pen: 1.05, speed: 1.33, density: 1.25, spray: 0.5, resist: 1.1 },
+    streamliner: { reload: 1.1, recoil: 0.8, damage: 0.8, speed: 1.24 },
     nailgun: { reload: 1, recoil: 2.5, size: 0.8, damage: 0.9, density: 2, speed: 1.7, maxSpeed: 1.6 },
     pelleter: { reload: 1.25, recoil: 0.25, shudder: 1.5, size: 1.1, damage: 0.55, pen: 1.35, speed: 1.3, maxSpeed: 1.2, density: 1.5, spray: 1.5, resist: 1.2 },
     gunner: { recoil: 0.25, shudder: 1.5, size: 1.2, health: 1.35, damage: 0.25, pen: 1.25, speed: 0.8, maxSpeed: 0.65, density: 1.5, spray: 1.5, resist: 1.2 },
@@ -56,8 +56,8 @@ module.exports = {
     overdrive: { reload: 2.5, health: 1, damage: 1.3, pen: 0.8, speed: 1.2, maxSpeed: 1.2, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10, speed: 2 },
-    battleship: { health: 1.5, damage: 5.25, maxSpeed: 1.35, resist: 1.1 },
-    carrier: { reload: 1.5, damage: 4, speed: 1.5, maxSpeed: 1.6, range: 1.2 },
+    battleship: { health: 1.5, damage: 1, maxSpeed: 1.35, resist: 1.1 },
+    carrier: { reload: 1.5, damage: 1.2, speed: 1.5, maxSpeed: 1.6, range: 1.2 },
     bee: { reload: 1.3, size: 1.4, damage: 1.5, pen: 0.5, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
     sunchip: { reload: 4, size: 1.4, health: 0.75, damage: 0.7, pen: 0.75, density: 0.8 },
     maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 1, maxSpeed: 1, density: 1.15 },
