@@ -88,7 +88,7 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 1.4, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1, damage: 2, pen: 1.6, speed: 1.4, maxSpeed: 1.6, range: 1.25, resist: 1.25 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1, damage: 2, pen: 1.3, speed: 1.4, maxSpeed: 1.6, range: 1.2, resist: 1.25 },
     construct: { reload: 1.3, size: 0.9, maxSpeed: 1.2 },
     boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
