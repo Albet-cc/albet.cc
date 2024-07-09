@@ -744,7 +744,7 @@ exports.makeRelic = (type, scale = 1, gem, SIZE, yBase = 8.25) => {
 exports.makeCrasher = type => ({
     PARENT: type,
     COLOR: 'pink',
-    TYPE: "crasher",
+    TYPE: 'crasher',
     LABEL: 'Crasher ' + type.LABEL,
     CONTROLLERS: ['nearestDifferentMaster', 'mapTargetToGoal'],
     MOTION_TYPE: "motor",

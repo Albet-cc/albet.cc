@@ -18,7 +18,7 @@ function createMessage(con, dur = 10_000) {
 
 global.tips = [[ // You can edit this!
         "Tip: You can view and edit your keybinds in the options menu.",
-        "Tip: You can play on mobile by just going to arras.io on your phone!"
+        "Tip: You can play on mobile by just going to dakarr.cc on your phone!"
     ], [
         "Tip: You can have the shield and health bar be separated by going to the options menu.",
         "Tip: If arras is having a low frame rate, you can try enabling low graphics in the options menu.",

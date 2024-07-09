@@ -375,7 +375,7 @@ function mazewallcollide(wall, bounce) {
     }
 
     if (intersected) {
-        if (bounce.type !== 'tank' && bounce.type !== 'miniboss' && bounce.type !== 'food') {
+        if (bounce.type !== 'tank' && bounce.type !== 'miniboss' && bounce.type !== 'food' && bounce.type !== 'crasher') {
             bounce.kill();
         } else {
             bounce.collisionArray.push(wall);
