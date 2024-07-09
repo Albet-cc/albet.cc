@@ -2,7 +2,7 @@ module.exports = {
 // Bases
     basic: { reload: 10.5, recoil: 0.6, shudder: 0.1, damage: 0.45, speed: 5.5, spray: 15 },
     drone: { reload: 36, recoil: 0.25, shudder: 0.1, size: 0.6, speed: 2, spray: 0.1 },
-    trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.75, speed: 6.5, spray: 15, resist: 3 },
+    trap: { reload: 23, shudder: 0.05, size: 0.6, damage: 0.25, speed: 6.5, spray: 15, resist: 3 },
     swarm: { reload: 23, recoil: 0.25, shudder: 0.05, size: 0.4, damage: 0.75, speed: 4, spray: 5 },
     factory: { reload: 48, shudder: 0.1, size: 0.7, damage: 0.25, speed: 2, spray: 0.1 },
     productionist: { reload: 56, recoil: 0.25, shudder: 0.05, size: 0.7, damage: 0.75, speed: 4, range: 1.5, spray: 5 },
