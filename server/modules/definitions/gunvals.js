@@ -48,7 +48,7 @@ module.exports = {
     flankGuard: { recoil: 1.2, health: 1.02, damage: 0.81, pen: 0.9, maxSpeed: 0.85, density: 1.2 },
     cyclone: { health: 1.3, damage: 1.3, pen: 1.1, speed: 1.5, maxSpeed: 1.15 },
     triAngle: { recoil: 0.9, health: 0.9, speed: 0.8, maxSpeed: 0.8, range: 0.6 },
-    triAngleFront: { recoil: 0.2, speed: 1.3, maxSpeed: 1.1, range: 1.5 },
+    triAngleFront: { recoil: 0.3, speed: 1.3, maxSpeed: 1.1, range: 1.5 },
     thruster: { recoil: 1, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     
 // Drones
@@ -60,11 +60,11 @@ module.exports = {
     carrier: { reload: 1.5, damage: 0.8, speed: 1.3, maxSpeed: 1.2, range: 1.2 },
     bee: { reload: 1.3, size: 1.4, damage: 1.5, pen: 0.5, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
     sunchip: { reload: 4, size: 1.4, health: 0.45, damage: 0.3, pen: 0.5, density: 0.8 },
-    maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 0.8, maxSpeed: 0.8, density: 1.15 },
+    maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 0.9, maxSpeed: 0.9, density: 1.15 },
     summoner: { reload: 0.3, size: 1.125, health: 0.4, damage: 0.145, pen: 0.2, density: 0.8 },
     minionGun: { recoil: 0, shudder: 2, health: 0.4, damage: 0.4, pen: 1.2, range: 0.75, spray: 2 },
     babyfactory: { reload: 1.5, maxSpeed: 1.5 },
-    bigCheese: { reload: 1.5, size: 1.8, health: 2.4, speed: 1.3, damage: 1.2 },
+    bigCheese: { reload: 1.55, size: 1.8, health: 2.4, speed: 1.35, damage: 1.22 },
     mothership: { reload: 1.25, pen: 1.1, speed: 0.775, maxSpeed: 0.8, range: 15, resist: 1.15 },
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
