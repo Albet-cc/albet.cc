@@ -518,7 +518,7 @@ Class.droneAutoTurret = makeTurret({
         {
             POSITION: [22, 10, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 1.15 }, g.turret, g.overdrive]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.turret, g.overdrive, { recoil: 0.15 }]),
                 TYPE: "bullet",
             },
         },
