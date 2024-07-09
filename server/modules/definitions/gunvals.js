@@ -53,14 +53,14 @@ module.exports = {
     
 // Drones
     overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 1, maxSpeed: 1.2, density: 2 },
-    overdrive: { reload: 2.5, health: 0.8, damage: 0.8, pen: 0.8, speed: 0.9, maxSpeed: 0.9, range: 0.9, spray: 1.2 },
+    overdrive: { reload: 2.5, health: 1, damage: 1, pen: 0.8, speed: 0.9, maxSpeed: 0.9, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10 },
     battleship: { health: 1.25, damage: 3.25, maxSpeed: 0.85, resist: 1.1 },
     carrier: { reload: 1.5, damage: 0.8, speed: 1.3, maxSpeed: 1.2, range: 1.2 },
     bee: { reload: 1.3, size: 1.4, damage: 1.5, pen: 0.5, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
-    sunchip: { reload: 4, size: 1.4, health: 0.45, damage: 0.3, pen: 0.5, density: 0.8 },
-    maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 0.9, maxSpeed: 0.9, density: 1.15 },
+    sunchip: { reload: 4, size: 1.4, health: 0.55, damage: 0.5, pen: 0.6, density: 0.8 },
+    maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 1, maxSpeed: 1, density: 1.15 },
     summoner: { reload: 0.3, size: 1.125, health: 0.4, damage: 0.145, pen: 0.2, density: 0.8 },
     minionGun: { recoil: 0, shudder: 2, health: 0.4, damage: 0.4, pen: 1.2, range: 0.75, spray: 2 },
     babyfactory: { reload: 1.5, maxSpeed: 1.5 },
