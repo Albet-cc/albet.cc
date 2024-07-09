@@ -27,7 +27,7 @@ module.exports = {
     hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.95, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
     hunterSecondary: { size: 0.9, health: 2, damage: 0.5, pen: 1.5, density: 1.2, resist: 1.1 },
     predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 0.9, pen: 1.3, speed: 0.9, maxSpeed: 0.9 },
-    dual: { reload: 2, shudder: 0.8, health: 1.5, speed: 1.3, maxSpeed: 1.1, resist: 1.25 },
+    dual: { reload: 1.2, shudder: 0.8, health: 1.5, speed: 1.3, damage: 1.3, maxSpeed: 1.1, resist: 1.25 },
     rifle: { reload: 0.8, recoil: 0.8, shudder: 1.5, health: 0.8, damage: 1.15, pen: 0.9, spray: 2 },
     
 // Machine guns
@@ -37,7 +37,7 @@ module.exports = {
     nailgun: { reload: 1, recoil: 2.5, size: 0.8, damage: 0.9, density: 2, speed: 1.25, maxSpeed: 1.15 },
     pelleter: { reload: 1.25, recoil: 0.25, shudder: 1.5, size: 1.1, damage: 0.55, pen: 1.35, speed: 0.95, maxSpeed: 0.85, density: 1.5, spray: 1.5, resist: 1.2 },
     gunner: { recoil: 0.25, shudder: 1.5, size: 1.2, health: 1.35, damage: 0.25, pen: 1.25, speed: 0.8, maxSpeed: 0.65, density: 1.5, spray: 1.5, resist: 1.2 },
-    machineGunner: { reload: 0.66, recoil: 0.8, shudder: 0.2, damage: 1.65, speed: 1.2, maxSpeed: 0.8, spray: 0.2 },
+    machineGunner: { reload: 0.66, recoil: 0.8, shudder: 0.2, damage: 1.45, speed: 1.2, maxSpeed: 0.8, spray: 0.2 },
     blaster: { recoil: 1.2, shudder: 1.25, size: 1.1, health: 1.5, pen: 0.6, speed: 0.8, maxSpeed: 0.33, range: 0.6, density: 0.5, spray: 1.5, resist: 0.8 },
     focal: { reload: 1.25, recoil: 1.33, shudder: 0.8, health: 0.8, pen: 1.1, speed: 1.25, maxSpeed: 1.25, range: 1.1, density: 1.25, spray: 0.5, resist: 1.1 },
     atomizer: { reload: 0.3, recoil: 0.8, size: 0.5, damage: 0.75, speed: 1.2, maxSpeed: 0.8, spray: 2.25 },
@@ -70,7 +70,7 @@ module.exports = {
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2.2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
     destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.6, damage: 1.45, pen: 1.2, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
-    annihilator: { reload: 1.22, recoil: 1.275 },
+    annihilator: { reload: 1.15, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
     mortar: { reload: 1.2, health: 1.1, speed: 0.8, maxSpeed: 0.8 },
