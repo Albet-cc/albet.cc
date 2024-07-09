@@ -2369,7 +2369,7 @@ Class.twister = {
         {
             POSITION: [17, 14, -1.4, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.artillery, g.artillery, g.skimmer, { reload: 4/3 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.artillery, g.artillery, g.skimmer, { reload: 4/3, speed: 1.3, maxSpeed: 1.2 }]),
                 TYPE: "spinmissile",
                 STAT_CALCULATOR: "sustained",
             },
@@ -3260,7 +3260,7 @@ Class.megaSmasher = {
     PARENT: "genericSmasher",
     LABEL: "Mega-Smasher",
     BODY: {
-        SPEED: 1.1 * base.SPEED,
+        SPEED: 1.175 * base.SPEED,
         FOV: 1.1 * base.FOV,
         DENSITY: 4 * base.DENSITY,
     },
@@ -3482,21 +3482,21 @@ Class.vulture = makeBird({
         {
             POSITION: [22, 7, -1.5, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, { range: 33 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, { range: 22 }]),
                 TYPE: "bullet"
             }
         },
         {
             POSITION: [20, 7.5, -1.5, 0, 0, 0, 1/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, {size: 7/7.5, range: 33 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, {size: 7/7.5, range: 22 }]),
                 TYPE: "bullet"
             }
         },
         {
             POSITION: [18, 8, -1.5, 0, 0, 0, 2/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, {size: 7/8, range: 33 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.minigun, {size: 7/8, range: 22 }]),
                 TYPE: "bullet"
             }
         }
