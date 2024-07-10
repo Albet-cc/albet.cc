@@ -25,8 +25,8 @@ module.exports = {
     crossbow: { reload: 2.3, health: 0.6, damage: 1.5, pen: 0.9 },
     assassin: { reload: 1.65, shudder: 0.25, health: 0.95, damage: 1.35, pen: 0.6, speed: 1.18, maxSpeed: 1.18, density: 3, resist: 1.3 },
     hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.9, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
-    hunterSecondary: { size: 0.9, health: 1.4, damage: 0.65, pen: 1.2, density: 1.2, resist: 1.1 },
-    predator: { reload: 1.4, size: 0.8, health: 1.3, damage: 0.9, pen: 0.9, speed: 0.9, maxSpeed: 0.9 },
+    hunterSecondary: { size: 0.9, health: 2, damage: 0.5, pen: 1.2, density: 1.2, resist: 1.1 },
+    predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 0.9, pen: 1.1, speed: 0.9, maxSpeed: 0.9 },
     dual: { reload: 2, shudder: 0.8, health: 1.5, speed: 1.3, damage: 1.3, maxSpeed: 1.1, resist: 1.25 },
     rifle: { reload: 0.8, recoil: 0.8, shudder: 1.5, health: 0.8, damage: 1.15, pen: 0.9, spray: 2 },
     
