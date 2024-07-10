@@ -447,7 +447,7 @@ Class.minion = {
         SHIELD: 0,
         DAMAGE: 1.6,
         RESIST: 1,
-        PENETRATION: 1,
+        PENETRATION: 5,
         DENSITY: 0.4,
     },
     AI: {
@@ -483,7 +483,7 @@ Class.tinyMinion = {
     CRAVES_ATTENTION: true,
     BODY: {
         ACCELERATION: 3,
-        PENETRATION: 1.5,
+        PENETRATION: 3,
         HEALTH: 0.35 * 0.5,
         DAMAGE: 2.25,
         RESIST: 1.6,
