@@ -1,20 +1,3 @@
-const fs = require('fs');
-
-function requireCachePurge(directory) {
-    let folder = fs.readdirSync(directory);
-    for (let filename of folder) {
-        let filepath = directory + `/${filename}`;
-        let isDirectory = fs.statSync(filepath).isDirectory();
-        if (isDirectory) {
-            requireCachePurge(filepath);
-        }
-
-        if (!filename.endsWith('.js')) continue;
-        
-        delete require.cache[filepath];
-    }
-}
-
 let lastReloadTime = 1;
 const validCommands = ['**reload definitions', '**reload defs', '**redefs'];
 Events.on('chatMessage', ({ message, socket, preventDefault }) => {
@@ -46,10 +29,10 @@ Events.on('chatMessage', ({ message, socket, preventDefault }) => {
     Class = {};
 
     // Purge all cache entries of every file in ../definitions
-    let dir = __dirname.split('/');
-    dir.splice(dir.length - 1, 1);
-    dir = dir.join('/')
-    requireCachePurge(dir);
+    for (let file in require.cache) {
+        if (!file.includes('definitions') || file.includes(__filename)) continue;
+        delete require.cache[file];
+    }
 
     // Load all definitions
     require('../combined.js');

@@ -38,6 +38,8 @@ function close(socket) {
                     timeout: timeout,
                 };
                 disconnections.push(disconnection);
+                player.command.autospin = false;
+                player.body.life();
             }
         }
         // Disconnect everything
