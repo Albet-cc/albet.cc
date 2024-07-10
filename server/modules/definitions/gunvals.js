@@ -21,14 +21,14 @@ module.exports = {
     autoTurret: { reload: 0.9, recoil: 0.75, shudder: 0.5, size: 0.8, health: 0.9, damage: 0.6, pen: 1.2, speed: 1.1, range: 0.8, density: 1.3, resist: 1.25 },
     
 // Snipers
-    sniper: { reload: 1.35, shudder: 0.25, damage: 1.3, pen: 0.8, speed: 1.5, maxSpeed: 1.5, density: 1.5, spray: 0.2, resist: 1.15 },
+    sniper: { reload: 1.35, shudder: 0.25, damage: 1.2, pen: 0.8, speed: 1.5, maxSpeed: 1.5, density: 1.5, spray: 0.2, resist: 1.15 },
     crossbow: { reload: 2.3, health: 0.6, damage: 1.5, pen: 0.9 },
-    assassin: { reload: 1.65, shudder: 0.25, health: 0.95, damage: 1.35, pen: 0.6, speed: 1.18, maxSpeed: 1.18, density: 3, resist: 1.3 },
+    assassin: { reload: 1.65, shudder: 0.25, health: 0.9, damage: 1.35, pen: 0.6, speed: 1.18, maxSpeed: 1.18, density: 3, resist: 1.3 },
     hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.9, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
     hunterSecondary: { size: 0.9, health: 2, damage: 0.5, pen: 1.2, density: 1.2, resist: 1.1 },
     predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 0.9, pen: 1.1, speed: 0.9, maxSpeed: 0.9 },
     dual: { reload: 2, shudder: 0.8, health: 1.5, speed: 1.3, damage: 1.3, maxSpeed: 1.1, resist: 1.25 },
-    rifle: { reload: 0.8, recoil: 0.8, shudder: 1.5, health: 0.8, damage: 1.15, pen: 0.9, spray: 2 },
+    rifle: { reload: 0.9, recoil: 0.8, shudder: 1.5, health: 0.85, damage: 1.1, pen: 0.9, spray: 2 },
     
 // Machine guns
     machineGun: { reload: 0.5, recoil: 0.8, shudder: 1.7, health: 0.7, damage: 1, maxSpeed: 0.8, spray: 2.5 },
@@ -52,7 +52,7 @@ module.exports = {
     thruster: { recoil: 1, shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     
 // Drones
-    overseer: { reload: 1.25, size: 0.85, health: 0.6, damage: 1.4, maxSpeed: 1.2, density: 2 },
+    overseer: { reload: 1.175, size: 0.85, health: 0.6, damage: 1.4, maxSpeed: 1.3, density: 2 },
     overdrive: { reload: 2.5, health: 1, damage: 1.3, pen: 0.8, speed: 1.2, maxSpeed: 1.2, range: 0.9, spray: 1.2 },
     commander: { reload: 1.5, health: 0.4, damage: 0.7 },
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10, speed: 2 },
@@ -69,7 +69,7 @@ module.exports = {
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2.2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
-    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.6, damage: 1.43, pen: 1.166, speed: 0.7, maxSpeed: 0.3, density: 2, resist: 3 },
+    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.65, damage: 1.35, pen: 1.2, speed: 0.5, maxSpeed: 0.3, density: 2, resist: 3 },
     annihilator: { reload: 1.15, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
