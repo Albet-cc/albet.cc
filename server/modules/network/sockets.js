@@ -1151,6 +1151,7 @@ const eyes = (socket) => {
             if (player.body == null) {
                 // u dead bro
                 setFov = 2000;
+                camera.scoping = false;
                 if (socket.spectateEntity != null) {
                     if (socket.spectateEntity) {
                         camera.x = socket.spectateEntity.x;
