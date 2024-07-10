@@ -76,7 +76,7 @@ Class.missile = {
     PARENT: "bullet",
     LABEL: "Missile",
     INDEPENDENT: true,
-    BODY: { RANGE: 120 },
+    BODY: { RANGE: 50 },
     GUNS: [
         {
             POSITION: [14, 6, 1, 0, -2, 130, 0],
@@ -184,7 +184,7 @@ Class.hive = {
     PARENT: "bullet",
     LABEL: "Hive",
     BODY: {
-        RANGE: 90,
+        RANGE: 40,
         FOV: 0.5,
     },
     FACING_TYPE: "turnWithSpeed",
@@ -207,7 +207,7 @@ Class.protoHive = {
     PARENT: "bullet",
     LABEL: "Proto-Hive",
     BODY: {
-        RANGE: 90,
+        RANGE: 50,
         FOV: 0.5,
     },
     FACING_TYPE: "turnWithSpeed",
@@ -246,7 +246,7 @@ Class.sentinelMissile = {
     LABEL: "Missile",
     INDEPENDENT: true,
     BODY: {
-        RANGE: 120,
+        RANGE: 60,
         DENSITY: 3,
     },
     GUNS: [
