@@ -112,10 +112,10 @@ Class.genericTank = {
     BODY: {
         ACCELERATION: base.ACCEL * 2,
         SPEED: base.SPEED,
-        HEALTH: base.HEALTH,
-        DAMAGE: base.DAMAGE,
+        HEALTH: base.HEALTH * 0.5,
+        DAMAGE: base.DAMAGE * 2.2,
         PENETRATION: base.PENETRATION,
-        SHIELD: base.SHIELD,
+        SHIELD: base.SHIELD * 0.3,
         REGEN: base.REGEN,
         FOV: base.FOV,
         DENSITY: base.DENSITY,
