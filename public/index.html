@@ -24,41 +24,53 @@
     <div id="mainWrapper">
         <div id="startMenuWrapper">
             <div id="startMenu">
-                <div class="startMenuHolder linkHolder">
-                  <center>This Arras.io Community Server runs on Open Source Arras.<br>For more info, visit <a href="https://github.com/Taureon/aps-plus-plus">the GitHub Repository</a>.<br><br>Not an official Arras.io project. We are not associated with Arras.io or Momentum Studios.</center>
+                <div id="linkButtons">
+                    <div id="linkButtonsBottomLeft">
+                      <a class="link discord" href="https://discord.gg/xQ8ju6Z3eh">
+                        <img src="/discord.png" style="width:30px">
+                        Dakarr.io Discord
+                      </a>
+                    </div>
+                    <div id="linkButtonsBottomRight">
+                      <a class="link patreon" href="https://www.patreon.com/dakarrio">
+                        <img src="/patreon.png" style="width:30px">
+                        Join our Patreon
+                      </a>
+                    </div>
+                    <div id="linkButtonsTopRight">
+                      <a class="link settings" id="startMenuSlidingTrigger">
+                        Settings
+                        <img src="/settings.png" style="width:30px">
+                      </a>
+                    </div>
+                    <div id="linkButtonsTopLeft">
+                      <div id="changelogBox">
+                          <span class="titleSpan">Changelog</span>
+                          <div id="patchNotes" class="shadowScroll"></div>
+                      </div>
+                    </div>
+                </div>
+                <div id="iconArray">
+                  <center><img width=112 height=112 src="/round.png" /></center>
+                  <h1 id="gameName">Dakarr.cc<h1>
                 </div>
                 <div class="startMenuHolder">
                     <div class="sliderHolder">
                         <div class="slider" id="startMenuSlidingContent">
-                            <center><img width=112 height=112 src="/round.png" /></center>
-                            <h1 id="gameName">Dakarr<h1>
                             <div id="serverName">
                                 <h4 class="nopadding">Connecting...</h4>
                             </div>
                             <table id="serverSelector" style="display:none;"></table>
-                            <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of" id="playerNameInput" maxlength="24"/>
-                            <input type="text" class="conceal" tabindex="3" placeholder="Insert token here" id="playerKeyInput" maxlength="1024" />
+                            <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of..." id="playerNameInput" maxlength="24"/>
                         </div>
-                        <div class="slider" id="startMenuSlidingTrigger">
+                        <div class="slider" style="display: none;">
                             <h3>
                               <span class="nopadding" id="viewOptionText">view options</span>&nbsp;&nbsp;<i class="arrow" id="optionArrow" style="transform:rotate(-45deg);-webkit-transform:rotate(-45deg)"></i>
                             </h3>
                         </div>
-                        <div class="slider">
-                            <div id="controlsSection">
-                                <options_header>Advanced Controls:<i id="resetControls" class="reset resetControls" title="Reset controls"></i></options_header>
-                                <table class="controlTable" id="controlSettings">
-                                    <tbody>
-                                        <tr> <td><b data-key="KEY_AUTO_FIRE">E</b> - auto-fire</td>         <td><b data-key="KEY_AUTO_SPIN">C</b> - auto-spin</td> </tr>
-                                        <tr> <td><b data-key="KEY_OVER_RIDE">R</b> - disable AI</td>        <td><b data-key="KEY_LEVEL_UP">N</b> - level up</td> </tr>
-                                        <tr> <td><b data-key="KEY_REVERSE_TANK">V</b> - reverse tank</td>   <td><b data-key="KEY_AUTO_ALT">G</b> - auto-alt</td> </tr>
-                                        <tr> <td><b data-key="KEY_REVERSE_MOUSE">B</b> - reverse mouse</td> <td><b data-key="KEY_SUICIDE">O</b> - self-destruct</td> </tr>
-                                        <tr> <td><b data-key="KEY_CLASS_TREE">T</b> - show tank tree</td>   <td><b data-key="KEY_MAX_STAT">M</b> - maximize stat</td> </tr>
-                                        <tr> <td><b data-key="KEY_SPIN_LOCK">X</b> - spin lock</td>         <td><b data-key="KEY_FUCK_YOU">P</b> - developer tank*</td> </tr>
-                                        <tr> <td><b data-key="KEY_BECOME">F</b> - action</td>               <td class="greyText"><b>*</b> = requires valid token</td> </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div id="settingsScroll" class="slider">
+                            <options_header>Beta Tester / Developer Token</options_header>
+                            <input type="text" class="conceal" tabindex="3" placeholder="Insert a Token" id="playerKeyInput" maxlength="1024" />
                             <options_header>Themes & Graphics</options_header>
                             <select id="optColors" tabindex="-1">
                                 <option value="normal">Light Colors (by Neph)</option>
@@ -87,7 +99,7 @@
                             <select id="optMobile" tabindex="-1">
                                 <option value="mobile">Mobile</option>
                                 <option value="desktop">Desktop</option>
-                            <select>
+                            </select>
                             <select id="optBorders" tabindex="-1">
                                 <option value="normal">Soft Borders</option>
                                 <option value="dark">Dark Borders</option>
@@ -106,36 +118,32 @@
                                 </tr>
                                 <tr>
                                     <td><div><label class="container"><input id="coloredHealthbars"   tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span> Colored Health Bars</label></div></td>
-                                    <td><div><label class="container"><input id="seperatedHealthbars" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span> Seperated Health Bars</label></div></td>
+                                    <td><div><label class="container"><input id="seperatedHealthbars" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span> Spaced Health Bars</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div><label class="container"><input id="autoLevelUp"         tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span> Auto-Level Up</label></div></td>
                                     <td><div><label class="container"><input id="centerTank"          tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span> Center Camera</label></div></td>
                                 </tr>
                             </table>
+                            <div id="controlsSection">
+                                <options_header>Advanced Controls:<i id="resetControls" class="reset resetControls" title="Reset controls"></i></options_header>
+                                <table class="controlTable" id="controlSettings">
+                                    <tbody>
+                                        <tr> <td><b data-key="KEY_AUTO_FIRE">E</b> - Auto-Fire</td>                  <td><b data-key="KEY_AUTO_SPIN">C</b> - Auto-Spin</td> </tr>
+                                        <tr> <td><b data-key="KEY_OVER_RIDE">R</b> - Override AI Actions</td>        <td><b data-key="KEY_LEVEL_UP">N</b> - Level Up</td> </tr>
+                                        <tr> <td><b data-key="KEY_REVERSE_TANK">V</b> - Reverse Tank</td>             <td><b data-key="KEY_AUTO_ALT">G</b> - Auto-Alt</td> </tr>
+                                        <tr> <td><b data-key="KEY_REVERSE_MOUSE">B</b> - Reverse Mouse</td>           <td><b data-key="KEY_SUICIDE">O</b> - Self Destruct</td> </tr>
+                                        <tr> <td><b data-key="KEY_CLASS_TREE">T</b> - Show Upgrade Tree</td>         <td><b data-key="KEY_MAX_STAT">M</b> - Max One Stat</td> </tr>
+                                        <tr> <td><b data-key="KEY_SPIN_LOCK">X</b> - Lock Spin</td>                  <td><b data-key="KEY_FUCK_YOU">P</b> - Developer Tank *</td> </tr>
+                                        <tr> <td><b data-key="KEY_BECOME">F</b> - Action</td>                        <td class="greyText"><b>*</b> = Requires valid token</td> </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div style="position: relative; bottom: -10px;">
-                        <button id="startButton" tabindex="2"><b>Play</b></button>
-                    </div>
                 </div>
-                <div class="startMenuHolder shrinkable">
-                    <span class="titleSpan">Changelog</span>
-                    <div id="patchNotes" class="shadowScroll"></div>
-                    <div id="bottomHolder">
-                        <!--
-                        <a class="link youtube"   href="https://www.youtube.com/arrasio">Arras.io YouTube</a>
-                        <a class="link reddit"    href="https://reddit.com/r/arrasio">Arras.io Subreddit</a>
-                        <a class="link original"  href="https://arras.io/">Arras.io Game</a>
-                        <a class="link discord"   href="https://discord.gg/arras">Arras.io Discord</a>
-                        -->
-                        <a class="link discord"   href="https://discord.gg/qVbmDnDHE3">Discord Server</a>
-                        <a class="link developer" href="https://github.com/Taureon/">Main Developer</a>
-                        <a class="link developer" href="https://github.com/Zephiii/">Original Creator</a>
-                        <a class="link github"    href="https://github.com/Taureon/aps-plus-plus">Source Code</a>
-                        <a class="link github"    href="https://github.com/Taureon/aps-plus-plus/issues/new">Report Bugs</a>
-                        <a class="link github"    href="https://github.com/Taureon/aps-plus-plus/discussions/new?category=suggestions">Suggest Features</a>
-                    </div>
+                <div style="position: relative; bottom: -10px;">
+                  <button id="startButton" tabindex="2"><b>Play</b></button>
                 </div>
             </div>
         </div>
