@@ -224,7 +224,7 @@ window.onload = async () => {
             try {
                 const tr = document.createElement("tr");
                 const td = document.createElement("td");
-                td.textContent = `${server.gameMode} | ${server.players} Players`;
+                td.textContent = `${server.gameMode} <hr> ${server.players} Players`;
                 td.onclick = () => {
                     if (myServer.classList.contains("selected")) {
                         myServer.classList.remove("selected");
@@ -593,7 +593,8 @@ function startGame() {
     // Change the screen
     global.screenWidth = window.innerWidth;
     global.screenHeight = window.innerHeight;
-    document.getElementById("startMenuWrapper").style.top = "-700px";
+    document.getElementById("startMenuWrapper").style.transform = "translateY(-100%)"; 
+    document.getElementById("startMenuWrapper").style.opacity = 0;
     document.getElementById("gameAreaWrapper").style.opacity = 1;
     setTimeout(() => {
         document.getElementById("startMenuWrapper").remove();
