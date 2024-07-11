@@ -50,7 +50,7 @@ let checkMazeForBlocks = (initX, initY, size, maze) => {
             for (let cell of row)
                 if (cell) cells++;
         let eroded = 0;
-        let toErode = cells * 0.5; // ** 0.4 for gcw
+        let toErode = cells * 0.2; // ** 0.4 for gcw
         toErode -= activeLocsThatWeCantPlaceIn * 10;
         if (toErode < 0) generateMaze(size + 1);
         for (let i = 0; i < toErode; i++) {
