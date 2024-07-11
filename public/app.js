@@ -247,8 +247,7 @@ window.onload = async () => {
     } else {
         getMockups();
         util.pullJSON("gamemodeData").then((json) => {
-            document.getElementById("serverName").innerHTML = `<h4 class="nopadding">${json.gameMode} | ${json.players} Players</h4>`;
-        });
+            document.getElementById("serverName").innerHTML = `<h4 class="nopadding">${json.gameMode} <hr> ${json.players} Players</h4>`;
     }
     // Save forms
     util.retrieveFromLocalStorage("playerNameInput");
