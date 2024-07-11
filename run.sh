@@ -1,2 +1,5 @@
 #!/usr/bin/sh
-node server/index
+while true
+do
+	node server/index
+done
