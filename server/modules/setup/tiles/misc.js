@@ -69,7 +69,7 @@ nestColor = {BASE: "purple", BRIGHTNESS_SHIFT: 10, SATURATION_SHIFT: 0.8},
 nest = new Tile({
     color: nestColor,
     data: {
-        allowMazeWallSpawn: true,
+        allowMazeWallSpawn: false,
         foodSpawnCooldown: 0, foodCount: 0,
         enemySpawnCooldown: 0, enemyCount: 0
     },
@@ -83,7 +83,7 @@ nest = new Tile({
 nestNoBoss = new Tile({
     color: nestColor,
     data: {
-        allowMazeWallSpawn: true,
+        allowMazeWallSpawn: false,
         foodSpawnCooldown: 0, foodCount: 0,
         enemySpawnCooldown: 0, enemyCount: 0
     },
