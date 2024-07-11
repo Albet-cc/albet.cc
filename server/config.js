@@ -32,8 +32,8 @@ module.exports = {
     ROOM_SETUP: ['map_maze_default'],
 
     // The dimensions of a single tile on the map.
-    TILE_WIDTH: 600,
-    TILE_HEIGHT: 600,
+    TILE_WIDTH: 650,
+    TILE_HEIGHT: 650,
 
 
 
