@@ -1298,7 +1298,7 @@ Class.tripleFlail = {
     }]
 }
 
-Class.developer.UPGRADES_TIER_0 = ["tanks", "bosses", "spectator", "levels", "teams"/*, "eggGenerator"*/, "testing", "addons"]
+Class.developer.UPGRADES_TIER_0 = ["tanks", "bosses", "spectator", "levels", "teams", "eggGenerator", "testing", "addons"]
     Class.tanks.UPGRADES_TIER_0 = ["basic", "unavailable", "arenaCloser", "dominators", "sanctuaries", "mothership", "baseProtector", "antiTankMachineGun"]
         Class.unavailable.UPGRADES_TIER_0 = ["flail", "healer", "volute", "whirlwind"]
             Class.flail.UPGRADES_TIER_2 = ["doubleFlail"]
