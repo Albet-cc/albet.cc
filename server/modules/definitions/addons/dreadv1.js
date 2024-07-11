@@ -1,5 +1,5 @@
 const { combineStats, makeAuto, weaponArray, makeTurret } = require('../facilitators.js');
-const { smshskl, base } = require('../constants.js');
+const { smshskl, base, basePolygonDamage, basePolygonHealth } = require('../constants.js');
 const g = require('../gunvals.js');
 const dreadnoughtBody = {
     SPEED: base.SPEED * 0.5,
@@ -56,6 +56,87 @@ g.dreadv1Trap = {
 
 // Set the below variable to true to enable the Medicare and Medicaid healing bodies.
 const enableHealers = true;
+
+// Food
+Class.hexagonOfficialV1 = {
+	PARENT: 'food',
+	COLOR: 'magenta',
+	LABEL: "Hexagon",
+	BODY: {
+        DAMAGE: 2 * basePolygonDamage,
+        DENSITY: 80,
+        HEALTH: 600 * basePolygonHealth,
+        RESIST: Math.pow(1.25, 3),
+        PENETRATION: 1.1,
+        SHIELD: 40 * basePolygonHealth,
+        ACCELERATION: 0.0025
+    },
+	VALUE: 21000,
+	SHAPE: 6,
+	SIZE: 70,
+	DRAW_HEALTH: true,
+    GIVE_KILL_MESSAGE: true,
+}
+Class.heptagonOfficialV1 = {
+	PARENT: 'food',
+	COLOR: 'green',
+	LABEL: "Heptagon",
+	BODY: {
+        DAMAGE: 2 * basePolygonDamage,
+        DENSITY: 80,
+        HEALTH: 750 * basePolygonHealth,
+        RESIST: Math.pow(1.25, 3),
+        PENETRATION: 1.1,
+        SHIELD: 50 * basePolygonHealth,
+        ACCELERATION: 0.0025
+    },
+	VALUE: 28000,
+	SHAPE: 7,
+	SIZE: 80,
+	DRAW_HEALTH: true,
+    GIVE_KILL_MESSAGE: true,
+}
+Class.octagonOfficialV1 = {
+	PARENT: 'food',
+	COLOR: 'hexagon',
+	BODY: {
+        DAMAGE: 2 * basePolygonDamage,
+        DENSITY: 80,
+        HEALTH: 900 * basePolygonHealth,
+        RESIST: Math.pow(1.25, 3),
+        PENETRATION: 1.1,
+        SHIELD: 60 * basePolygonHealth,
+        ACCELERATION: 0.0025
+    },
+	VALUE: 35000,
+	SHAPE: 8,
+	SIZE: 90,
+	DRAW_HEALTH: true,
+    GIVE_KILL_MESSAGE: true,
+}
+Class.nonagonOfficialV1 = {
+	PARENT: 'food',
+	COLOR: 'white',
+	BODY: {
+        DAMAGE: 2 * basePolygonDamage,
+        DENSITY: 80,
+        HEALTH: 1050 * basePolygonHealth,
+        RESIST: Math.pow(1.25, 3),
+        PENETRATION: 1.1,
+        SHIELD: 70 * basePolygonHealth,
+        ACCELERATION: 0.0025
+    },
+	VALUE: 42000,
+	SHAPE: 9,
+	SIZE: 100,
+	DRAW_HEALTH: true,
+    GIVE_KILL_MESSAGE: true,
+}
+
+// Map elements
+Class.spikyPortalOfficialV1 = {
+
+}
 
 // Misc
 Class.genericDreadnought1 = {
@@ -145,7 +226,7 @@ Class.swordOfficialV1 = {
 	LABEL: "Sword",
 	UPGRADE_TOOLTIP: "Snipers",
 	GUNS: weaponArray({
-		POSITION: [19, 7, 1, 0, 0, 0, 0],
+		POSITION: [20, 7, 1, 0, 0, 0, 0],
 		PROPERTIES: {
 			SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.dreadv1Generic, g.dreadv1Sniper]),
 			TYPE: "bullet"
@@ -192,7 +273,7 @@ Class.centaurOfficialV1 = {
 		{
 			POSITION: [12.5, 7, 1, 0, 0, 0, 0],
 		}, {
-			POSITION: [2.5, 7, 1.6, 12.5, 0, 0, 0],
+			POSITION: [2.75, 7, 1.6, 12.5, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.dreadv1Generic, g.dreadv1Slow, g.dreadv1Trap]),
 				TYPE: ["trap", {HITS_OWN_TYPE: "never"} ],
@@ -250,13 +331,13 @@ Class.sabreOfficialV1 = {
 	UPGRADE_TOOLTIP: "Assassins",
 	GUNS: weaponArray([
 		{
-			POSITION: [26, 7, 1, 0, 0, 0, 0],
+			POSITION: [27, 7, 1, 0, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin, g.dreadv1Generic, g.dreadv1Sniper]),
 				TYPE: "bullet"
 			}
 		}, {
-			POSITION: [4, 7, -1.4, 9, 0, 0, 0]
+			POSITION: [3.5, 7, -1.4, 9, 0, 0, 0]
 		}
 	], 3)
 }
@@ -462,9 +543,9 @@ Class.sirenOfficialV1 = {
 	LABEL: "Siren",
 	GUNS: weaponArray([
 		{
-			POSITION: [13, 7, -1.5, 0, 0, 0, 0],
+			POSITION: [6, 7, -1.5, 7, 0, 0, 0],
 		}, {
-			POSITION: [2.5, 7, 1.6, 13, 0, 0, 0],
+			POSITION: [2.75, 7, 1.6, 13, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.dreadv1Generic, g.dreadv1Slow, g.dreadv1Trap]),
 				TYPE: ["turretedTrap", {HITS_OWN_TYPE: "never"} ],

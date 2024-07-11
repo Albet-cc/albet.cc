@@ -29,7 +29,7 @@ module.exports = {
     // NOTE: If a /gamemodeconfig/ file "replaces" the value of ROOM_SETUP, it just adds its own ROOM_SETUP's content to this array.
     // NOTE: Files starting with `map_` are maps. files starting with `overlay_` are overlays that get added on.
     // NOTE: These prefixes are only for categorisation, a room file would work the same regardless of its prefix. APS++ does nothing based on file name prefixes.
-    ROOM_SETUP: ['map_apspp_default'],
+    ROOM_SETUP: ['map_2tdm_default'],
 
     // The dimensions of a single tile on the map.
     TILE_WIDTH: 800,
@@ -148,7 +148,7 @@ module.exports = {
 
     // Natural Spawns
 
-    FOOD_CAP: 2, // Max normal food per normal tile.
+    FOOD_CAP: 1, // Max normal food per normal tile.
     FOOD_SPAWN_CHANCE: 0.2, // Likeliness of normal food spawn attempts succeeding.
     FOOD_SPAWN_COOLDOWN: 300, // Cooldown (in game ticks) of food spawn attempts being made.
 
