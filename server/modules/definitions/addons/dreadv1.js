@@ -134,8 +134,38 @@ Class.nonagonOfficialV1 = {
 }
 
 // Map elements
+Class.portalOfficialV1 = {
+	LABEL: "",
+	TYPE: 'portal',
+	BODY: {
+		HEALTH: 1e10,
+		SHIELD: 1e10,
+		REGEN: 1e10,
+		DAMAGE: 0,
+		PENETRATION: 1e10,
+		DENSITY: 1e10,
+		RANGE: 2000,
+	},
+	ALWAYS_ACTIVE: true,
+	HITS_OWN_TYPE: 'never',
+	GIVE_KILL_MESSAGE: false,
+	DRAW_HEALTH: false,
+	TEAM: TEAM_ROOM,
+	COLOR: 'egg',
+	SIZE: 27,
+}
 Class.spikyPortalOfficialV1 = {
-
+	PARENT: 'portalOfficialV1',
+	GUNS: weaponArray({
+		POSITION: [27, 12, 0.001, 0, 0, 0, 0],
+		PROPERTIES: {COLOR: 'egg'}
+	}, 5),
+	PROPS: [
+		{
+			POSITION: [16, 0, 0, 0, 1],
+			TYPE: ['egg', {COLOR: 'black'}]
+		}
+	]
 }
 
 // Misc
@@ -157,7 +187,7 @@ Class.dreadv1BodyTurret = makeTurret({
 	GUNS: [{
 		POSITION: [22, 10, 1, 0, 0, 0, 0],
 		PROPERTIES: {
-			SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 1.4 }, g.turret, { health: 0.75, speed: 0.4, maxSpeed: 0.4, reload: 0.7 }]),
+			SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 0.7 }, g.turret, { size: 0.8, health: 0.75, speed: 0.4, maxSpeed: 0.4, reload: 0.7 }]),
 			TYPE: "bullet"
 		}
 	}]
@@ -239,7 +269,7 @@ Class.pacifierOfficialV1 = {
 	LABEL: "Pacifier",
 	UPGRADE_TOOLTIP: "Bullet Spam",
 	GUNS: weaponArray({
-		POSITION: [15, 7, 1, 0, 0, 0, 0],
+		POSITION: [15.5, 7.25, 1, 0, 0, 0, 0],
 		PROPERTIES: {
 			SHOOT_SETTINGS: combineStats([g.basic, g.dreadv1Generic, g.dreadv1Slow]),
 			TYPE: "bullet"
@@ -271,9 +301,9 @@ Class.centaurOfficialV1 = {
 	UPGRADE_TOOLTIP: "Traps",
 	GUNS: weaponArray([
 		{
-			POSITION: [12.5, 7, 1, 0, 0, 0, 0],
+			POSITION: [13, 7, 1, 0, 0, 0, 0],
 		}, {
-			POSITION: [2.75, 7, 1.6, 12.5, 0, 0, 0],
+			POSITION: [3, 7, 1.5, 13, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.dreadv1Generic, g.dreadv1Slow, g.dreadv1Trap]),
 				TYPE: ["trap", {HITS_OWN_TYPE: "never"} ],
@@ -347,9 +377,9 @@ Class.gladiusOfficialV1 = {
 	UPGRADE_TOOLTIP: "Rifles",
 	GUNS: weaponArray([
 		{
-			POSITION: [20, 9, 1, 0, 0, 0, 0]
+			POSITION: [17, 9, 1, 0, 0, 0, 0]
 		}, {
-			POSITION: [23, 6, 1, 0, 0, 0, 0],
+			POSITION: [20, 6, 1, 0, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.rifle, g.dreadv1Generic, g.dreadv1Sniper, {damage: 1.05}]),
 				TYPE: "bullet"
@@ -364,15 +394,15 @@ Class.appeaserOfficialV1 = {
 	UPGRADE_TOOLTIP: "Machine Guns",
 	GUNS: weaponArray([
 		{
-			POSITION: [6, 8, 1.3, 7, 0, 0, 0],
+			POSITION: [8.5, 8.875, 1.25, 7, 0, 0, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.twin, g.dreadv1Generic, g.dreadv1Slow, {health: 1.1, shudder: 1.05, speed: 0.8, maxSpeed: 0.8, range: 0.7, size: 0.75}]),
+				SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.twin, g.dreadv1Generic, g.dreadv1Slow, {health: 1.1, shudder: 1.05, speed: 0.85, maxSpeed: 0.8, range: 0.7, size: 0.75}]),
 				TYPE: "bullet"
 			}
 		}, {
-			POSITION: [6, 7.5, 1.2, 9, 0, 0, 0],
+			POSITION: [8.5, 7.875, 1.2, 9, 0, 0, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.twin, g.dreadv1Generic, g.dreadv1Slow, {health: 1.1, shudder: 1.05, speed: 0.8, maxSpeed: 0.8, range: 0.7, size: 0.75 * 8 / 7.5}]),
+				SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.twin, g.dreadv1Generic, g.dreadv1Slow, {health: 1.1, shudder: 1.05, speed: 0.85, maxSpeed: 0.8, range: 0.7, size: 0.75 * 8.5 / 7.5}]),
 				TYPE: "bullet"
 			}
 		}
@@ -383,7 +413,7 @@ Class.peacekeeperOfficialV1 = {
 	LABEL: "Peacekeeper",
 	UPGRADE_TOOLTIP: "Heavy Bullets",
 	GUNS: weaponArray({
-		POSITION: [16.5, 10, 1, 0, 0, 0, 0],
+		POSITION: [17.5, 9, 1, 0, 0, 0, 0],
 		PROPERTIES: {
 			SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.dreadv1Generic, g.dreadv1Slow, {reload: 1.3, health: 1.3, range: 1.1}]),
 			TYPE: "bullet",
@@ -396,19 +426,19 @@ Class.diplomatOfficialV1 = {
 	UPGRADE_TOOLTIP: "Triplets",
 	GUNS: weaponArray([
 		{
-			POSITION: [14, 4.5, 1, 0, 2.75, 0, 0.5],
+			POSITION: [15.5, 4.75, 1, 0, 3, 0, 0.5],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.triplet, g.dreadv1Generic, g.dreadv1Slow, {range: 0.9}]),
 				TYPE: "bullet"
 			}
 		}, {
-			POSITION: [14, 4.5, 1, 0, -2.75, 0, 0.5],
+			POSITION: [15.5, 4.75, 1, 0, -3, 0, 0.5],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.triplet, g.dreadv1Generic, g.dreadv1Slow, {range: 0.9}]),
 				TYPE: "bullet"
 			}
 		}, {
-			POSITION: [15, 4.5, 1, 0, 0, 0, 0],
+			POSITION: [16.5, 4.75, 1, 0, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.triplet, g.dreadv1Generic, g.dreadv1Slow, {range: 0.9}]),
 				TYPE: "bullet"
@@ -440,9 +470,9 @@ Class.assailantOfficialV1 = {
 	UPGRADE_TOOLTIP: "Minions",
 	GUNS: weaponArray([
 		{
-			POSITION: [13.75, 8, 1, 0, 0, 0, 0],
+			POSITION: [14.25, 9, 1, 0, 0, 0, 0],
 		}, {
-			POSITION: [1, 10, 1, 13.75, 0, 0, 0],
+			POSITION: [1.5, 10, 1, 14.25, 0, 0, 0],
 			PROPERTIES: {
 				MAX_CHILDREN: 4,
 				SHOOT_SETTINGS: combineStats([g.factory, g.overseer, g.dreadv1Drone, {damage: 0.6, speed: 0.85, maxSpeed: 0.85}]),
@@ -452,7 +482,7 @@ Class.assailantOfficialV1 = {
 				SYNCS_SKILLS: true
 			}
 		}, {
-			POSITION: [12.25, 10, 1, 0, 0, 0, 0]
+			POSITION: [11.75, 10, 1, 0, 0, 0, 0]
 		}
 	], 3)
 }
@@ -527,9 +557,9 @@ Class.minotaurOfficialV1 = {
 	UPGRADE_TOOLTIP: "Blocks",
 	GUNS: weaponArray([
 		{
-			POSITION: [13, 9, 1, 0, 0, 0, 0],
+			POSITION: [13, 9.5, 1, 0, 0, 0, 0],
 		}, {
-			POSITION: [3, 9, 1.6, 13, 0, 0, 0],
+			POSITION: [3, 9.5, 1.6, 13, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.dreadv1Generic, g.dreadv1Slow, g.dreadv1Trap, { reload: 1.59, range: 1.05, health: 1.55 }]),
 				TYPE: ["unsetTrap", {HITS_OWN_TYPE: "never"} ],
@@ -545,7 +575,7 @@ Class.sirenOfficialV1 = {
 		{
 			POSITION: [6, 7, -1.5, 7, 0, 0, 0],
 		}, {
-			POSITION: [2.75, 7, 1.6, 13, 0, 0, 0],
+			POSITION: [3, 7, 1.5, 13, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.dreadv1Generic, g.dreadv1Slow, g.dreadv1Trap]),
 				TYPE: ["turretedTrap", {HITS_OWN_TYPE: "never"} ],

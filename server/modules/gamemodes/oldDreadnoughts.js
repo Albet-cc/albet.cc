@@ -1,3 +1,4 @@
+// Labyrinth generation
 let generateLabyrinth = (size) => {
     const padding = 1;
 
@@ -67,10 +68,10 @@ let generateLabyrinth = (size) => {
     // Punch holes in the maze
     const holeCenters = [
         [5, 5],
-        [5, 21],
-        [21, 5],
-        [21, 21],
-        [13, 13],
+        [5, 25],
+        [25, 5],
+        [25, 25],
+        [15, 15],
     ];
     const holeRadius = 2;
     for (let [centerX, centerY] of holeCenters) {
@@ -117,5 +118,94 @@ let generateLabyrinth = (size) => {
     }
 }
 
+// Big 3Ds
+Class.sphere.SIZE = 17;
+Class.cube.SIZE = 22;
+Class.tetrahedron.SIZE = 27;
+Class.octahedron.SIZE = 28;
+Class.dodecahedron.SIZE = 30;
+Class.icosahedron.SIZE = 32;
+Class.tesseract.SIZE = 39;
+
+// Portal loop
+class PortalLoop {
+    constructor() {
+        this.spawnInterval = 50000;
+        this.initialized = false;
+        this.spawnBuffer = 50;
+        this.openBounds = {
+            xMin: 19050,
+            xMax: 25950,
+            yMin: 1050,
+            yMax: 7950,
+        };
+        this.labyrinthBounds = {
+            xMin: 50,
+            xMax: 8950,
+            yMin: 50,
+            yMax: 8950,
+        };
+        this.spawnBatches = [
+            {
+                bounds: this.labyrinthBounds,
+                types: [
+                    {
+                        type: "spikyPortalOfficialV1",
+                        destination: this.openBounds,
+                        buffer: 1050,
+                    }
+                ]
+            },
+            {
+                bounds: this.openBounds,
+                types: [
+                    {
+                        type: "spikyPortalOfficialV1",
+                        destination: this.labyrinthBounds,
+                        buffer: 50,
+                    }
+                ]
+            }
+        ]
+    }
+    spawnCycle() {
+        console.log('spawning')
+        for (let batch of this.spawnBatches) {
+            for (let portal of batch.types) {
+                let spawnX = ran.irandomRange(batch.bounds.xMin, batch.bounds.xMax);
+                let spawnY = ran.irandomRange(batch.bounds.yMin, batch.bounds.yMax);
+                let entity = new Entity({x: spawnX, y: spawnY});
+                entity.define(portal.type);
+                entity.activation.set(true);
+                entity.settings.diesAtRange = true; // Can't set this on define because then the portal dies immediately
+                entity.on('collide', ({other}) => {
+                    if (other.type != 'tank') return;
+                    if ((other.x - entity.x) ** 2 + (other.y - entity.y) ** 2 > 225) return;
+                    other.x = ran.irandomRange(portal.destination.xMin, portal.destination.xMax);
+                    other.y = ran.irandomRange(portal.destination.yMin, portal.destination.yMax);
+                    other.invuln = true;
+                    
+                    // Set new confinement
+                    other.confinement.xMin = portal.destination.xMin - portal.buffer;
+                    other.confinement.xMax = portal.destination.xMax + portal.buffer;
+                    other.confinement.yMin = portal.destination.yMin - portal.buffer;
+                    other.confinement.yMax = portal.destination.yMax + portal.buffer;
+                });
+            }
+        }
+    }
+    spawnLoop() {
+        if (global.arenaCosed) return;
+        setTimeout(() => {
+            this.spawnCycle();
+            this.spawnLoop();
+        }, this.spawnInterval);
+    }
+    init() {
+        this.spawnCycle();
+        this.spawnLoop();
+    }
+}
+
 global.generateMaze = generateLabyrinth;
-module.exports = { generateLabyrinth };
+module.exports = { generateLabyrinth, PortalLoop };

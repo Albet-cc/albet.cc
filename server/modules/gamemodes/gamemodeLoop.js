@@ -6,9 +6,12 @@ let moon;
 if (Config.SPACE_MODE) moon = new Moon();
 let hunt;
 if (Config.HUNT) hunt = new ManHunt();
+let portalLoop;
+if (Config.PORTAL_SPAWNS) portalLoop = new PortalLoop();
 
 if (Config.MOTHERSHIP_LOOP) mothershipLoop.spawn();
 if (Config.SPECIAL_BOSS_SPAWNS) bossRush.init();
+if (Config.PORTAL_SPAWNS) portalLoop.init();
 if (Config.MAZE > 0) generateMaze(Config.MAZE);
 
 let logger = new LagLogger();

@@ -32,7 +32,7 @@ labyrinthFoodTypes = [
         /*[65536, 'egg'], */[9, 'rainbowSquare'], [27, 'rainbowTriangle'], [9, 'rainbowPentagon'], [3, 'rainbowBetaPentagon'], [1, 'rainbowAlphaPentagon']
     ]],
     [Math.pow(4, -4), [
-        /*[59549, 'egg']*/, [9, 'transSquare'], [27, 'transTriangle'], [9, 'transPentagon'], [3, 'transBetaPentagon'], [1, 'transAlphaPentagon']
+        /*[59549, 'egg'], */[9, 'transSquare'], [27, 'transTriangle'], [9, 'transPentagon'], [3, 'transBetaPentagon'], [1, 'transAlphaPentagon']
     ]],
     [Math.pow(4, -6), [
         [6, 'sphere'], [5, 'cube'], [4, 'tetrahedron'], [3, 'octahedron'], [2, 'dodecahedron'], [1, 'icosahedron']
