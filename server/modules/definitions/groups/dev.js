@@ -1134,7 +1134,7 @@ Class.sidewinderOld = {
         {
             POSITION: [21, 12, -1.1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder, { reload: 1.4 }]),
                 TYPE: "snakeOld",
                 STAT_CALCULATOR: "sustained",
             },
