@@ -115,7 +115,7 @@ Class.genericTank = {
         HEALTH: base.HEALTH * 0.5,
         DAMAGE: base.DAMAGE * 2.2,
         PENETRATION: base.PENETRATION,
-        SHIELD: base.SHIELD * 0.3,
+        SHIELD: base.SHIELD * 0.1,
         REGEN: base.REGEN,
         FOV: base.FOV,
         DENSITY: base.DENSITY,

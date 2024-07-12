@@ -64,7 +64,7 @@ canvas {
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: center;
-    font-size: xx-large;
+    font-size: 100px;
     font-weight: bolder;
 }
 
@@ -213,18 +213,20 @@ div {
 }
 
 #startMenu {
-    position: relative;
+    position: fixed;
+    display: flex;
     margin: auto;
-    width: 1150px;
+    width: 100%;
+    height: 100%;
     padding: 10px;
-    margin-top: 100px;
-    margin-bottom: 100px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    background-color: #DDE6EB;
     box-sizing: border-box;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #startMenuHeader {
@@ -235,17 +237,29 @@ div {
 
 .startMenuHolder {
     width: 350px;
-    height: 380px;
+    height: min-content;
     padding: 10px;
     overflow: hidden;
     display: inline-block;
     vertical-align: text-top;
 }
 
+#iconArray {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px
+}
+
 .sliderHolder {
     width: 350px;
-    height: 325px;
+    height: 170px;
     overflow: hidden;
+}
+
+#startMenuSlidingContent {
+    margin-bottom: 30px;
 }
 
 tfoot {
@@ -262,27 +276,57 @@ table {
     width: 100%;
 }
 
+#linkButtons {
+  position: absolute;
+  z-index: -1;
+}
+
+#linkButtonsBottomLeft {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+
+#linkButtonsBottomRight {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+#linkButtonsTopRight {
+  top: 0;
+  right: 0;
+  position: fixed;
+}
+
+#linkButtonsTopLeft {
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
 .slider {
     position: relative;
     top: 0px;
     opacity: 1;
     width: 100%;
     transition: top 500ms, opacity 500ms;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .slided .slider {
-    top: -305px;
-}
-#startMenuSlidingContent {
-    height: 305px;
+    top: -200px;
 }
 
-#startMenuSlidingTrigger {
-    cursor: pointer;
-    height: 15px;
-}
-
-#startMenuSlidingTrigger:hover {
-    text-shadow: 0 1px 2px oklch(0% 0 0 / 25%);
+#settingsScroll {
+    overflow-y: auto;
+    height: 150px;
+    background-color: #dde6eb;
+    border-radius: 5px;
+    padding: 10px;
+    width: 330px;
 }
 
 update {
@@ -302,13 +346,24 @@ update {
     width: 360px;
 }
 
+#changelogBox {
+  background-color: #dde6eb;
+  margin: 10px;
+  height: 300px;
+  width: 350px;
+  padding: 15px 5px;
+  border-radius: 10px;
+  z-index: 0;
+}
+
 #patchNotes {
     max-width: 330px;
-    height: calc(100% - 100px);
+    height: calc(100% - 45px);
     padding: 5px 20px 10px;
     overflow: hidden auto;
     scrollbar-width: thin;
     scrollbar-color: oklch(0% 0 0 / 30%) oklch(0% 0 0 / 15%);
+    margin-top: 10px;
 }
 
 #patchNotes div {
@@ -376,38 +431,43 @@ select:active {
 #startButton {
     font-family: Ubuntu;
     position: relative;
-    margin: auto;
-    width: 100%;
+    width: 348px;
     height: 40px;
     box-sizing: border-box;
     font-size: larger;
     color: white;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    background: #336699;
-    /*background: #A9D86D;*/
+    background: #55c44c;
+    /* background: #A9D86D; */
     border: 0;
-    border-bottom: 2px solid #1B3353;
-    /*border-bottom: 2px solid #8ABC3F;*/
+    border-bottom: 2px solid #4aa242;
+    /* border-bottom: 2px solid #8ABC3F; */
     cursor: pointer;
     -webkit-box-shadow: inset 0 -2px #1B3353;
-    /*-webkit-box-shadow: inset 0 -2px #8ABC3F;*/
-    box-shadow: inset 0 -2px #1B3353;
-    /*box-shadow: inset 0 -2px #8ABC3F;*/
+    /* -webkit-box-shadow: inset 0 -2px #8ABC3F; */
+    box-shadow: inset 0 -2px #4aa242;
+    /* box-shadow: inset 0 -2px #8ABC3F; */
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-#startButton:active,
 #startButton:hover {
+    background: #5fd455;
+    /* background: #8ABC3F; */
+    outline: none;
+}
+
+#startButton:active {
     top: 1px;
-    background: #1B3353;
-    /*background: #8ABC3F;*/
+    background: #459f3e;
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
 #bottomHolder {
     width: 370px;
     display: grid;
@@ -511,6 +571,18 @@ select:active {
     margin: 0 5px;
     cursor: pointer;
 }
+
+#serverName {
+    width: 350px;
+    height: 70px;
+    background-color: #DDE6EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
 a.link {
     border-radius: 5px;
     box-sizing: border-box;
@@ -518,15 +590,31 @@ a.link {
     cursor: pointer;
     display: inline-block;
     font-size: smaller;
-    margin: 2px;
-    padding: 5px;
+    margin: 10px;
+    padding: 6px 8px;
     position: relative;
-    width: 120px;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+a.link:hover {
+    -webkit-box-shadow: inset 0 100px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 100px 0px rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+a.link:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: inset 0 100px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 100px 0px rgba(0, 0, 0, 0.2);
 }
 
 .discord {
@@ -535,13 +623,19 @@ a.link {
     box-shadow: inset 0 -2px #6175ba;
     -webkit-box-shadow: inset 0 -2px #6175ba;
 }
-.discord:active,
-.discord:hover {
-    top: 1px;
-    background: #6175ba;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+
+.patreon {
+    background: #2b2b2b;
+    border-bottom: 2px solid #000000;
+    box-shadow: inset 0 -2px #000000;
+    -webkit-box-shadow: inset 0 -2px #000000;
+}
+
+.settings {
+    background: #b3b3b3;
+    border-bottom: 2px solid #919191;
+    box-shadow: inset 0 -2px #919191;
+    -webkit-box-shadow: inset 0 -2px #919191;
 }
 
 .revolt {
@@ -550,28 +644,12 @@ a.link {
     box-shadow: inset 0 -2px #ed4245;
     -webkit-box-shadow: inset 0 -2px #ed4245;
 }
-.revolt:active,
-.revolt:hover {
-    top: 1px;
-    background: #ed4245;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
 
 .reddit {
     background: #f75401;
     border-bottom: 2px solid #d24a01;
     box-shadow: inset 0 -2px #d24a01;
     -webkit-box-shadow: inset 0 -2px #d24a01;
-}
-.reddit:active,
-.reddit:hover {
-    top: 1px;
-    background: #d24a01;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
 }
 
 .original {
@@ -580,28 +658,12 @@ a.link {
     box-shadow: inset 0 -2px #679c68;
     -webkit-box-shadow: inset 0 -2px #679c68;
 }
-.original:active,
-.original:hover {
-    top: 1px;
-    background: #679c68;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
 
 .developer {
     background: #454b7f;
     border-bottom: 2px solid #313454;
     box-shadow: inset 0 -2px #313454;
     -webkit-box-shadow: inset 0 -2px #313454;
-}
-.developer:active,
-.developer:hover {
-    top: 1px;
-    background: #313454;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
 }
 
 .youtube {
@@ -610,14 +672,6 @@ a.link {
     box-shadow: inset 0 -2px #d21401;
     -webkit-box-shadow: inset 0 -2px #d21401;
 }
-.youtube:active,
-.youtube:hover {
-    top: 1px;
-    background: #d21401;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
 
 .github {
     background: #666666;
@@ -625,22 +679,22 @@ a.link {
     -webkit-box-shadow: inset 0 -2px #333333;
     box-shadow: inset 0 -2px #333333;
 }
-.github:active,
-.github:hover {
-    top: 1px;
-    background: #333333;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+
+#mainWrapper {
+  width: 100%;
+  height: 100%;
 }
 
 #startMenuWrapper {
-    transition: top 1s;
+    transition: transform 1s, opacity 1s;
+    opacity: 1;
     top: 0px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     z-index: 2;
+    width: 100%;
+    height: 100%;
 }
 
 .nopadding {
@@ -809,6 +863,7 @@ i.flag.down::before {
 .controlTable {
     border-collapse: collapse;
     margin: 0 2px;
+    width: 320px;
 }
 .controlTable tr {
     border: 0;
