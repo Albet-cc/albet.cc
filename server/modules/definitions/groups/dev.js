@@ -1103,7 +1103,7 @@ Class.snakeOld = {
             PROPERTIES: {
                 AUTOFIRE: true,
                 STAT_CALCULATOR: "thruster",
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, g.snakeskin]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, g.snakeskin, { recoil: 0.1, damage: 0.1 }]),
                 TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
             },
         },
@@ -1113,7 +1113,7 @@ Class.snakeOld = {
                 AUTOFIRE: true,
                 NEGATIVE_RECOIL: true,
                 STAT_CALCULATOR: "thruster",
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, { recoil: 0.1, damage: 0.1 }]),
                 TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
             },
         },
@@ -1134,7 +1134,7 @@ Class.sidewinderOld = {
         {
             POSITION: [21, 12, -1.1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder, { reload: 1.4 }]),
                 TYPE: "snakeOld",
                 STAT_CALCULATOR: "sustained",
             },
