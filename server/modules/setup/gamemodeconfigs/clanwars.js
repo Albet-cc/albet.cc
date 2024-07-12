@@ -1,3 +1,4 @@
 module.exports = {
-	CLAN_WARS: true
+	CLAN_WARS: true,
+    GROUPS: -1
 };
