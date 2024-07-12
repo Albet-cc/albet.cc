@@ -1103,7 +1103,7 @@ Class.snakeOld = {
             PROPERTIES: {
                 AUTOFIRE: true,
                 STAT_CALCULATOR: "thruster",
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, g.snakeskin]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, g.snakeskin, { recoil: 0.1 }]),
                 TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
             },
         },
@@ -1113,7 +1113,7 @@ Class.snakeOld = {
                 AUTOFIRE: true,
                 NEGATIVE_RECOIL: true,
                 STAT_CALCULATOR: "thruster",
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, g.snake, { recoil: 0.1 }]),
                 TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
             },
         },
