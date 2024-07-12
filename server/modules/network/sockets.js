@@ -144,9 +144,6 @@ function incoming(message, socket) {
                     }
                 } else {
                     util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
-
-                    socket.kick('kicking them for not having a token');
-                    return 1;
                 }
                 socket.key = key;
             }
@@ -912,9 +909,14 @@ const spawn = (socket, name) => {
         }
     }
     if (socket.group) {
+        let i = 10
         do {
-            loc = room.near(socket.group.getSpawn(), 300);
-        } while (dirtyCheck(loc, 50));
+            loc = room.near(socket.group.getSpawn(), 50);
+        } while (dirtyCheck(loc, 50) && i--);
+
+        if (dirtyCheck(loc, 50)) {
+            loc = getSpawnableArea(player.team);
+        }
     }
     else {
         loc = getSpawnableArea(player.team);
