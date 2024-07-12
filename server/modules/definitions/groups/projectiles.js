@@ -184,7 +184,7 @@ Class.hive = {
     PARENT: "bullet",
     LABEL: "Hive",
     BODY: {
-        RANGE: 40,
+        RANGE: 90,
         FOV: 0.5,
     },
     FACING_TYPE: "turnWithSpeed",
