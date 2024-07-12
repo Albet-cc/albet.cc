@@ -1121,7 +1121,7 @@ Class.snakeOld = {
 }
 Class.sidewinderOld = {
     PARENT: "genericTank",
-    LABEL: "Sidewinder (Legacy)",
+    LABEL: "Sidewinder",
     DANGER: 7,
     BODY: {
         SPEED: 0.8 * base.SPEED,
