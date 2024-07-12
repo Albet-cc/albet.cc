@@ -8,6 +8,9 @@ module.exports = {
     // Which port to run the web server on.
     port: 80,
 
+    // How many connections are allowed per IP address.
+    connectionsPerIp: 1,
+
     // How often to update the list of the entities that players can see.
     // Has effects of when entities are activated.
     visibleListInterval: 250,

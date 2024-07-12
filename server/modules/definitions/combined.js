@@ -35,7 +35,7 @@ function processAddonFolder(directory) {
         loadedAddons.push(filename.slice(0, -3));
     }
 }
-processAddonFolder(path.join(__dirname, './addons'));
+processAddonFolder(path.join(__dirname, './../../../../dakarr-addons'));
 definitionCount = Object.keys(Class).length;
 
 let addonsLoadEnd = Date.now();

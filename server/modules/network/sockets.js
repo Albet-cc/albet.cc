@@ -2,7 +2,9 @@ let permissionsDict = {},
     net = require('net'),
     clients = [],
     players = [],
-    disconnections = [];
+    disconnections = [],
+    
+    ipCount = new Map();
 
 for (let entry of require("../../permissions.js")) {
     permissionsDict[entry.key] = entry;
@@ -136,6 +138,10 @@ function incoming(message, socket) {
                 socket.permissions = permissionsDict[key];
                 if (socket.permissions) {
                     util.log(`[INFO] A socket ( ${socket.ip} ) was verified with the token: ${key}`);
+
+                    if (socket.permissions.infiniteConnections) {
+                        ipCount.set(socket.ip, -Infinity);
+                    }
                 } else {
                     util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
 
@@ -999,6 +1005,7 @@ const spawn = (socket, name) => {
         body.sendMessage(msg[i]);
     }
     socket.talk("c", socket.camera.x, socket.camera.y, socket.camera.fov); // Move the camera
+    Events.emit('spawnPlayer', { player, socket, body, entity: body });
     return player;
 };
 
@@ -1445,7 +1452,6 @@ const broadcast = {
         if (i !== -1) util.remove(subscribers, i);
     },
 };
-let lastTime = 0;
 
 // Get a unique id for each socket
 let socketId = 0;
@@ -1464,9 +1470,40 @@ const sockets = {
         }
     },
     connect: (socket, req) => {
-        // This function initalizes the socket upon connection
-        if (Date.now() - lastTime < 250) return socket.terminate();
-        lastTime = Date.now();
+        //account for proxies
+        //very simplified reimplementation of what the forwarded-for npm package does
+        let store = req.headers['fastly-client-ip'] || req.headers["cf-connecting-ip"] || req.headers['x-forwarded-for'] || req.headers['z-forwarded-for'] ||
+                    req.headers['forwarded'] || req.headers['x-real-ip'] || req.connection.remoteAddress,
+            ips = store.split(',');
+
+        if (!ips) {
+            return socket.kick("Missing IP: " + store);
+        }
+
+        for (let i = 0; i < ips.length; i++) {
+            if (net.isIPv6(ips[i])) {
+                ips[i] = ips[i].trim();
+            } else {
+                ips[i] = ips[i].split(':')[0].trim();
+            }
+            if (!net.isIP(ips[i])) {
+                return socket.kick("Invalid IP(s): " + store);
+            }
+        }
+
+        socket.ip = ips[0];
+
+        if (!ipCount.has(socket.ip)) {
+            ipCount.set(socket.ip, 0);
+        }
+        ipCount.set(socket.ip, ipCount.get(socket.ip) + 1);
+        if (ipCount.get(socket.ip) > Config.connectionsPerIp) {
+            return socket.kick(`Kicking "${socket.ip}": 'connections per ip' limit reached`);
+        }
+
+        // Log it
+        clients.push(socket);
+        util.log("[INFO] New socket opened with ip " + socket.ip);
 
         // Get information about the new connection and verify it
         util.log("A client is trying to connect...");
@@ -1566,6 +1603,7 @@ const sockets = {
         socket.spawn = (name) => spawn(socket, name);
         socket.on("message", message => incoming(message, socket));
         socket.on("close", () => {
+            ipCount.delete(socket.ip);
             socket.loops.terminate();
             close(socket);
         });
@@ -1573,33 +1611,6 @@ const sockets = {
             util.log("[ERROR]:");
             util.error(e);
         });
-
-        //account for proxies
-        //very simplified reimplementation of what the forwarded-for npm package does
-        let store = req.headers['fastly-client-ip'] || req.headers["cf-connecting-ip"] || req.headers['x-forwarded-for'] || req.headers['z-forwarded-for'] ||
-                    req.headers['forwarded'] || req.headers['x-real-ip'] || req.connection.remoteAddress,
-            ips = store.split(',');
-
-        if (!ips) {
-            return socket.kick("Missing IP: " + store);
-        }
-
-        for (let i = 0; i < ips.length; i++) {
-            if (net.isIPv6(ips[i])) {
-                ips[i] = ips[i].trim();
-            } else {
-                ips[i] = ips[i].split(':')[0].trim();
-            }
-            if (!net.isIP(ips[i])) {
-                return socket.kick("Invalid IP(s): " + store);
-            }
-        }
-
-        socket.ip = ips[0];
-
-        // Log it
-        clients.push(socket);
-        util.log("[INFO] New socket opened with ip " + socket.ip);
     }
 };
 module.exports = { sockets, chatLoop };
