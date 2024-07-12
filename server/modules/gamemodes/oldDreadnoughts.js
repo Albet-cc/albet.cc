@@ -143,7 +143,7 @@ let generateLabyrinth = (size) => {
 // Class.dodecahedron.SIZE = 30;
 // Class.icosahedron.SIZE = 32;
 // Class.tesseract.SIZE = 39;
-delete Class.food.LEVEL_CAP;
+// delete Class.food.LEVEL_CAP;
 
 // Portal loop
 class PortalLoop {
