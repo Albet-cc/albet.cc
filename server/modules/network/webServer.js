@@ -47,7 +47,7 @@ server = require('http').createServer((req, res) => {
             resStr = mockupJsonData;
             break;
         case "/lib/json/gamemodeData.json":
-            resStr = JSON.stringify({ gameMode: Config.gameModeName, players: views.length });
+            resStr = JSON.stringify({ gameMode: Config.gameModeName, players: sockets.players.length });
             break;
         case "/serverData.json":
             resStr = JSON.stringify({ ip: Config.host });
