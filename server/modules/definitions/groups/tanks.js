@@ -3614,7 +3614,7 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
         Class.overseer.UPGRADES_TIER_3 = ["overlord", "overtrapper", "overgunner", "banshee", "autoOverseer", "overdrive", "commander"]
         Class.cruiser.UPGRADES_TIER_3 = ["carrier", "battleship", "fortress", "autoCruiser", "commander"]
         Class.underseer.UPGRADES_TIER_3 = ["necromancer", "maleficitor", "infestor"]
-        Class.spawner.UPGRADES_TIER_3 = ["factory", "autoSpawner"/*, "ranch"*/]
+        Class.spawner.UPGRADES_TIER_3 = ["factory", "autoSpawner"]
 
     Class.pounder.UPGRADES_TIER_2 = ["destroyer", "builder", "artillery", "launcher"]
         Class.pounder.UPGRADES_TIER_3 = ["shotgun", "eagle"]
@@ -3628,8 +3628,5 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
         Class.triTrapper.UPGRADES_TIER_3 = ["fortress", "hexaTrapper", "septaTrapper", "architect"]
         Class.trapGuard.UPGRADES_TIER_3 = ["bushwhacker", "gunnerTrapper", "bomber", "conqueror", "bulwark"]
 
-    Class.desmos.UPGRADES_TIER_2 = ["helix", "sidewinder", "undertow", "repeater"]
-        Class.helix.UPGRADES_TIER_3 = ["triplex", "quadruplex", "coil", "duplicator"]
-        // Class.sidewinder.UPGRADES_TIER_3 = ["coil", "python", "ranch", "oroboros"/*, "cocci"*/]
-        // Class.undertow.UPGRADES_TIER_3 = ["riptide"]
-        Class.repeater.UPGRADES_TIER_3 = ["iterator", "duplicator"]
+    Class.desmos.UPGRADES_TIER_2 = ["helix"]
+        Class.helix.UPGRADES_TIER_3 = ["triplex", "quadruplex"]
