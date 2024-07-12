@@ -1046,7 +1046,7 @@ const socketInit = port => {
     };
     // Notify about errors
     socket.onerror = error => {
-        console.log('WebSocket error: ' + error);
+        console.log('WebSocket error: ', error);
         global.message = 'Socket error. Maybe another server will work.';
     };
     // Gift it to the rest of the world
