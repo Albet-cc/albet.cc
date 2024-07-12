@@ -1470,6 +1470,12 @@ const sockets = {
         }
     },
     connect: (socket, req) => {
+        socket.lastWords = (...message) => {
+            if (socket.readyState === socket.OPEN) {
+                socket.send(protocol.encode(message), { binary: true }, () => setTimeout(() => socket.close(), 1000));
+            }
+        };
+        socket.kick = (reason) => kick(socket, reason);
         //account for proxies
         //very simplified reimplementation of what the forwarded-for npm package does
         let store = req.headers['fastly-client-ip'] || req.headers["cf-connecting-ip"] || req.headers['x-forwarded-for'] || req.headers['z-forwarded-for'] ||
@@ -1588,15 +1594,9 @@ const sockets = {
         };
         socket.makeView();
         // Put the fundamental functions in the socket
-        socket.kick = (reason) => kick(socket, reason);
         socket.talk = (...message) => {
             if (socket.readyState === socket.OPEN) {
                 socket.send(protocol.encode(message), { binary: true });
-            }
-        };
-        socket.lastWords = (...message) => {
-            if (socket.readyState === socket.OPEN) {
-                socket.send(protocol.encode(message), { binary: true }, () => setTimeout(() => socket.close(), 1000));
             }
         };
         // Put the player functions in the socket
