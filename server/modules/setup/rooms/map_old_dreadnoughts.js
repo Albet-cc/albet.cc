@@ -1,7 +1,6 @@
-let { normal: ____, nest } = require('../tiles/misc.js'),
-    { labyrinth, forge } = require('../tiles/old_dreadnoughts.js'),
+let { nest } = require('../tiles/misc.js'),
+    { open: ____, labyrinth, forge, outOfBounds } = require('../tiles/old_dreadnoughts.js'),
     teams = require('../gamemodeconfigs/old_dreadnoughts.js').TEAMS,
-    { outside } = require('../tiles/siege.js'),
     bases = require('../tiles/tdm.js'),
 
 room = [
@@ -72,10 +71,10 @@ if (teams === 2) {
 }
 
 for (let row in room) {
-    if (row < 12 && row >= 3) {
-        room[row].unshift(...Array(3).fill(outside), ...Array(9).fill(forge), ...Array(3).fill(outside));
+    if (row < 11 && row >= 4) {
+        room[row].unshift(...Array(4).fill(outOfBounds), ...Array(7).fill(forge), ...Array(4).fill(outOfBounds));
     } else {
-        room[row].unshift(...Array(Config.roomWidth).fill(outside));
+        room[row].unshift(...Array(Config.roomWidth).fill(outOfBounds));
     }
 }
 for (let row of room) {

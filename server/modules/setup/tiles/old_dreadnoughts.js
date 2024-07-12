@@ -5,13 +5,14 @@ let pickFromChanceSet = set => {
     return set;
 },
 
-spawnNatural = (tile, layeredSet, kind) => {
+spawnNatural = (tile, layeredSet, kind, bounds) => {
     let o = new Entity(tile.randomInside());
     o.define(pickFromChanceSet(layeredSet));
     o.facing = ran.randomAngle();
     o.team = TEAM_ENEMIES;
     o.on('dead', () => tile.data[kind + 'Count']--);
     tile.data[kind + 'Count']++;
+    o.confinement = bounds;
     return o;
 },
 
@@ -39,6 +40,36 @@ labyrinthFoodTypes = [
     ]]
 ],
 
+labyrinthConfinement = {
+    xMin: 0,
+    xMax: 9000,
+    yMin: 0,
+    yMax: 9000
+},
+openConfinement = {
+    xMin: 18000,
+    xMax: 27000,
+    yMin: 0,
+    yMax: 9000
+},
+
+open = new Tile({
+    color: "white",
+    data: {
+        allowMazeWallSpawn: true,
+        foodSpawnCooldown: 0, foodCount: 0
+    },
+    init: tile => room.spawnableDefault.push(tile),
+    tick: tile => {
+        if (++tile.data.foodSpawnCooldown > Config.FOOD_SPAWN_COOLDOWN) {
+            tile.data.foodSpawnCooldown = 0;
+            if (tile.data.foodCount < Config.FOOD_CAP && Math.random() < Config.FOOD_SPAWN_CHANCE) {
+                spawnNatural(tile, Config.FOOD_TYPES, 'food', openConfinement);
+            }
+        }
+    }
+}),
+
 labyrinth = new Tile({
     color: "white",
     data: {
@@ -50,7 +81,7 @@ labyrinth = new Tile({
         if (++tile.data.foodSpawnCooldown > Config.FOOD_SPAWN_COOLDOWN * 5) {
             tile.data.foodSpawnCooldown = 0;
             if (tile.data.foodCount < (Config.FOOD_CAP - 1) && Math.random() < Config.FOOD_SPAWN_CHANCE) {
-                spawnNatural(tile, labyrinthFoodTypes, 'food');
+                spawnNatural(tile, labyrinthFoodTypes, 'food', labyrinthConfinement);
             }
         }
     }
@@ -58,6 +89,10 @@ labyrinth = new Tile({
 
 forge = new Tile({
     color: "white",
+}),
+
+outOfBounds = new Tile({
+    color: 'none'
 });
 
-module.exports = { labyrinth, forge };
+module.exports = { open, labyrinth, forge, outOfBounds };

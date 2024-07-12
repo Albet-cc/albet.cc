@@ -248,6 +248,7 @@ module.exports = {
     HUNT: false,
     MODE: "ffa",
     TAG: false,
+    SPAWN_CONFINEMENT: {},
 
     LEVEL_SCALE_START: 46,
 
@@ -277,5 +278,5 @@ module.exports = {
 
     LEVEL_BASE_RECOIL: 0,
     LEVEL_SCALE_RECOIL: 1 / 1.08,
-    LEVEL_EXPONENT_RECOIL: 0.5,
+    LEVEL_EXPONENT_RECOIL: 0.5
 }

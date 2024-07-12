@@ -6,13 +6,17 @@ let moon;
 if (Config.SPACE_MODE) moon = new Moon();
 let hunt;
 if (Config.HUNT) hunt = new ManHunt();
-let portalLoop;
-if (Config.PORTAL_SPAWNS) portalLoop = new PortalLoop();
 
 if (Config.MOTHERSHIP_LOOP) mothershipLoop.spawn();
 if (Config.SPECIAL_BOSS_SPAWNS) bossRush.init();
-if (Config.PORTAL_SPAWNS) portalLoop.init();
 if (Config.MAZE > 0) generateMaze(Config.MAZE);
+
+// Below maze generation because it relies on the maze data
+let portalLoop;
+if (Config.PORTAL_SPAWNS) {
+    portalLoop = new PortalLoop();
+    portalLoop.init();
+};
 
 let logger = new LagLogger();
 const gamemodeLoop = function() {
