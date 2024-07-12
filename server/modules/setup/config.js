@@ -19,7 +19,7 @@ const nameMap = {
     ffa: "FFA",
     tag: "TAG",
     opentdm: `Open ${output.TEAMS}TDM`,
-    //clanwars: "Clan Wars",
+    clanwars: "Clan Wars",
     trainwars: "Train Wars",
     old_dreadnoughts: `Old Dreadnoughts ${output.TEAMS}TDM`,
 };
