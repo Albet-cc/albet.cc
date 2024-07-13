@@ -144,6 +144,7 @@ function incoming(message, socket) {
                     }
                 } else {
                     util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    socket.permissions = {};
                 }
                 socket.key = key;
             }
@@ -565,7 +566,7 @@ function incoming(message, socket) {
 
             util.log(player.body.name + ': ' + original);
 
-            if (Config.SANITIZE_CHAT_MESSAGE_COLORS) {
+            if (Config.SANITIZE_CHAT_MESSAGE_COLORS && !socket.permissions.bypassChatSanitizer) {
                 // I thought it should be "§§" but it only works if you do "§§§§"?
                 message = message.replace(/§/g, "§§§§");
                 original = original.replace(/§/g, "§§§§");
