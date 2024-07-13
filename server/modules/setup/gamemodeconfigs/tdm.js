@@ -1,5 +1,5 @@
 module.exports = {
     MODE: "tdm",
-    TEAMS: 2,
+    TEAMS: 4,
     ROOM_SETUP: ['overlay_tdm']
 };
