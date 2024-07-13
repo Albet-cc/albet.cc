@@ -24,8 +24,8 @@ module.exports = {
     sniper: { reload: 1.35, shudder: 0.25, damage: 1.2, pen: 0.8, speed: 1.5, maxSpeed: 1.5, density: 1.5, spray: 0.2, resist: 1.15 },
     crossbow: { reload: 2.3, health: 0.6, damage: 1.5, pen: 0.9 },
     assassin: { reload: 1.65, shudder: 0.25, health: 0.9, damage: 1.35, pen: 0.6, speed: 1.18, maxSpeed: 1.18, density: 3, resist: 1.3 },
-    hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.9, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
-    hunterSecondary: { size: 0.9, health: 2, damage: 0.5, pen: 1.2, density: 1.2, resist: 1.1 },
+    hunter: { reload: 1.5, recoil: 0.7, size: 0.95, damage: 0.8, speed: 1.1, maxSpeed: 0.8, density: 1.2, resist: 1.15 },
+    hunterSecondary: { size: 0.9, health: 1.5, damage: 0.5, pen: 1.2, density: 1.2, resist: 1.1 },
     predator: { reload: 1.4, size: 0.8, health: 1.5, damage: 0.9, pen: 1.1, speed: 0.9, maxSpeed: 0.9 },
     dual: { reload: 2.8, shudder: 0.8, health: 1.5, speed: 1.3, damage: 1.3, maxSpeed: 1.1, resist: 1.25 },
     rifle: { reload: 0.9, recoil: 0.8, shudder: 1.5, health: 0.85, damage: 1.1, pen: 0.9, spray: 2 },
@@ -69,7 +69,7 @@ module.exports = {
     satellite: { size: 0.8, reload: 3, damage: 1.875 },    
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2.2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
-    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.65, damage: 1.35, pen: 1.2, speed: 0.5, maxSpeed: 0.3, density: 2, resist: 3 },
+    destroyer: { reload: 2, recoil: 1.75, shudder: 0.5, health: 1.65, damage: 1.35, pen: 1.2, speed: 0.65, maxSpeed: 0.3, density: 2, resist: 3 },
     annihilator: { reload: 1.15, recoil: 1.275 },
     hive: { reload: 1.5, recoil: 0.8, size: 0.8, health: 0.7, damage: 0.3, maxSpeed: 0.6 },
     artillery: { reload: 1.2, recoil: 0.7, size: 0.9, speed: 1.15, maxSpeed: 1.1, density: 1.5 },
@@ -88,8 +88,8 @@ module.exports = {
     rocketeerMissileTrail: { reload: 0.5, recoil: 1.4, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
 // Traps and blocks
-    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.1, damage: 2, pen: 1.35, speed: 1.4, maxSpeed: 1.6, range: 1.2, resist: 1.25 },
-    construct: { reload: 1.3, size: 0.9, maxSpeed: 1.2 },
+    setTrap: { reload: 1.28, recoil: 1, shudder: 1, size: 1.5, health: 1.1, damage: 2, pen: 1.35, speed: 1.55, maxSpeed: 1.75, range: 1.2, resist: 1.25 },
+    construct: { reload: 1.3, size: 0.9, maxSpeed: 1.4 },
     boomerang: { reload: 0.8, health: 0.5, damage: 0.5, speed: 0.9, maxSpeed: 1.2, range: 1.333 },
     nestKeeper: { reload: 3, size: 0.75, health: 1.05, damage: 1.05, pen: 1.1, speed: 0.5, maxSpeed: 0.5, range: 0.5, density: 1.1 },
     hexaTrapper: { reload: 1.3, shudder: 1.25, speed: 0.8, range: 0.5 },
