@@ -13,7 +13,6 @@ class Group {
         this.private = false;
         this.teamID = getID();
         activeGroups.push(this);
-        console.log("New group created.");
     }
     setPrivate() {
         if (this.private) this.private = false;
@@ -33,7 +32,6 @@ class Group {
     delete() {
         for (let i = 0; i < this.members.length; i++) removeMember(this.members[i]);
         activeGroups = activeGroups.filter(entry => entry !== this);
-        console.log("Group deleted.");
     }
     getSpawn() {
         let validMembers = this.members.map(entry => entry).filter(a => !!a.player).filter(b => !!b.player.body);

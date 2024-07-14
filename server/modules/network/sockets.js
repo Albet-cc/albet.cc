@@ -1492,7 +1492,7 @@ const sockets = {
 
         // Log it
         clients.push(socket);
-        util.log(`( ${socket.ip} ) connected`);
+        util.log(`( ${socket.ip} ) connected. Clients: ${clients.length}`);
 
         // Set it up
         socket.id = socketId++;
