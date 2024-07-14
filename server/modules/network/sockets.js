@@ -144,7 +144,6 @@ function incoming(message, socket) {
                 socket.key = key;
             }
             socket.status.verified = true;
-            util.log("Clients: " + clients.length);
             break;
         case "s":
             // spawn request
