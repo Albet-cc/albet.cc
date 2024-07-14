@@ -4,7 +4,7 @@
 class Train {
     constructor () {}
     loop () {
-        let train_able = sockets.players.map(r => r.body).filter(r => r.isPlayer || r.isBot),
+        let train_able = sockets.players.map(r => r.body),
             teams = new Set(train_able.map(r => r.team));
         for (let team of teams) {
             let train = train_able.filter(r => r.team === team).sort((a, b) => b.skill.score - a.skill.score);
