@@ -45,20 +45,20 @@ function close(socket) {
             }
         }
         // Disconnect everything
-        util.log("[INFO] " + (player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity") + " disconnected!");
+        util.log("[INFO] ( ${socket.ip} ) " + (player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity") + " disconnected!");
         util.remove(players, index);
     } else {
-        util.log("[INFO] A player disconnected before entering the game.");
+        util.log("[INFO] ( ${socket.ip} ) A player disconnected before entering the game.");
     }
     // Free the view
     util.remove(views, views.indexOf(socket.view));
     // Remove the socket
     util.remove(clients, clients.indexOf(socket));
-    util.log("[INFO] The connection has closed. Views: " + views.length + ". Clients: " + clients.length + ".");
+    util.log("[INFO] The connection ( ${socket.ip} ) has closed. Views: " + views.length + ". Clients: " + clients.length + ".");
 }
 // Being kicked
 function kick(socket, reason = "No reason given.") {
-    util.warn(reason + " Kicking.");
+    util.warn(`${reason}. Kicking ( ${socket.ip} ).`);
     socket.lastWords("K");
 }
 
@@ -149,12 +149,10 @@ function incoming(message, socket) {
                 socket.key = key;
             }
             socket.status.verified = true;
-            util.log(`[INFO] A socket ( ${socket.ip} ) has been welcomed to the server room. Waiting for spawn request.`);
             util.log("Clients: " + clients.length);
             break;
         case "s":
             // spawn request
-            util.log(`[INFO] A socket ( ${socket.ip} ) is asking for spawn request, checking all securities...`);
             if (!socket.status.deceased) {
                 socket.kick("Trying to spawn while already alive.");
                 return 1;
@@ -196,7 +194,6 @@ function incoming(message, socket) {
                 util.remove(views, views.indexOf(socket.view));
                 socket.makeView();
             }
-            util.log("[INFO] Passed the security, spawning player.");
             socket.party = m[4];
             socket.player = socket.spawn(name);
 
@@ -224,7 +221,7 @@ function incoming(message, socket) {
             // More important stuff
             socket.talk("updateName", socket.player.body.name);
             // Log it
-            util.log(`[INFO] ${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
+            util.log(`[INFO] ( ${socket.ip} ) ${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
             break;
         case "S":
             // clock syncing
@@ -564,7 +561,7 @@ function incoming(message, socket) {
                 return 1;
             }
 
-            util.log(player.body.name + ': ' + original);
+            util.log(`( ${socket.ip} ) ${player.body.name}: ${original}`);
 
             if (Config.SANITIZE_CHAT_MESSAGE_COLORS && !socket.permissions.bypassChatSanitizer) {
                 // I thought it should be "§§" but it only works if you do "§§§§"?
@@ -1479,6 +1476,7 @@ const sockets = {
             }
         };
         socket.kick = (reason) => kick(socket, reason);
+
         //account for proxies
         //very simplified reimplementation of what the forwarded-for npm package does
         let store = req.headers['fastly-client-ip'] || req.headers["cf-connecting-ip"] || req.headers['x-forwarded-for'] || req.headers['z-forwarded-for'] ||
@@ -1507,15 +1505,12 @@ const sockets = {
         }
         ipCount.set(socket.ip, ipCount.get(socket.ip) + 1);
         if (ipCount.get(socket.ip) > Config.connectionsPerIp) {
-            return socket.kick(`Kicking "${socket.ip}": 'connections per ip' limit reached`);
+            return socket.kick("'connections per ip' limit reached");
         }
 
         // Log it
         clients.push(socket);
         util.log("[INFO] New socket opened with ip " + socket.ip);
-
-        // Get information about the new connection and verify it
-        util.log("A client is trying to connect...");
 
         // Set it up
         socket.id = socketId++;
