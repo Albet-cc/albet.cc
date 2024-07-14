@@ -58,7 +58,7 @@ module.exports = {
     baseProtector: { reload: 2.5, recoil: 0.000001, health: 100, range: 0.5, density: 5, resist: 10, speed: 2 },
     battleship: { health: 1.5, damage: 0.3333, maxSpeed: 1.35, resist: 1.1 },
     carrier: { reload: 1.5, damage: 0.4, speed: 1.5, maxSpeed: 1.6, range: 1.2 },
-    bee: { reload: 1.3, size: 1.4, damage: 0.75, pen: 0.5, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
+    bee: { reload: 1.3, size: 1.4, damage: 0.45, pen: 0.35, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
     sunchip: { reload: 4, size: 1.4, health: 0.75, damage: 0.7, pen: 0.75, density: 0.8 },
     maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 1, maxSpeed: 1, density: 1.15 },
     summoner: { reload: 0.3, size: 1.125, health: 0.5, damage: 0.45, pen: 0.35, density: 0.8 },
