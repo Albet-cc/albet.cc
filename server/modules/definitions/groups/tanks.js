@@ -2244,7 +2244,7 @@ Class.ordnance = {
         {
             POSITION: [24, 8, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.hunterSecondary, { damage: 0.9 }]),
                 TYPE: "bullet",
             },
         },
