@@ -1568,14 +1568,28 @@ function drawMessages(spacing, alcoveSize) {
         ctx.globalAlpha = 0.5 * msg.alpha;
         drawBar(x - msg.len / 2, x + msg.len / 2, y + height / 2, height, color.black);
         // Draw the text
-        ctx.globalAlpha = Math.min(1, msg.alpha, msg.status);
+        ctx.globalAlpha = Math.min(1, msg.alpha);
         drawText(text, x, y + height / 2, height - 4, color.guiwhite, "center", true);
         // Iterate and move
-        msg.status += 0.05;
-        msg.alpha = (Date.now() - msg.time) / 5000;
-        y += (vspacing + height) * Math.sqrt(msg.alpha);
+        y += vspacing + height;
+        if (msg.status > 1) {
+            y -= (vspacing + height) * (1 - Math.sqrt(msg.alpha));
+        }
+        if (msg.status > 1) {
+            msg.status -= 0.05;
+            msg.alpha += 0.05;
+        } else if (
+            i === 0 &&
+            (global.messages.length > 5 || Date.now() - msg.time > 0)
+        ) {
+            msg.status -= 0.05;
+            msg.alpha -= 0.05;
+            // Remove
+            if (msg.alpha <= 0) {
+                global.messages.splice(0, 1);
+            }
+        }
     }
-    global.messages = global.messages.filter(msg => msg.alpha < 0);
     ctx.globalAlpha = 1;
 }
 
