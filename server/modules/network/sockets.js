@@ -1493,7 +1493,7 @@ const sockets = {
 
         // Log it
         clients.push(socket);
-        util.log("New socket opened with ip " + socket.ip);
+        util.log(`( ${socket.ip} ) connected`);
 
         // Set it up
         socket.id = socketId++;

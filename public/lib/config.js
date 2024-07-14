@@ -8,8 +8,8 @@ import { util } from "./util.js";
 function createMessage(con, dur = 10_000) {
     global.messages.push({
         text: con,
-        status: 2,
-        alpha: 0,
+        status: 0,
+        alpha: 1,
         time: Date.now() + dur,
     });
 };
