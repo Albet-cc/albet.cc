@@ -102,6 +102,29 @@ wall = new Tile({
         makeHitbox(o);
         walls.push(o);
     }
+}),
+
+wall0 = new Tile({
+    color: "white"
 });
 
-module.exports = { normal, nest, wall, nowall, nestNoBoss };
+module.exports = { normal, nest, wall, wall0, nowall, nestNoBoss };
+
+for (let i = 1; i <= 10; i++) {
+    module.exports['wall' + i] = new Tile({
+        color: "white",
+        init: tile => {
+            let o = new Entity({
+                x: tile.loc.x + (i - 1) * room.tileWidth / 2,
+                y: tile.loc.y + (i - 1) * room.tileHeight / 2,
+            });
+            o.define("wall");
+            o.team = TEAM_ROOM;
+            o.SIZE = i * room.tileWidth / 2 / lazyRealSizes[4] * Math.SQRT2 - 2;
+            o.protect();
+            o.life();
+            makeHitbox(o);
+            walls.push(o);
+        }
+    });
+}
