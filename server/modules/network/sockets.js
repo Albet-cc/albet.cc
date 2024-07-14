@@ -12,12 +12,13 @@ for (let entry of require("../../permissions.js")) {
 
 // Closing the socket
 function close(socket) {
-    // Figure out who the player was
     let player = socket.player,
         index = players.indexOf(player);
-    // Remove it from any group if there was one...
+    util.remove(views, views.indexOf(socket.view));
+    util.remove(clients, clients.indexOf(socket));
+
     if (socket.group) groups.removeMember(socket);
-    // Remove the player if one was created
+
     if (index != -1) {
         // Kill the body if it exists
         if (player.body != null) {
@@ -45,20 +46,15 @@ function close(socket) {
             }
         }
         // Disconnect everything
-        util.log("[INFO] ( ${socket.ip} ) " + (player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity") + " disconnected!");
+        util.log(`( ${socket.ip} ) ${player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity"} disconnected! Views: ${views.length}. Clients: ${clients.length}.`);
         util.remove(players, index);
     } else {
-        util.log("[INFO] ( ${socket.ip} ) A player disconnected before entering the game.");
+        util.log(`( ${socket.ip} ) disconnected before entering the game. Views: ${views.length}. Clients: ${clients.length}.`);
     }
-    // Free the view
-    util.remove(views, views.indexOf(socket.view));
-    // Remove the socket
-    util.remove(clients, clients.indexOf(socket));
-    util.log("[INFO] The connection ( ${socket.ip} ) has closed. Views: " + views.length + ". Clients: " + clients.length + ".");
 }
 // Being kicked
 function kick(socket, reason = "No reason given.") {
-    util.warn(`${reason}. Kicking ( ${socket.ip} ).`);
+    util.warn(`( ${socket.ip} ) kicking: ${reason}`);
     socket.lastWords("K");
 }
 
@@ -136,13 +132,13 @@ function incoming(message, socket) {
                 let key = m[0].toString().trim();
                 socket.permissions = permissionsDict[key];
                 if (socket.permissions) {
-                    util.log(`[INFO] A socket ( ${socket.ip} ) was verified with the token: ${key}`);
+                    util.log(`( ${socket.ip} ) was verified with the token: ${key}`);
 
                     if (socket.permissions.infiniteConnections) {
                         ipCount.set(socket.ip, -Infinity);
                     }
                 } else {
-                    util.log(`[WARNING] A socket ( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    util.log(`( ${socket.ip} ) failed to verify with the token: ${key}`);
                     socket.permissions = {};
                 }
                 socket.key = key;
@@ -220,7 +216,7 @@ function incoming(message, socket) {
             // More important stuff
             socket.talk("updateName", socket.player.body.name);
             // Log it
-            util.log(`[INFO] ( ${socket.ip} ) ${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
+            util.log(`( ${socket.ip} ) ${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
             break;
         case "S":
             // clock syncing
@@ -1497,7 +1493,7 @@ const sockets = {
 
         // Log it
         clients.push(socket);
-        util.log("[INFO] New socket opened with ip " + socket.ip);
+        util.log("New socket opened with ip " + socket.ip);
 
         // Set it up
         socket.id = socketId++;
