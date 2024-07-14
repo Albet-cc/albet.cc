@@ -487,10 +487,11 @@ exports.makeTurret = (type, options = {}) => {
     }
 
     let GUNS = type.GUNS;
-    let extraStats = options.extraStats ?? [g.autoTurret];
+    let extraStats = options.extraStats ?? [];
     if (!Array.isArray(extraStats)) {
         extraStats = [extraStats];
     }
+    extraStats.push(g.autoTurret);
     for (let gun of GUNS) {
         if (!gun.PROPERTIES) continue;
         if (!gun.PROPERTIES.SHOOT_SETTINGS) continue;
