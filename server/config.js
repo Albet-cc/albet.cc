@@ -16,7 +16,7 @@ module.exports = {
     visibleListInterval: 250,
 
     // How long (in ms) a socket can be disconnected without their player dying.
-    maxHeartbeatInterval: 300_000,
+    maxHeartbeatInterval: 900_000,
 
     // Flatten entity definition, which gets rid of PARENT attributes and applies the parents' attributes to the entity definition, if they're not set in the entity already.
     flattenDefintions: false,
@@ -68,7 +68,7 @@ module.exports = {
     MESSAGE_DISPLAY_TIME: 10_000,
 
     // How long you have to wait to respawn in seconds.
-    RESPAWN_TIMEOUT: 0,
+    RESPAWN_TIMEOUT: 3,
     
 
 
