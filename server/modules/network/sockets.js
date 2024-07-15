@@ -46,15 +46,15 @@ function close(socket) {
             }
         }
         // Disconnect everything
-        util.log(`( ${socket.ip} ) ${player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity"} disconnected! Views: ${views.length}. Clients: ${clients.length}.`);
+        socket.log(`${player.body ? `User ${player.body.name == "" ? "A unnamed player" : player.body.name}` : "A user without an entity"} disconnected! Views: ${views.length}. Clients: ${clients.length}.`);
         util.remove(players, index);
     } else {
-        util.log(`( ${socket.ip} ) disconnected before entering the game. Views: ${views.length}. Clients: ${clients.length}.`);
+        socket.log(`disconnected before entering the game. Views: ${views.length}. Clients: ${clients.length}.`);
     }
 }
 // Being kicked
 function kick(socket, reason = "No reason given.") {
-    util.warn(`( ${socket.ip} ) kicking: ${reason}`);
+    socket.log(`kicking: ${reason}`);
     socket.lastWords("K");
 }
 
@@ -132,13 +132,13 @@ function incoming(message, socket) {
                 let key = m[0].toString().trim();
                 socket.permissions = permissionsDict[key];
                 if (socket.permissions) {
-                    util.log(`( ${socket.ip} ) was verified with the token: ${key}`);
+                    socket.log(`was verified with the token: ${key}`);
 
                     if (socket.permissions.infiniteConnections) {
                         ipCount.set(socket.ip, -Infinity);
                     }
                 } else {
-                    util.log(`( ${socket.ip} ) failed to verify with the token: ${key}`);
+                    socket.log(`failed to verify with the token: ${key}`);
                     socket.permissions = {};
                 }
                 socket.key = key;
@@ -215,7 +215,7 @@ function incoming(message, socket) {
             // More important stuff
             socket.talk("updateName", socket.player.body.name);
             // Log it
-            util.log(`( ${socket.ip} ) ${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
+            socket.log(`${name == "" ? "An unnamed player" : m[0]} ${needsRoom ? "joined" : "rejoined"} the game on team ${socket.player.body.team}! Players: ${players.length}`);
             break;
         case "S":
             // clock syncing
@@ -555,7 +555,7 @@ function incoming(message, socket) {
                 return 1;
             }
 
-            util.log(`( ${socket.ip} ) ${player.body.name}: ${original}`);
+            socket.log(`${player.body.name}: ${original}`);
 
             if (Config.SANITIZE_CHAT_MESSAGE_COLORS && !socket.permissions.bypassChatSanitizer) {
                 // I thought it should be "§§" but it only works if you do "§§§§"?
@@ -566,10 +566,13 @@ function incoming(message, socket) {
             Events.emit('chatMessage', { message: original, socket, preventDefault: () => abort = true, setMessage: str => message = str });
 
             // we are not anti-choice here.
-            if (abort) break;
+            if (abort) {
+                socket.log('message prevented');
+                break;
+            }
 
             if (message !== original) {
-                util.log('changed to: ' + message);
+                socket.log('message changed to ' + message);
             }
 
             let id = player.body.id;
@@ -1458,6 +1461,9 @@ const sockets = {
             }
         };
         socket.kick = (reason) => kick(socket, reason);
+        socket.log = text => {
+            util.log(`( ${socket.ip.padEnd(39)} ) ${text}`);
+        };
 
         //account for proxies
         //very simplified reimplementation of what the forwarded-for npm package does
@@ -1492,7 +1498,7 @@ const sockets = {
 
         // Log it
         clients.push(socket);
-        util.log(`( ${socket.ip} ) connected. Clients: ${clients.length}`);
+        socket.log(`connected. Clients: ${clients.length}`);
 
         // Set it up
         socket.id = socketId++;

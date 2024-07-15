@@ -62,7 +62,8 @@ module.exports = {
     // Welcome message once a player spawns.
     WELCOME_MESSAGE: "You have spawned! Welcome to the game.\n"
                     +"You will be invulnerable until you move or shoot.\n"
-                    +"Please report any bugs you encounter!",
+                    +"Please report any bugs you encounter!\n"
+                    +"Don't forget to do /help!",
     
     // How long a popup message lasts before fading out in milliseconds.
     MESSAGE_DISPLAY_TIME: 10_000,
