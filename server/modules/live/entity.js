@@ -1518,7 +1518,7 @@ class Entity extends EventEmitter {
         this.topSpeed = (topSpeedMultiplier * Config.runSpeed * this.SPEED * this.skill.mob) / speedReduce;
         if (this.settings.reloadToAcceleration) this.topSpeed /= Math.sqrt(this.skill.acl);
 
-        this.health.set(((this.settings.healthWithLevel ? funnycurve((this.level / 45) ** Config.LEVEL_EXPONENT_HEALTH, Config.LEVEL_SCALE_HEALTH, Config.LEVEL_BASE_HEALTH, Config.LEVEL_SCALE_START) : 0) + this.HEALTH) * this.skill.hlt * healthMultiplier);
+        this.health.set(((this.settings.healthWithLevel ? funnycurve(this.level ** Config.LEVEL_EXPONENT_HEALTH, Config.LEVEL_SCALE_HEALTH, Config.LEVEL_EXPONENT_HEALTH, Config.LEVEL_BASE_HEALTH, Config.LEVEL_SCALE_START) : 0) + this.HEALTH) * this.skill.hlt * healthMultiplier);
         this.health.resist = 1 - 1 / Math.max(1, this.RESIST + this.skill.brst);
         this.shield.set(((this.settings.healthWithLevel ? funnycurve(this.level, Config.LEVEL_SCALE_SHIELD, Config.LEVEL_EXPONENT_SHIELD, Config.LEVEL_BASE_SHIELD, Config.LEVEL_SCALE_START) : 0) + this.SHIELD) * this.skill.shi, Math.max(0, ((this.settings.healthWithLevel ? funnycurve(this.level, Config.LEVEL_SCALE_REGEN, Config.LEVEL_EXPONENT_REGEN, Config.LEVEL_BASE_REGEN, Config.LEVEL_SCALE_START) : 0) + 1) * this.REGEN * this.skill.rgn * regenMultiplier));
         this.damage = damageMultiplier * this.DAMAGE * this.skill.atk;
