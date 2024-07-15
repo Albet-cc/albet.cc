@@ -151,7 +151,7 @@ module.exports = {
 
     // Natural Spawns
 
-    FOOD_CAP: 1, // Max normal food per normal tile.
+    FOOD_CAP: 3, // Max normal food per normal tile.
     FOOD_SPAWN_CHANCE: 0.15, // Likeliness of normal food spawn attempts succeeding.
     FOOD_SPAWN_COOLDOWN: 400, // Cooldown (in game ticks) of food spawn attempts being made.
 
