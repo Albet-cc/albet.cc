@@ -135,7 +135,7 @@ module.exports = {
     BOT_CLASS_UPGRADE_CHANCES: [ 1, 5, 20, 37, 37],
 
     // The prefix of the bot's name.
-    BOT_NAME_PREFIX: "[AI] ",
+    BOT_NAME_PREFIX: "§#888§[AI] §reset§",
 
     // The class that players and player-bots spawn as.
     SPAWN_CLASS: "basic",
