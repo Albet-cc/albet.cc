@@ -1,5 +1,5 @@
 // you can edit this!
-let teams = 4;
+let teams = 2;
 
 module.exports = {
     MODE: "tdm",
