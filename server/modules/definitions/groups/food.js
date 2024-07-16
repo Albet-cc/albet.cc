@@ -125,7 +125,7 @@ Class.pentagon = {
     BODY: {
         DAMAGE: 10 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 11.25 * basePolygonHealth,
+        HEALTH: 14 * basePolygonHealth,
         RESIST: 30,
         PENETRATION: 1.1,
         PUSHABILITY: 1,
@@ -203,7 +203,7 @@ Class.hexagon = {
     BODY: {
         DAMAGE: 16 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 15 * basePolygonHealth,
+        HEALTH: 20 * basePolygonHealth,
         RESIST: 130,
         SHIELD: 5 * basePolygonHealth,
         PENETRATION: 1.1,
