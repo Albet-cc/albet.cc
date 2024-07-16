@@ -23,7 +23,7 @@ room = [
     [  _ ,WALL,  _ ,WALL,  _ ,WALL,WALL,WALL,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,WALL,WALL,WALL,WALL,WALL,  _ ,WAL2,WAL0,WAL2,WAL0,WALL,  _ ,WAL0,WAL0,WAL2,WAL0],
     [  _ ,WALL,  _ ,WALL,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,WALL,  _ ,WALL,  _ ,WALL,  n ,  _ ,  _ ,WALL,  _ ,WAL0,WAL0,WAL0,WAL0,  _ ,  _ ,  _ ,  _ ,WAL0,WAL0],
     [  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,  n ,WALL],
-    [  _ ,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WAL2,WAL0,WALL,  _ ,WALL,  _ ,  _ ,  n ,WALL,  n ,WAL2,WAL0,  n ,WALL,  _ ,WAL2,WAL0,  n ,WAL2,WAL0],
+    [  _ ,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WAL2,WAL0,WALL,  _ ,WALL,  _ ,  _ ,  n ,WALL,  n ,WAL2,WAL0,  n ,WALL,  _ ,WAL2,WAL0,  g ,WAL2,WAL0],
     [  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WAL0,WAL0,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WAL0,WAL0,WALL,WALL,WALL,WAL0,WAL0,WALL,WAL0,WAL0],
 
 ];
