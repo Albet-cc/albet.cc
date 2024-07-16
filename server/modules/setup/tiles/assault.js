@@ -104,7 +104,7 @@ makeDefenderDominator = (tile, mainTeam, team, deadTeam, aliveDef) => {
             sockets.broadcast(`A ${o.label} has been repaired!`);
         }
 
-        makeDefenderDominator(tile, mainTeam, team === mainTeam ? deadTeam : mainTeam, aliveDef);
+        makeDefenderDominator(tile, mainTeam, team === mainTeam ? deadTeam : mainTeam, deadTeam, aliveDef);
         sockets.broadcastRoom();
     });
 };
