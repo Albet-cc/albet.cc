@@ -34,7 +34,7 @@ spawn = (tile, team, color, type = false) => {
         let newTeam = TEAM_BLUE,
             newColor = getTeamColor(newTeam);
 
-        if (team === TEAM_BLUE) {
+        if (team === TEAM_ENEMIES) {
             let killers = [];
             for (let instance of o.collisionArray) {
                 if (isPlayerTeam(instance.team) && team !== instance.team) {
