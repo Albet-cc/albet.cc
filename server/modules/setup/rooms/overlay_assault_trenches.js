@@ -1,4 +1,4 @@
-let { dominatorGreen, sanctuaryGreen } = require('../tiles/dominators.js'),
+let { dominatorGreen, sanctuaryGreen } = require('../tiles/assault.js'),
     room = Array(Config.roomHeight).fill(() => Array(Config.roomWidth).fill()).map(x => x());
 
 room[Math.floor(Config.roomHeight / 2)][Math.floor(Config.roomWidth / 4)] = 
