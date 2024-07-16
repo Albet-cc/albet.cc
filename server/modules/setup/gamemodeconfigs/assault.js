@@ -1,5 +1,5 @@
 module.exports = {
-	MODE: "assault",
+	MODE: "tdm",
     TEAMS: 2,
 	
 	TEAM_WEIGHTS: {
