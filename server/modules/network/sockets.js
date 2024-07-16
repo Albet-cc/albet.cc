@@ -156,7 +156,7 @@ function incoming(message, socket) {
                 return 1;
             }
             // Get data
-            let name = m[0].replace(Config.BANNED_CHARACTERS_REGEX, "");
+            let name = m[0].replace(Config.BANNED_CHARACTERS_REGEX, "").replace(/§/g, "§§§§");
             let needsRoom = m[1];
             let autoLVLup = m[2];
             // Verify it
