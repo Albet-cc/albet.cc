@@ -21,8 +21,8 @@ room = [
     [  _ ,WALL,  _ ,  _ ,  _ ,WALL,  g ,  g ,  _ ,WALL,  _ ,WALL,  _ ,WALL,  _ ,  _ ,WALL,  _ ,WALL,WALL,  _ ,WALL,WALL,  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ],
     [  _ ,WALL,  _ ,WALL,  _ ,WALL,  _ ,  n ,  n ,WALL,  _ ,WALL,  _ ,WALL,WALL,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,WALL,WALL,  _ ,WALL,WALL,WAL2,WAL0,WALL,  _ ],
     [  _ ,WALL,  _ ,WALL,  _ ,WALL,WALL,WALL,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,WALL,WALL,WALL,WALL,WALL,  _ ,WAL2,WAL0,WAL2,WAL0,WALL,  _ ,WAL0,WAL0,WAL2,WAL0],
-    [  _ ,WALL,  _ ,WALL,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,WALL,  _ ,WALL,  _ ,WALL,  n ,  g ,  g ,WALL,  _ ,WAL0,WAL0,WAL0,WAL0,  _ ,  _ ,  b ,  b ,WAL0,WAL0],
-    [  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  g ,  g ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WALL,  b ,  b ,  n ,WALL],
+    [  _ ,WALL,  _ ,WALL,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,WALL,  _ ,WALL,  _ ,WALL,  n ,  g ,  g ,WALL,  _ ,WAL0,WAL0,WAL0,WAL0,  _ ,  _ ,  g ,  g ,WAL0,WAL0],
+    [  _ ,  _ ,  _ ,  _ ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  g ,  g ,WALL,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WALL,  g ,  g ,  n ,WALL],
     [  _ ,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WAL2,WAL0,WALL,  _ ,WALL,  _ ,  _ ,  n ,WALL,  n ,WAL2,WAL0,  n ,WALL,  _ ,WAL2,WAL0,  n ,WAL2,WAL0],
     [  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,  _ ,WAL0,WAL0,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WAL0,WAL0,WALL,WALL,WALL,WAL0,WAL0,WALL,WAL0,WAL0],
 
