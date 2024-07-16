@@ -1072,7 +1072,7 @@ Class.barricade = {
         {
             POSITION: [4, 8, 1.3, 22, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.4, recoil: 0.5 }]),
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
@@ -1080,7 +1080,7 @@ Class.barricade = {
         {
             POSITION: [4, 8, 1.3, 18, 0, 0, 1/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.4, recoil: 0.5 }]),
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
@@ -1088,7 +1088,7 @@ Class.barricade = {
         {
             POSITION: [4, 8, 1.3, 14, 0, 0, 2/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.4, recoil: 0.5 }]),
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
