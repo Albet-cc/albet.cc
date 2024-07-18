@@ -133,8 +133,7 @@ global.ensureIsClass = str => {
     if (str in Class) {
         return Class[str];
     }
-    console.log('Definitions:');
-    console.log(Class);
+    console.log('Definitions:' + Object.keys(Class));
     throw Error(`Definition ${str} is attempted to be gotten but does not exist!`);
 }
 global.makeHitbox = wall => {
@@ -163,6 +162,11 @@ global.makeHitbox = wall => {
         [relativeCorners[3], relativeCorners[0]]
     ];
     wall.hitboxRadius = distance;
+}
+global.foodSpawnProtection = entity => {
+    entity.alpha *= 0.5;
+    entity.addStatusEffect(new StatusEffect(60, { damage: 0, health: 10000 }));
+    setSyncedTimeout(() => entity.alpha *= 2, 60);
 }
 
 // Now that we've set up the global variables, we import all the modules, then put them into global varialbles and then export something just so this file is run.
