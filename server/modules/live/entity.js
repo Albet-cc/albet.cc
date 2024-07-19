@@ -862,8 +862,7 @@ class Entity extends EventEmitter {
         let lastingEffects = [], needsBodyAttribRefresh = false;
         for (let i = 0; i < this.statusEffects.length; i++) {
             let entry = this.statusEffects[i];
-            entry.durationLeftover -= 1 / Config.runSpeed;
-            if (entry.durationLeftover > 0) {
+            if (--entry.durationLeftover > 0) {
                 lastingEffects.push(entry);
             } else {
                 needsBodyAttribRefresh = true;
