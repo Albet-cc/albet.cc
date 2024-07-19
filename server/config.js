@@ -244,6 +244,10 @@ module.exports = {
         bosses: ["kronos", "odin", "legionaryCrasher"],
         amount: [1], chance: 0.2,
         message: "Something powerful lurks in the distance, giving you the sense to leave the middle of the map.",
+    },{
+        bosses: ["bob"],
+        amount: [15], chance: 0.03,
+        message: "Being in the middle of the map, would not be a smart idea.",
     }],
 
 
@@ -282,7 +286,7 @@ module.exports = {
 
     LEVEL_BASE_DENSITY: 1,
     LEVEL_SCALE_DENSITY: 0.08,
-    LEVEL_EXPONENT_DENSITY: 2,
+    LEVEL_EXPONENT_DENSITY: 10,
 
     LEVEL_BASE_SIZE: 1,
     LEVEL_SCALE_SIZE: 1 / 45,
