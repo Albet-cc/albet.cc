@@ -165,9 +165,11 @@ global.makeHitbox = wall => {
 }
 global.foodSpawnProtection = entity => {
     entity.alpha *= 0.5;
+    entity.noclip = true;
     entity.skipLife = true;
     setSyncedTimeout(() => {
         entity.alpha *= 2;
+        entity.noclip = false;
         entity.skipLife = false;
     }, 60);
 }

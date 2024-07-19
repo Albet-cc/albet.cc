@@ -30,6 +30,9 @@ function collide(collision) {
     // Pull the two objects from the collision grid
     let instance = collision[0],
         other = collision[1];
+    if (instance.noclip || other.noclip) {
+        return 0;
+    }
     instance.emit('collide', { body: instance, instance, other });
     other.emit('collide', { body: other, instance: other, other: instance });
     // Check for ghosts...
