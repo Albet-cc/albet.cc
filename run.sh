@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 while true
 do
-	node server/index --trace-warnings
+	node --trace-warnings server/index
 	sleep 5
 done
