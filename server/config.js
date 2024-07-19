@@ -158,17 +158,17 @@ module.exports = {
 
     FOOD_CAP_NEST: 1, // Max nest food per nest tile.
     FOOD_SPAWN_CHANCE_NEST: 0.45, // Likeliness of nest food spawn attempts succeeding.
-    FOOD_SPAWN_COOLDOWN_NEST: 50, // Cooldown (in game ticks) of nest food spawn attempts being made.
+    FOOD_SPAWN_COOLDOWN_NEST: 40, // Cooldown (in game ticks) of nest food spawn attempts being made.
 
     ENEMY_CAP_NEST: 2, // Max nest enemies per nest tile.
     ENEMY_SPAWN_CHANCE_NEST: 0.9, // Likeliness of nest enemies spawn attempts succeeding.
     ENEMY_SPAWN_COOLDOWN_NEST: 60, // Cooldown (in game ticks) of nest enemies spawn attempts being made.
 
     // Cooldown (in seconds) of boss spawns being announced.
-    BOSS_SPAWN_COOLDOWN: 240,
+    BOSS_SPAWN_COOLDOWN: 180,
     // The delay (in seconds) between the boss spawns being announced and the bosses actually spawning.
     // NOTE: The spawn message (ex. "A strange trembling...") takes half as long to appear than the boss.
-    BOSS_SPAWN_DURATION: 5,
+    BOSS_SPAWN_DURATION: 30,
 
     // The possible food types that can spawn.
     FOOD_TYPES: [
@@ -214,24 +214,36 @@ module.exports = {
 
     // The possible boss types that can spawn.
     BOSS_TYPES: [{
-        bosses: ["eliteDestroyer", "eliteGunner", "eliteSprayer", "eliteBattleship", "eliteSpawner"],
-        amount: [5, 5, 4, 2, 1], chance: 2, nameType: "a",
+        bosses: ["eliteDestroyer", "eliteGunner", "eliteSprayer", "eliteBattleship", "eliteSpawner", "eliteSkimmer"],
+        amount: [7, 6, 6, 5, 4, 3], chance: 1.5, nameType: "a",
     },{
         bosses: ["roguePalisade", "rogueArmada"],
-        amount: [4, 1], chance: 1, nameType: "castle",
+        amount: [4, 3], chance: 0.9, nameType: "castle",
+        message: "An unusual smell in the air.",
+    },{
+        bosses: ["sorcerer", "summoner", "enchantress", "exorcistor", "shaman"],
+        amount: [5, 4, 3, 2, 2], chance: 1.2, nameType: "a",
+        message: "The shapes seem.. odd.",
+    },{
+        bosses: ["nestGuardian", "nestWarden", "nestKeeper"],
+        amount: [3, 3, 2], chance: 1, nameType: "a",
         message: "A strange trembling...",
     },{
-        bosses: ["summoner", "eliteSkimmer", "nestKeeper"],
-        amount: [2, 2, 1], chance: 1, nameType: "a",
-        message: "A strange trembling...",
+        bosses: ["ares", "gersemi", "ezekiel", "eris", "selene"],
+        amount: [2, 2, 2, 2, 2], chance: 0.85,
+        message: "The world crumbles as the terrestrials are reborn anew!",
     },{
         bosses: ["paladin", "freyja", "zaphkiel", "nyx", "theia"],
-        amount: [2], chance: 0.3,
+        amount: [2], chance: 0.65,
         message: "The world tremors as the celestials are reborn anew!",
     },{
         bosses: ["julius", "genghis", "napoleon"],
-        amount: [2], chance: 0.3,
+        amount: [2], chance: 0.65,
         message: "The darkness arrives as the realms are torn apart!",
+    },{
+        bosses: ["kronos", "odin", "legionaryCrasher"],
+        amount: [1], chance: 0.2,
+        message: "Something powerful lurks in the distance, giving you the sense to leave the middle of the map.",
     }],
 
 

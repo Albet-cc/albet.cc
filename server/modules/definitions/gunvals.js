@@ -61,7 +61,7 @@ module.exports = {
     bee: { reload: 1.3, size: 1.4, damage: 0.45, pen: 0.35, speed: 1.5, maxSpeed: 1.5, density: 0.25 },
     sunchip: { reload: 4, size: 1.4, health: 0.75, damage: 0.7, pen: 0.75, density: 0.8 },
     maleficitor: { reload: 0.25, size: 1.05, health: 1.15, damage: 1.15, pen: 1.15, speed: 1, maxSpeed: 1, density: 1.15 },
-    summoner: { reload: 0.3, size: 1.125, health: 0.5, damage: 0.45, pen: 0.35, density: 0.8 },
+    summoner: { reload: 0.3, size: 1.125, health: 0.8, damage: 0.85, pen: 0.75, density: 0.8 },
     minionGun: { recoil: 0, shudder: 2, health: 0.4, damage: 0.4, pen: 1.2, range: 0.75, spray: 2 },
     babyfactory: { reload: 1.5, maxSpeed: 1.5 },
     bigCheese: { reload: 1.55, size: 1.8, health: 2.4, speed: 1.35, damage: 1.22 },
