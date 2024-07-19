@@ -165,8 +165,11 @@ global.makeHitbox = wall => {
 }
 global.foodSpawnProtection = entity => {
     entity.alpha *= 0.5;
-    entity.addStatusEffect(new StatusEffect(60, { damage: 0.01, health: 10000 }));
-    setSyncedTimeout(() => entity.alpha *= 2, 60);
+    entity.skipLife = true;
+    setSyncedTimeout(() => {
+        entity.alpha *= 2;
+        entity.skipLife = false;
+    }, 60);
 }
 
 // Now that we've set up the global variables, we import all the modules, then put them into global varialbles and then export something just so this file is run.
