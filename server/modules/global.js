@@ -165,7 +165,7 @@ global.makeHitbox = wall => {
 }
 global.foodSpawnProtection = entity => {
     entity.alpha *= 0.5;
-    entity.addStatusEffect(new StatusEffect(60, { damage: 0, health: 10000 }));
+    entity.addStatusEffect(new StatusEffect(60, { damage: 0.01, health: 10000 }));
     setSyncedTimeout(() => entity.alpha *= 2, 60);
 }
 
