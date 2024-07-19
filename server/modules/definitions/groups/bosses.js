@@ -862,13 +862,13 @@ Class.rogueArmada = {
         {
             POSITION: [8, 2, 1, 0, -2, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6}]),
                 TYPE: "casing"
             }
         }, {
             POSITION: [8, 2, 1, 0, -1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6}]),
                 TYPE: "casing"
             }
         }, {
@@ -904,7 +904,7 @@ Class.rogueArmada = {
         }, {
             POSITION: [8, 4, 1, 0, 1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6}]),
                 TYPE: "casing"
             }
         }, {
