@@ -171,7 +171,7 @@ global.foodSpawnProtection = entity => {
         entity.alpha *= 2;
         entity.noclip = false;
         entity.skipLife = false;
-    }, 60);
+    }, 150);
 }
 
 // Now that we've set up the global variables, we import all the modules, then put them into global varialbles and then export something just so this file is run.

@@ -1578,10 +1578,7 @@ function drawMessages(spacing, alcoveSize) {
         if (msg.status > 1) {
             msg.status -= 0.05;
             msg.alpha += 0.05;
-        } else if (
-            i === 0 &&
-            (global.messages.length > 5 || Date.now() - msg.time > 0)
-        ) {
+        } else if (Date.now() - msg.time > 0) {
             msg.status -= 0.05;
             msg.alpha -= 0.05;
             // Remove
