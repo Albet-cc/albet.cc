@@ -3,10 +3,10 @@ module.exports = {
 
     // Game server domain.
     // If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    host: "dakarr.cc",
+    //host: "dakarr.cc",
 
     // Which port to run the web server on.
-    port: 80,
+    //port: 80,
 
     // How many connections are allowed per IP address.
     connectionsPerIp: 1,

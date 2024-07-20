@@ -115,6 +115,7 @@ global.Config = new Proxy(new EventEmitter(), {
         }
     }
 });
+global.Config.host = process.env.HOST;
 global.Config.port = process.env.PORT;
 
 for (let [key, value] of Object.entries(require('./setup/config.js'))) {
