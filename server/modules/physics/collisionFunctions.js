@@ -233,10 +233,10 @@ function advancedcollide(my, n, doDamage, doInelastic, nIsFirmCollide = false) {
             // n.damageReceived += damage._me * deathFactor._me;
             const __my = damage._n * deathFactor._n;
             const __n = damage._me * deathFactor._me;
-            if (n.invuln) my.damageReceived += __my * Number(__my > 0
+            if (!n.invuln) my.damageReceived += __my * Number(__my > 0
                 ? my.team != n.team
                 : n.healer && n.team == my.team && my.type == "tank" && n.master.id != my.id);
-            if (my.invuln) n.damageReceived += __n * Number(__n > 0
+            if (!my.invuln) n.damageReceived += __n * Number(__n > 0
                 ? my.team != n.team
                 : my.healer && n.team == my.team && n.type == "tank" && my.master.id != n.id);
         }
