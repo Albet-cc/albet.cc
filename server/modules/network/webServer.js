@@ -28,6 +28,14 @@ if (Config.host.match(/localhost:(\d)/) && Config.host !== 'localhost:' + Config
 }
 
 server = require('http').createServer((req, res) => {
+
+    //Enable CORS.
+    res.setHeader('Access-Control-Allow-Origin', 'https://us.dakarr.cc');
+    if (req.method === 'OPTIONS') {
+        res.writeHead(200);
+        return res.end();
+    }
+
     let resStr = "";
     if (req.url.startsWith('/shared/')) {
         let fileToGet = path.join(sharedRoot, req.url.slice(7));
