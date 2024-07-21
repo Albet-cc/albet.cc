@@ -29,11 +29,13 @@ if (Config.host.match(/localhost:(\d)/) && Config.host !== 'localhost:' + Config
 
 server = require('http').createServer((req, res) => {
 
-    //Enable CORS.
-    res.setHeader('Access-Control-Allow-Origin', 'https://us.dakarr.cc');
-    if (req.method === 'OPTIONS') {
-        res.writeHead(200);
-        return res.end();
+    //Enable CORS for *.dakarr.cc domains.
+    if (['us.dakarr.cc', 'eu.dakarr.cc', 'dakarr.cc'].includes(req.host)) {
+        res.setHeader('Access-Control-Allow-Origin', 'https://us.dakarr.cc');
+        if (req.method === 'OPTIONS') {
+            res.writeHead(200);
+            return res.end();
+        }
     }
 
     let resStr = "";
