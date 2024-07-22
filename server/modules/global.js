@@ -179,7 +179,7 @@ global.foodSpawnProtection = entity => {
         entity.skill.points += this.levelPoints;
         entity.skill.update();
     }
-    entity.skill.refreshBodyAttributes();
+    entity.refreshBodyAttributes();
     setSyncedTimeout(() => {
         entity.alpha *= 2;
         entity.noclip = false;
