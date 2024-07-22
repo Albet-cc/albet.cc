@@ -1171,7 +1171,7 @@ class Entity extends EventEmitter {
                 this.skill.score += this.skill.levelScore;
                 this.skill.maintain();
             }
-            this.refreshBodyAttributes();
+            entity.refreshBodyAttributes();
         }
         if (set.SKILL_CAP != null && set.SKILL_CAP != []) {
             if (set.SKILL_CAP.length != 10) throw "Inappropiate skill cap amount.";
