@@ -171,6 +171,14 @@ function collide(collision) {
                 case "hardWithBuffer":
                     firmcollide(instance, other, 30);
                     break;
+                case "pushOnlyTanks":
+                    if (
+                        instance.type === "tank" &&
+                        other.type === "tank" &&
+                        !instance.isDominator &&
+                        !other.isDominator
+                    )
+                        advancedcollide(instance, other, false, false);
                 case "hardOnlyTanks":
                     if (
                         instance.type === "tank" &&

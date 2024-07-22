@@ -171,10 +171,19 @@ global.makeHitbox = wall => {
 global.foodSpawnProtection = entity => {
     entity.alpha *= 0.5;
     entity.noclip = true;
+    entity.layerID = 99;
     entity.skipLife = true;
+    while (entity.skill.score - entity.skill.deduction >= entity.skill.levelScore) {
+        entity.skill.deduction += this.levelScore;
+        entity.skill.level += 1;
+        entity.skill.points += this.levelPoints;
+        entity.skill.update();
+    }
+    entity.skill.refreshBodyAttributes();
     setSyncedTimeout(() => {
         entity.alpha *= 2;
         entity.noclip = false;
+        entity.layerID = undefined;
         entity.skipLife = false;
     }, 150);
 }
