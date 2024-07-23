@@ -1462,7 +1462,7 @@ const sockets = {
         };
         socket.kick = (reason) => kick(socket, reason);
         socket.log = text => {
-            util.log(`( ${socket.ip.padEnd(39)} ) ${text}`);
+            util.log(`( ${socket.ip} ) ${text}`);
         };
 
         //account for proxies
