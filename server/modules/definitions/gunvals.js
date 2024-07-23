@@ -8,7 +8,7 @@ module.exports = {
     productionist: { reload: 56, recoil: 0.25, shudder: 0.05, size: 0.7, damage: 0.75, speed: 4, range: 1.5, spray: 5 },
     
 // Spammers
-    desmos: { shudder: 0, spray: 0, size: 0.8, speed: 0.001 },
+    desmos: { shudder: 0, spray: 0, speed: 0.001 },
     single: { reload: 1.05, speed: 1.05 },
     twin: { recoil: 0.2, shudder: 0.9, health: 0.9, damage: 0.7, spray: 1.2 },
     doubleTwin: { damage: 0.9 },
@@ -16,7 +16,7 @@ module.exports = {
     tripleShot: { reload: 1.1, shudder: 0.8, health: 0.85, pen: 0.75, density: 0.8, spray: 0.2 },
     spreadshotMain: { reload: 1, recoil: 0.25, shudder: 0.5, health: 0.5, speed: 1.923, maxSpeed: 2.436 },
     spreadshot: { reload: 1.2, shudder: 0.25, speed: 0.7, maxSpeed: 0.7, spray: 0.25 },
-    triplet: { reload: 1.2, recoil: 0.667, shudder: 0.9, health: 0.85, damage: 0.95, pen: 0.9, density: 1.1, spray: 0.9, resist: 0.95 },
+    triplet: { reload: 1.2, recoil: 2/3, shudder: 0.9, health: 0.85, damage: 0.95, pen: 0.9, density: 1.1, spray: 0.9, resist: 0.95 },
     turret: { reload: 2, health: 0.8, damage: 0.6, pen: 0.7, density: 0.1, speed: 0.6 },
     autoTurret: { reload: 0.9, recoil: 0.75, shudder: 0.5, size: 0.8, health: 0.9, damage: 0.6, pen: 1.2, speed: 1.1, range: 0.8, density: 1.3, resist: 1.25 },
     
