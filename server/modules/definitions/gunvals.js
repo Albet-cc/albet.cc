@@ -8,7 +8,7 @@ module.exports = {
     productionist: { reload: 56, recoil: 0.25, shudder: 0.05, size: 0.7, damage: 0.75, speed: 4, range: 1.5, spray: 5 },
     
 // Spammers
-    desmos: { shudder: 0, spray: 0, speed: 0.001 },
+    desmos: { shudder: 0, spray: 0, size: 0.8, speed: 0.001 },
     single: { reload: 1.05, speed: 1.05 },
     twin: { recoil: 0.2, shudder: 0.9, health: 0.9, damage: 0.7, spray: 1.2 },
     doubleTwin: { damage: 0.9 },
