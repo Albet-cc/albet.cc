@@ -7,23 +7,20 @@ const settings = {
         deathBlurAmount: 3,
         darkBorders: false,
         fancyAnimations: true,
-        lowResolution: false,
         colors: 'normal',
         pointy: true,
-        showGrid: true,
         fontSizeBoost: 1.4,
         fontStrokeRatio: 4.5,
         neon: false,
         coloredHealthbars: false,
-        seperatedHealthbars: false,
-        showHealthText: false,
+        seperatedHealthbars: false
     },
     lag: {
         unresponsive: false,
         memory: 500
     },
     game: {
-        autoLevelUp: false
+        autoLevelUp: true
     }
 };
 export { settings }
