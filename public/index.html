@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -16,6 +17,7 @@
     <meta name="msapplication-TileColor" content="#8abc3f">
     <meta name="theme-color" content="#8abc3f">
 </head>
+
 <body oncontextmenu="return false" id="mainBody">
     <div id="gameAreaWrapper">
         <canvas id="gameCanvas" tabindex="1"></canvas>
@@ -352,11 +354,11 @@
     <script type="module" src="./lib/socketInit.js"></script>
     <script type="module" src="./app.2.js"></script>
     <script>
-        $("#optColors").change( function () {
+        $("#optColors").change(function () {
             if ($(this).val() == "custom") document.getElementById("optCustom").type = "text";
             else document.getElementById("optCustom").type = "hidden";
         });
-        $("#startMenuSlidingTrigger").on('click', function() {
+        $("#startMenuSlidingTrigger").on('click', function () {
             if ($("#optColors").val() == "custom") document.getElementById("optCustom").type = "text";
         });
         if (navigator.serviceWorker) navigator.serviceWorker.register('/service-worker.js', { scope: '/' }).then(registration => console.log('Service Worker Registered'));
