@@ -6,7 +6,6 @@ let pickFromChanceSet = set => {
 },
 
 spawnNatural = (tile, layeredSet, kind) => {
-    if (!Config.ENABLE_FOOD) return;
     let o = new Entity(tile.randomInside());
     o.define(pickFromChanceSet(layeredSet));
     o.facing = ran.randomAngle();

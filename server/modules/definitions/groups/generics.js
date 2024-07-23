@@ -318,10 +318,6 @@ Class.satellite = {
     BUFF_VS_FOOD: true,
     MOTION_TYPE: 'motor'
 }
-Class.squareSatellite = {
-    PARENT: "satellite",
-    SHAPE: 4
-}
 
 Class.auraBase = {
     TYPE: "aura",
@@ -350,7 +346,7 @@ Class.aura = {
     LABEL: "Aura",
     COLOR: "teal",
     BODY: {
-        DAMAGE: 0.4,
+        DAMAGE: 0.15,
     },
 };
 Class.healAura = {
@@ -359,7 +355,7 @@ Class.healAura = {
     HEALER: true,
     COLOR: "red",
     BODY: {
-        DAMAGE: 0.4 / 3,
+        DAMAGE: 0.05,
     },
 };
 Class.auraSymbol = {

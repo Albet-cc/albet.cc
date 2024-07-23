@@ -516,7 +516,6 @@ function incoming(message, socket) {
                 body.kill();
                 if (!player.body.dontIncreaseFov) player.body.FOV += 0.5;
                 player.body.dontIncreaseFov = true;
-                player.body.skill.points = 0;
                 player.body.refreshBodyAttributes();
                 player.body.name = body.name;
                 player.body.sendMessage("You are now controlling the mothership.");
@@ -538,7 +537,6 @@ function incoming(message, socket) {
                 body.kill();
                 if (!player.body.dontIncreaseFov) player.body.FOV += 0.5;
                 player.body.dontIncreaseFov = true;
-                player.body.skill.points = 0;
                 player.body.refreshBodyAttributes();
                 player.body.name = body.name;
                 player.body.sendMessage("You are now controlling the dominator.");
@@ -786,7 +784,6 @@ function update(gui) {
     // Update other
     gui.root.update(b.rerootUpgradeTree);
     gui.class.update(b.label);
-    gui.showhealthtext.update(Config.SHOW_HEALTHBAR_TEXT ? 1 : 0);
 }
 
 function publish(gui) {
@@ -803,7 +800,6 @@ function publish(gui) {
         top: gui.topspeed.publish(),
         root: gui.root.publish(),
         class: gui.class.publish(),
-        showhealthtext: gui.showhealthtext.publish(),
     };
     // Encode which we'll be updating and capture those values only
     let oo = [0];
@@ -853,10 +849,6 @@ function publish(gui) {
         oo[0] += 0x0400;
         oo.push(o.class);
     }
-    if (o.showhealthtext != null) {
-        oo[0] += 0x0800;
-        oo.push(o.showhealthtext);
-    }
     // Output it
     return oo;
 }
@@ -879,7 +871,6 @@ let newgui = (player) => {
         bodyid: -1,
         root: floppy(),
         class: floppy(),
-        showhealthtext: floppy(),
     };
     // This is the gui itself
     return {
@@ -1054,15 +1045,13 @@ function flatten(data) {
             /* 15 */ data.drawFill,
             /* 16 */ data.invuln,
             /* 17 */ Math.ceil(65535 * data.health),
-            /* 18 */ data.healthN,
-            /* 19 */ data.maxHealthN,
-            /* 19 */ Math.round(65535 * data.shield),
-            /* 20 */ Math.round(255 * data.alpha),
+            /* 18 */ Math.round(65535 * data.shield),
+            /* 19 */ Math.round(255 * data.alpha),
         );
         if (data.type & 0x04) {
             output.push(
-                /* 21 */ data.name,
-                /* 22 */ data.score
+                /* 20 */ data.name,
+                /* 21 */ data.score
             );
         }
     }

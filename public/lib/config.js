@@ -13,10 +13,7 @@ function createMessage(con, dur = 10_000) {
         time: Date.now() + dur,
     });
 };
-function resetTarget() {
-    global.player.target.x = 0;
-    global.player.target.y = 0;
-}
+
 // globals.
 
 global.tips = [[ // You can edit this!
@@ -35,4 +32,3 @@ global.tips = [[ // You can edit this!
     ]
 ];
 global.createMessage = (content, duration) => createMessage(content, duration);
-global.resetTarget = () => resetTarget();
