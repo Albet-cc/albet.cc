@@ -28,7 +28,6 @@ if (Config.host.match(/localhost:(\d)/) && Config.host !== 'localhost:' + Config
 }
 
 server = require('http').createServer((req, res) => {
-
     //Enable CORS for *.dakarr.cc domains.
     let origin = req.headers.origin ?? req.headers.host;
     if (['us.dakarr.cc', 'eu.dakarr.cc', 'dakarr.cc'].includes(origin)) {
