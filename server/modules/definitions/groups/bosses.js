@@ -155,7 +155,7 @@ Class.eliteSpawner = {
         }, {
             POSITION: [2, 18, 1, 11, 0, 60, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.drone, {reload: 2, size: 0.5, speed: 0.6, maxSpeed: 0.6, heath: 1.35}]),
+                SHOOT_SETTINGS: combineStats([g.drone, {size: 0.5, speed: 0.5, maxSpeed: 0.5, heath: 1.35}]),
                 TYPE: "sentrySwarmMinion",
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
@@ -164,7 +164,7 @@ Class.eliteSpawner = {
         }, {
             POSITION: [2, 18, 1, 11, 0, 180, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.drone, {reload: 2, size: 0.5, speed: 0.6, maxSpeed: 0.6, heath: 1.35}]),
+                SHOOT_SETTINGS: combineStats([g.drone, {size: 0.5, speed: 0.5, maxSpeed: 0.5, heath: 1.35}]),
                 TYPE: "sentryTrapMinion",
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
@@ -173,7 +173,7 @@ Class.eliteSpawner = {
         }, {
             POSITION: [2, 18, 1, 11, 0, 300, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.drone, {reload: 2, size: 0.5, speed: 0.6, maxSpeed: 0.6, heath: 1.35}]),
+                SHOOT_SETTINGS: combineStats([g.drone, {size: 0.5, speed: 0.5, maxSpeed: 0.5, heath: 1.35}]),
                 TYPE: "sentryGunMinion",
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
@@ -705,7 +705,7 @@ Class.nestKeeper = {
     BODY: {
         FOV: 1.3,
         SPEED: base.SPEED * 0.25,
-        HEALTH: base.HEALTH * 9,
+        HEALTH: base.HEALTH * 12,
         SHIELD: base.SHIELD * 1.5,
         REGEN: base.REGEN,
         DAMAGE: base.DAMAGE * 2.5,
@@ -743,7 +743,7 @@ Class.nestWarden = {
     BODY: {
         FOV: 1.3,
         SPEED: base.SPEED * 0.25,
-        HEALTH: base.HEALTH * 9,
+        HEALTH: base.HEALTH * 12,
         SHIELD: base.SHIELD * 1.5,
         REGEN: base.REGEN,
         DAMAGE: base.DAMAGE * 2.5,
@@ -782,7 +782,7 @@ Class.nestGuardian = {
     BODY: {
         FOV: 1.3,
         SPEED: base.SPEED * 0.25,
-        HEALTH: base.HEALTH * 9,
+        HEALTH: base.HEALTH * 12,
         SHIELD: base.SHIELD * 1.5,
         REGEN: base.REGEN,
         DAMAGE: base.DAMAGE * 2.5,
@@ -821,14 +821,14 @@ Class.roguePalisade = {
     BODY: {
         FOV: 1.4,
         SPEED: 0.05 * base.SPEED,
-        HEALTH: 16 * base.HEALTH,
+        HEALTH: 20 * base.HEALTH,
         SHIELD: 3 * base.SHIELD,
         DAMAGE: 3 * base.DAMAGE,
     },
     GUNS: weaponArray({
         POSITION: [4, 6, -1.6, 8, 0, 0, 0], 
         PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([ g.factory, g.pounder, { reload: 2 }]),
+            SHOOT_SETTINGS: combineStats([ g.factory, g.pounder, { reload: 2, damage: 0.65, penetration: 0.5, health: 0.6 }]),
             TYPE: ["minion", {INDEPENDENT: true}],
             STAT_CALCULATOR: "drone",
             AUTOFIRE: true,
@@ -853,7 +853,7 @@ Class.rogueArmada = {
     BODY: {
         FOV: 1.3,
         SPEED: base.SPEED * 0.1,
-        HEALTH: base.HEALTH * 16,
+        HEALTH: base.HEALTH * 20,
         SHIELD: base.SHIELD * 3,
         REGEN: base.REGEN,
         DAMAGE: base.DAMAGE * 3,
@@ -862,13 +862,13 @@ Class.rogueArmada = {
         {
             POSITION: [8, 2, 1, 0, -2, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
                 TYPE: "casing"
             }
         }, {
             POSITION: [8, 2, 1, 0, -1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
                 TYPE: "casing"
             }
         }, {
@@ -904,7 +904,7 @@ Class.rogueArmada = {
         }, {
             POSITION: [8, 4, 1, 0, 1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
                 TYPE: "casing"
             }
         }, {
@@ -932,11 +932,11 @@ Class.bob = {
     UPGRADE_COLOR: "aqua",
     SIZE: 18,
     BODY: {
-        FOV: 2,
-        SPEED: 2 * base.SPEED,
-        HEALTH: 5 * base.HEALTH,
-        DAMAGE: 5 * base.DAMAGE,
-        REGEN: 8 * base.REGEN,
+        FOV: 6,
+        SPEED: 1.5 * base.SPEED,
+        HEALTH: 30 * base.HEALTH,
+        DAMAGE: 25 * base.DAMAGE,
+        REGEN: 4 * base.REGEN,
         FOV: 0.5 * base.FOV,
         DENSITY: 6 * base.DENSITY,
     },
