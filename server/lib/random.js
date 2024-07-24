@@ -35,12 +35,12 @@ exports.gauss = (mean=0, stdev=1) => {
 }
 
 exports.gaussInverse = (min, max, clustering) => {
-    let range = max - min
+    let range = Math.abs(max - min)
     let output = exports.gauss(0, range / clustering)
 
     while (output < 0) output += range;
     while (output > range) output -= range;
-    return output + min
+    return output + Math.min(min, max);
 }
 
 exports.gaussRing = (radius, clustering) => {
