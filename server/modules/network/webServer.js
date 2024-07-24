@@ -1,7 +1,6 @@
 let fs = require('fs'),
     path = require('path'),
     publicRoot = path.join(__dirname, "../../../public"),
-    sharedRoot = path.join(__dirname, "../../../shared"),
     mimeSet = {
         "js": "application/javascript",
         "json": "application/json",
@@ -39,20 +38,7 @@ server = require('http').createServer((req, res) => {
     }
 
     let resStr = "";
-    if (req.url.startsWith('/shared/')) {
-        let fileToGet = path.join(sharedRoot, req.url.slice(7));
-
-        //if this file does not exist, return the default;
-        if (!fs.existsSync(fileToGet)) {
-            fileToGet = path.join(sharedRoot, Config.DEFAULT_FILE);
-        } else if (!fs.lstatSync(fileToGet).isFile()) {
-            fileToGet = path.join(sharedRoot, Config.DEFAULT_FILE);
-        }
-
-        //return the file
-        res.writeHead(200, { 'Content-Type': mimeSet[ fileToGet.split('.').pop() ] || 'text/html' });
-        return fs.createReadStream(fileToGet).pipe(res);
-    } else switch (req.url) {
+    switch (req.url) {
         case "/lib/json/mockups.json":
             resStr = mockupJsonData;
             break;
