@@ -487,10 +487,11 @@ exports.makeTurret = (type, options = {}) => {
     }
 
     let GUNS = type.GUNS;
-    let extraStats = options.extraStats ?? [g.autoTurret];
+    let extraStats = options.extraStats ?? [];
     if (!Array.isArray(extraStats)) {
         extraStats = [extraStats];
     }
+    extraStats.push(g.autoTurret);
     for (let gun of GUNS) {
         if (!gun.PROPERTIES) continue;
         if (!gun.PROPERTIES.SHOOT_SETTINGS) continue;
@@ -756,7 +757,7 @@ exports.makeCrasher = type => ({
         SPEED: 1 + 5 / Math.max(2, (type.PROPS.length ?? 0) + type.SHAPE),
         HEALTH: Math.pow(type.BODY.HEALTH, 2/3),
         DAMAGE: Math.pow(type.BODY.HEALTH, 1/3) * type.BODY.DAMAGE,
-        ACCELERATION: 5,
+        ACCELERATION: 1,
         PUSHABILITY: 0.5,
         DENSITY: 10
     },

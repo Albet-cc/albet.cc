@@ -75,7 +75,7 @@ Class.square = {
     SIZE: 14,
     COLOR: "gold",
     BODY: {
-        DAMAGE: basePolygonDamage,
+        DAMAGE: 3 * basePolygonDamage,
         DENSITY: 4,
         HEALTH: basePolygonHealth,
         PENETRATION: 2,
@@ -99,7 +99,7 @@ Class.triangle = {
     SIZE: 10,
     COLOR: "orange",
     BODY: {
-        DAMAGE: basePolygonDamage,
+        DAMAGE: 5 * basePolygonDamage,
         DENSITY: 6,
         HEALTH: 3 * basePolygonHealth,
         RESIST: 1.15,
@@ -118,17 +118,19 @@ Class.transTriangle = makeRare("triangle", 4);
 Class.pentagon = {
     PARENT: "food",
     LABEL: "Pentagon",
-    VALUE: 400,
+    VALUE: 750,
     SHAPE: 5,
     SIZE: 21,
     COLOR: "purple",
     BODY: {
-        DAMAGE: 1.5 * basePolygonDamage,
+        DAMAGE: 10 * basePolygonDamage,
         DENSITY: 8,
-        HEALTH: 10 * basePolygonHealth,
-        RESIST: 1.25,
+        HEALTH: 14 * basePolygonHealth,
+        RESIST: 30,
         PENETRATION: 1.1,
+        PUSHABILITY: 1,
         ACCELERATION: 0.0035
+
     },
     DRAW_HEALTH: true,
 };
@@ -194,18 +196,20 @@ Class.transAlphaPentagon = makeRare("alphaPentagon", 4);
 Class.hexagon = {
     PARENT: "food",
     LABEL: "Hexagon",
-    VALUE: 500,
+    VALUE: 3750,
     SHAPE: 6,
     SIZE: 25,
     COLOR: "hexagon",
     BODY: {
-        DAMAGE: 3 * basePolygonDamage,
+        DAMAGE: 16 * basePolygonDamage,
         DENSITY: 8,
         HEALTH: 20 * basePolygonHealth,
-        RESIST: 1.3,
-        SHIELD: 50 * basePolygonHealth,
+        RESIST: 130,
+        SHIELD: 5 * basePolygonHealth,
         PENETRATION: 1.1,
+        PUSHABILITY: 0.5,
         ACCELERATION: 0.003
+
     },
     DRAW_HEALTH: true,
 };
