@@ -259,7 +259,7 @@ div.optionsHeader {
     position: relative;
     bottom: 0px;
     opacity: 1;
-    width: 100%;
+    width: 545px;
     transition: bottom 500ms, opacity 500ms;
 }
 #iconArray {
