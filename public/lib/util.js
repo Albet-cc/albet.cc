@@ -74,7 +74,7 @@ const util = {
                 console.log("JSON load from " + url + " complete");
                 resolve(json);
             }).catch(error => {
-                console.log("JSON load from " + url + " complete");
+                console.log("JSON load from " + url + " failed");
                 reject(error);
             });
         });
