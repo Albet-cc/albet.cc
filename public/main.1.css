@@ -277,6 +277,7 @@ div.optionsHeader {
 }
 
 #startMenuSlidingContent {
+    z-index: 99;
     height: 305px;
 }
 
