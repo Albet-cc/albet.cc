@@ -173,8 +173,7 @@ global.foodSpawnProtection = entity => {
     entity.noclip = true;
     entity.layerID = 99;
     entity.skipLife = true;
-    let limit = 200;
-    while (limit-- && entity.skill.score - entity.skill.deduction >= entity.skill.levelScore) {
+    if (limit-- && entity.skill.score - entity.skill.deduction >= entity.skill.levelScore) {
         entity.skill.deduction += entity.skill.levelScore;
         entity.skill.level += 1;
         entity.skill.points += entity.skill.levelPoints;
