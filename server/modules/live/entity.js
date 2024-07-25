@@ -483,6 +483,45 @@ class Gun extends EventEmitter {
     }
 }
 
+class antiNaN {
+    constructor(me) {
+        this.me = me;
+        this.nansInARow = 0;
+        this.data = { x: 1, y: 1, vx: 0, vy: 0, ax: 0, ay: 0 };
+        this.amNaN = me => [me.x, me.y, me.velocity.x, me.velocity.y, me.accel.x, me.accel.y].some(isNaN);
+    }
+    update() {
+        if (this.amNaN(this.me)) {
+            this.nansInARow++;
+            if (this.nansInARow > 50) {
+                console.log("NaN instance found. (Repeated)\nDebug:", [
+                    ["x", isNaN(this.me.x)],
+                    ["y", isNaN(this.me.y)],
+                    ["velocity.x", isNaN(this.me.velocity.x)],
+                    ["velocity.y", isNaN(this.me.velocity.y)],
+                    ["accel.x", isNaN(this.me.accel.x)],
+                    ["accel.y", isNaN(this.me.accel.y)],
+                ].filter(entry => entry[1]).join(', '));
+            }
+            this.me.x = this.data.x;
+            this.me.y = this.data.y;
+            this.me.velocity.x = this.data.vx;
+            this.me.velocity.y = this.data.vy;
+            this.me.accel.x = this.data.ax;
+            this.me.accel.y = this.data.ay;
+            if (this.amNaN(this.me)) console.log("NaN instance is still NaN.");
+        } else {
+            this.data.x = this.me.x;
+            this.data.y = this.me.y;
+            this.data.vx = this.me.velocity.x;
+            this.data.vy = this.me.velocity.y;
+            this.data.ax = this.me.accel.x;
+            this.data.ay = this.me.accel.y;
+            if (this.nansInARow > 0) this.nansInARow--;
+        }
+    }
+}
+
 class Activation {
     constructor(body) {
         this.body = body;
@@ -756,6 +795,7 @@ class Entity extends EventEmitter {
         this.strokeWidth = 1;
         this.levelCap = undefined;
         this.autospinBoost = 1;
+        this.antiNaN = new antiNaN(this);
         // Get a new unique id
         this.id = entitiesIdLog++;
         this.team = this.id;
@@ -775,12 +815,7 @@ class Entity extends EventEmitter {
                 return 0;
             }
             if (this.isPlayer && !this.isDead()) this.refreshBodyAttributes();
-            if (isNaN(this.me.x)) this.me.x = 0;
-            if (isNaN(this.me.y)) this.me.y = 0;
-            if (isNaN(this.me.velocity.x)) this.me.velocity.x = 0;
-            if (isNaN(this.me.velocity.y)) this.me.velocity.y = 0;
-            if (isNaN(this.me.accel.x)) this.me.accel.x = 0;
-            if (isNaN(this.me.accel.y)) this.me.accel.y = 0;
+            this.antiNaN.update();
             // Get bounds
             let x1 = Math.min(this.x, this.x + this.velocity.x + this.accel.x) - this.realSize - 5;
             let y1 = Math.min(this.y, this.y + this.velocity.y + this.accel.y) - this.realSize - 5;
