@@ -1,6 +1,6 @@
 module.exports = {
     MODE: "tdm",
-    TEAMS: 4,
+    TEAMS: 2,
     TILE_WIDTH: 800,
     TILE_HEIGHT: 800,
     FOOD_CAP_NEST: 3,

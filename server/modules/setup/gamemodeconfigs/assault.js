@@ -7,6 +7,8 @@ module.exports = {
 	},
 	
 	DOMINATOR_LOOP: true,
-	ROOM_SETUP: ['overlay_assault_trenches']
+	ROOM_SETUP: ['overlay_assault_trenches'],
+	TILE_WIDTH: 250,
+    TILE_HEIGHT: 250
 
 };
