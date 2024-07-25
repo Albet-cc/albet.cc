@@ -116,12 +116,12 @@ class Skill {
         this.update();
     }
     maintain() {
-        if (this.score - this.deduction >= this.levelScore) {
-            this.deduction += this.levelScore;
-            this.level += 1;
-            this.points += this.levelPoints;
-            this.update();
-        }
+        if (this.score - this.deduction < this.levelScore) return false;
+        this.deduction += this.levelScore;
+        this.level += 1;
+        this.points += this.levelPoints;
+        this.update();
+        return true;
     }
     get levelScore() {
         return Math.ceil(1.8 * Math.pow(this.level + 1, 1.8) - 2 * this.level + 1);

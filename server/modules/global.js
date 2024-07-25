@@ -85,7 +85,7 @@ global.Tile = class Tile {
 global.tickIndex = 0;
 global.tickEvents = new EventEmitter();
 global.tickEvents.setMaxListeners(30);
-global.setSyncedTimeout = (callback, ticks = 0, ...args) => tickEvents.once(tickIndex + Math.round(ticks), () => callback(...args));
+global.setSyncedTimeout = (callback, ticks = 0, ...args) => tickEvents.once(tickIndex + 1 + Math.round(ticks), () => callback(...args));
 global.syncedDelaysLoop = () => {
     tickEvents.emit(tickIndex);
     tickIndex++;
@@ -169,10 +169,10 @@ global.makeHitbox = wall => {
     wall.hitboxRadius = distance;
 }
 global.foodSpawnProtection = entity => {
-    entity.alpha *= 0.5;
     entity.noclip = true;
-    entity.layerID = 99;
     entity.skipLife = true;
+    entity.layerID = 99;
+    entity.alpha *= 0.5;
     setSyncedTimeout(() => {
         entity.alpha *= 2;
         entity.noclip = false;
