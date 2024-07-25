@@ -53,13 +53,13 @@ var serverStart = 0,
                 }
             },
             update: () => {
-                levelscore = Math.ceil(Math.pow(level, 3) * 0.3083);
-                if (sscore.get() >= levelscore - 0.01) {
-                    deduction = levelscore;
+                levelscore = Math.ceil(1.8 * Math.pow(level + 1, 1.8) - 2 * level + 1);
+                if (sscore.get() - deduction >= levelscore - 0.001) {
+                    deduction += levelscore;
                     level += 1;
                 }
             },
-            getProgress: () => levelscore ? Math.min(1, Math.max(0, (sscore.get() - deduction) / (levelscore - deduction))) : 0,
+            getProgress: () => levelscore ? Math.min(1, Math.max(0, (sscore.get() - deduction) / levelscore)) : 0,
             getScore: () => sscore.get(),
             getLevel: () => level,
         },
