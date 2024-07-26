@@ -249,7 +249,7 @@ module.exports = {
     },{
         bosses: ["kronos", "odin", "legionaryCrasher"],
         amount: [1], chance: 0.2,
-        message: "Something powerful lurks in the distance, giving you the sense to leave the middle of the map.",
+        message: "Something powerful lurks in the distance, giving you the sense to leave the nests of the map.",
     },{
         bosses: ["bob"],
         amount: [15], chance: 0.03,
