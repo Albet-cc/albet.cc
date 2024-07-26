@@ -169,16 +169,16 @@ global.makeHitbox = wall => {
     wall.hitboxRadius = distance;
 }
 global.foodSpawnProtection = entity => {
-    entity.noclip = true;
-    entity.skipLife = true;
-    entity.layerID = 99;
-    entity.alpha *= 0.5;
-    setTimeout(() => { // setSyncedTimeout(() => {
-        entity.alpha *= 2;
-        entity.noclip = false;
-        entity.layerID = undefined;
-        entity.skipLife = false;
-    }, 5000);
+    // entity.noclip = true;
+    // entity.skipLife = true;
+    // entity.layerID = 99;
+    // entity.alpha *= 0.5;
+    // setTimeout(() => { // setSyncedTimeout(() => {
+    //     entity.alpha *= 2;
+    //     entity.noclip = false;
+    //     entity.layerID = undefined;
+    //     entity.skipLife = false;
+    // }, 5000);
 }
 
 // Now that we've set up the global variables, we import all the modules, then put them into global varialbles and then export something just so this file is run.
