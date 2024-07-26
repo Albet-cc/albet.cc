@@ -20,8 +20,8 @@ function firmcollide(my, n, buffer = 0) {
         y: n.y + n.yMotion,
     };
     let dist = util.getDistance(item1, item2);
-    let s1 = Math.max(my.velocity.length, 2);
-    let s2 = Math.max(n.velocity.length, 2);
+    let s1 = Math.max(my.velocity.length, my.topSpeed);
+    let s2 = Math.max(n.velocity.length, n.topSpeed);
     let strike1, strike2;
     if (buffer > 0 && dist <= my.realSize + n.realSize + buffer) {
         let repel = (my.acceleration + n.acceleration) * (my.realSize + n.realSize + buffer - dist) / buffer / Config.runSpeed;
