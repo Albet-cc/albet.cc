@@ -173,12 +173,12 @@ global.foodSpawnProtection = entity => {
     entity.skipLife = true;
     entity.layerID = 99;
     entity.alpha *= 0.5;
-    setSyncedTimeout(() => {
+    setTimeout(() => { // setSyncedTimeout(() => {
         entity.alpha *= 2;
         entity.noclip = false;
         entity.layerID = undefined;
         entity.skipLife = false;
-    }, 150);
+    }, 5000);
 }
 
 // Now that we've set up the global variables, we import all the modules, then put them into global varialbles and then export something just so this file is run.
