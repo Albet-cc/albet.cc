@@ -573,9 +573,11 @@ function incoming(message, socket) {
                 break;
             }
 
+            /*
             if (message !== original) {
                 socket.log('message changed to ' + message);
             }
+            */
 
             let id = player.body.id;
             if (!chats[id]) {

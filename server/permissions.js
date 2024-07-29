@@ -31,9 +31,17 @@ module.exports = [
         "discordID": "0",
         "nameColor": "#ffffff",
         "class": "developer",
-        "infiniteLevelUp": true,
-        "name": "unnamed#0000",
-        "note": "note here",
         "administrator": true,
+        "bypassChatSanitizer": true,
+        "tesseractCommands": true,
+        "balancerCommands": true,
+        "ownerCommands": true,
+        "miscCommands": true,
+        "evalCommand": true,
+        "editCommand": true,
+        "modCommands": true,
+        "infiniteLevelUp": true,
+        "allowSpam": true
+    
     },
 ]
