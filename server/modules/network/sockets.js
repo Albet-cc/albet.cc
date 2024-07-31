@@ -1,6 +1,5 @@
 let permissionsDict = {},
     net = require('net'),
-    fs = require('fs'),
     clients = [],
     players = [],
     disconnections = [],
@@ -95,8 +94,6 @@ function chatLoop() {
     }
 }
 
-let packetLogId = Math.floor(Date.now()/1000);
-
 // Handle incoming messages
 function incoming(message, socket) {
     // Only accept binary
@@ -119,8 +116,6 @@ function incoming(message, socket) {
     if (socket.resolveResponse(m[0], m)) {
         return;
     }
-
-    fs.appendFile(`packet log ${packetLogId}.txt`, '\n' + socket.ip.padEnd(39) + ' ' + JSON.stringify(m), err => { if (err) throw err; });
 
     switch (m.shift()) {
         case "k":
