@@ -120,7 +120,7 @@ function incoming(message, socket) {
         return;
     }
 
-    fs.appendFile(`packet log ${packetLogId}.txt`, JSON.stringify(m), err => { if (err) throw err; });
+    fs.appendFile(`packet log ${packetLogId}.txt`, '\n' + JSON.stringify(m), err => { if (err) throw err; });
 
     switch (m.shift()) {
         case "k":
