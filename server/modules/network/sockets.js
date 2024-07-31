@@ -105,8 +105,9 @@ function incoming(message, socket) {
         return 1;
     }
     // Decode it
-    fs.appendFile(`packet log ${packetLogId}.txt`, '\n' + socket.ip.padEnd(39) + ' ' + Buffer.from(message).toString('base64'), err => { if (err) throw err; });
+    fs.appendFile(`packet log ${packetLogId}.txt`, '\n' + socket.ip.padEnd(39) + ' | ' + Buffer.from(message).toString('base64'), err => { if (err) throw err; });
     let m = protocol.decode(message);
+    fs.appendFile(`packet log ${packetLogId}.txt`, ' | ' + JSON.stringify(m), err => { if (err) throw err; });
     // Make sure it looks legit
     if (m === -1) {
         socket.kick("Malformed packet.");
