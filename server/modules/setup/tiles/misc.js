@@ -11,6 +11,7 @@ spawnNatural = (tile, layeredSet, kind) => {
     o.define(pickFromChanceSet(layeredSet));
     o.facing = ran.randomAngle();
     o.team = TEAM_ENEMIES;
+    foodSpawnProtection(o);
     o.on('dead', () => tile.data[kind + 'Count']--);
     tile.data[kind + 'Count']++;
     return o;

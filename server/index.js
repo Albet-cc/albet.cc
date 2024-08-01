@@ -309,6 +309,7 @@ const maintainloop = () => {
 
                 names.push(boss.name);
                 naturallySpawnedBosses.push(boss);
+                foodSpawnProtection(boss);
                 boss.on('dead', () => util.remove(naturallySpawnedBosses, naturallySpawnedBosses.indexOf(boss)));
             }
 
