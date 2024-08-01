@@ -934,7 +934,7 @@ Class.bob = {
     BODY: {
         FOV: 6,
         SPEED: 1.5 * base.SPEED,
-        HEALTH: 30 * base.HEALTH,
+        HEALTH: 10 * base.HEALTH,
         DAMAGE: 25 * base.DAMAGE,
         REGEN: 4 * base.REGEN,
         FOV: 0.5 * base.FOV,
