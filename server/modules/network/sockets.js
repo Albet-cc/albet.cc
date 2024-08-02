@@ -1502,12 +1502,14 @@ const sockets = {
 
         socket.ip = ips[0];
 
-        if (!ipCount.has(socket.ip)) {
-            ipCount.set(socket.ip, 0);
-        }
-        ipCount.set(socket.ip, ipCount.get(socket.ip) + 1);
-        if (ipCount.get(socket.ip) > Config.connectionsPerIp) {
-            return socket.kick("'connections per ip' limit reached");
+        if (Config.connectionsPerIp) {
+            if (!ipCount.has(socket.ip)) {
+                ipCount.set(socket.ip, 0);
+            }
+            ipCount.set(socket.ip, ipCount.get(socket.ip) + 1);
+            if (ipCount.get(socket.ip) > Config.connectionsPerIp) {
+                return socket.kick("'connections per ip' limit reached");
+            }
         }
 
         // Log it
