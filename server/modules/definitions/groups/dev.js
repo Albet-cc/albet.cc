@@ -22,7 +22,7 @@ Class.developer = {
     ACCEPTS_SCORE: true,
     CAN_BE_ON_LEADERBOARD: true,
     CAN_GO_OUTSIDE_ROOM: false,
-    IS_IMMUNE_TO_TILES: false,
+    IS_IMMUNE_TO_TILES: true,
     DRAW_HEALTH: true,
     ARENA_CLOSER: true,
     INVISIBLE: [0, 0],
