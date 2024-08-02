@@ -160,6 +160,7 @@ Class.eliteSpawner = {
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
                 STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 3
             },
         }, {
             POSITION: [2, 18, 1, 11, 0, 180, 0],
@@ -169,6 +170,7 @@ Class.eliteSpawner = {
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
                 STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 3
             },
         }, {
             POSITION: [2, 18, 1, 11, 0, 300, 0],
@@ -178,6 +180,7 @@ Class.eliteSpawner = {
                 SYNCS_SKILLS: true,
                 AUTOFIRE: true,
                 STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 3
             },
         },
     ],
@@ -562,7 +565,7 @@ Class.sorcerer = {
     GUNS: weaponArray({
         POSITION: [3.5, 8.65, 1.2, 8, 0, 0, 0],
         PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, g.machineGun, g.machineGunner, { damage: 2, size: 0.4, spray: 150, speed: 2, shudder: 1.75 }]),
+            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, g.machineGun, g.machineGunner, { damage: 1, size: 0.4, spray: 150, speed: 2, shudder: 1.75 }]),
             TYPE: "minichip",
             AUTOFIRE: true,
             SYNCS_SKILLS: true,
