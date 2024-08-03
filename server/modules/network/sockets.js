@@ -1333,7 +1333,7 @@ let minimapAll = new Delta(5, args => {
 let minimapTeams = new Delta(3, args => {
     let all = [];
     for (let my of entities)
-        if (my.type === "tank" && my.team === args[0] && my.master === my && my.allowedOnMinimap) {
+        if (my.type === "tank" && (args[1] || my.team === args[0]) && my.master === my && my.allowedOnMinimap) {
             all.push({
                 id: my.id,
                 data: [
@@ -1427,7 +1427,8 @@ setInterval(() => {
         );
         teamUpdate = minimapTeams.update(
             socket.id,
-            socket.player.team
+            socket.player.team,
+            socket.seeAllPlayersOnMinimap
         );
         socket.talk(
             "b",
@@ -1597,6 +1598,7 @@ const sockets = {
             lastDowndate: undefined,
             fov: 2000,
         };
+        socket.seeAllPlayersOnMinimap = false;
         socket.lastExpensivePacket = performance.now();
         // Set up the viewer
         socket.makeView = () => socket.view = new View(socket);
