@@ -446,6 +446,7 @@ function incoming(message, socket) {
         case "1":
             //suicide squad
             if (player.body != null && !player.body.underControl) {
+                if (socket.expensivePacketTooFast()) return;
                 for (let i = 0; i < entities.length; i++) {
                     let instance = entities[i];
                     if (instance.settings.clearOnMasterUpgrade && instance.master.id === player.body.id) {
@@ -456,7 +457,8 @@ function incoming(message, socket) {
             }
             break;
         case "A":
-            if (player.body != null) return 1;
+            if (player.body == null) return 1;
+            if (socket.expensivePacketTooFast()) return;
             let possible = []
             for (let i = 0; i < entities.length; i++) {
                 let entry = entities[i];
@@ -477,6 +479,7 @@ function incoming(message, socket) {
             break;
         case "H":
             if (player.body == null) return 1;
+            if (socket.expensivePacketTooFast()) return;
             let body = player.body;
             body.emit("control", { body })
             if (body.underControl) {
@@ -1590,10 +1593,9 @@ const sockets = {
             lastDowndate: undefined,
             fov: 2000,
         };
+        socket.lastExpensivePacket = performance.now();
         // Set up the viewer
-        socket.makeView = () => {
-            socket.view = new View(socket);
-        };
+        socket.makeView = () => socket.view = new View(socket);
         socket.makeView();
         // Put the fundamental functions in the socket
         socket.talk = (...message) => {
@@ -1601,6 +1603,13 @@ const sockets = {
                 socket.send(protocol.encode(message), { binary: true });
             }
         };
+        socket.expensivePacketTooFast = () => {
+            if (socket.lastExpensivePacket - performance.now() < 1000) {
+                socket.player.body.sendMessage("Please slow down!");
+                return true;
+            }
+            socket.lastExpensivePacket = performance.now();
+        }
         // Put the player functions in the socket
         socket.spawn = (name) => spawn(socket, name);
         socket.on("message", message => incoming(message, socket));
