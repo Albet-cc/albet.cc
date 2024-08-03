@@ -295,6 +295,10 @@ function incoming(message, socket) {
                 socket.kick("Malformed command packet.");
                 return 1;
             }
+            if (target.x ** 2 + target.y ** 2 > player.body.fov ** 2) {
+                socket.kick("Malformed command packet.");
+                return 1;
+            }
             // Will not work out
             // if (Config.SPACE_MODE && player.body) {
             //     let spaceOffsetAngle = Math.atan2(
@@ -1438,7 +1442,7 @@ setInterval(() => {
     logs.minimap.endTracking();
     let time = performance.now();
     for (let socket of clients) {
-        if (socket.timeout.check(time)) socket.lastWords("K");
+        if (socket.timeout.check(time)) socket.lastWords('K', `Player was AFK for more than ${Config.maxHeartbeatInterval / 60000} minutes.`);
         if (time - socket.statuslastHeartbeat > Config.maxHeartbeatInterval) socket.kick("Lost heartbeat.");
     }
 }, 250);

@@ -1019,6 +1019,9 @@ const socketInit = port => {
                 break;
             case 'K': // kicked
                 window.onbeforeunload = () => false;
+                if (m[0]) {
+                    global.message = m[0];
+                }
                 break;
             case 'z': // name color
                 global.nameColor = m[0];
