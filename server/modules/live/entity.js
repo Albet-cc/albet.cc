@@ -1666,6 +1666,7 @@ class Entity extends EventEmitter {
         for (let i = 0; i < this.turrets.length; i++) this.turrets[i].syncTurrets();
     }
     upgrade(number, branchId) {
+        branchId = Math.min(branchId, this.skippedUpgrades.length);
         // Account for upgrades that are too high level for the player to access
         for (let i = 0; i < branchId; i++) {
             number += this.skippedUpgrades[i] ?? 0;
