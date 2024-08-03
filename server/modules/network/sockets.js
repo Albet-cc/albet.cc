@@ -1604,7 +1604,7 @@ const sockets = {
             }
         };
         socket.expensivePacketTooFast = () => {
-            if (socket.lastExpensivePacket - performance.now() < 1000) {
+            if (performance.now() - socket.lastExpensivePacket < 1000) {
                 socket.player.body.sendMessage("Please slow down!");
                 return true;
             }
