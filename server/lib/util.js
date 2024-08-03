@@ -59,7 +59,7 @@ exports.rounder = (val, precision = 6) => {
 }
 
 // backwards compatability
-exports.time = performance.now.bind(performance);
+exports.time = () => performance.now();
 
 // create a custom timestamp format for log statements
 exports.log = text => console.log("[" + (exports.time() / 1000).toFixed(3) + "]: " + text)
