@@ -865,49 +865,49 @@ Class.rogueArmada = {
         {
             POSITION: [8, 2, 1, 0, -2, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.45, maxSpeed: 0.1}]),
                 TYPE: "casing"
             }
         }, {
             POSITION: [8, 2, 1, 0, -1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.45, maxSpeed: 0.1}]),
                 TYPE: "casing"
             }
         }, {
             POSITION: [8, 2, 1, 0, -1, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 2}]),
                 TYPE: "bullet"
             }
         }, {
             POSITION: [8, 3, 1, 0, 0.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 2}]),
                 TYPE: "bullet"
             }
         }, {
             POSITION: [8, 3, 1, 0, 0, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 2}]),
                 TYPE: "bullet"
             }
         }, {
             POSITION: [8, 3, 1, 0, 0.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 2}]),
                 TYPE: "bullet"
             }
         }, {
             POSITION: [8, 4, 1, 0, 1, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 2}]),
                 TYPE: "bullet"
             }
         }, {
             POSITION: [8, 4, 1, 0, 1.5, 360 / 14, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.6, maxSpeed: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.machineGun, g.shotgun, {damage: 0.6, speed: 0.45, maxSpeed: 0.1}]),
                 TYPE: "casing"
             }
         }, {
@@ -936,7 +936,7 @@ Class.bob = {
     SIZE: 18,
     BODY: {
         FOV: 6,
-        SPEED: 1.5 * base.SPEED,
+        SPEED: 1.3 * base.SPEED,
         HEALTH: 10 * base.HEALTH,
         DAMAGE: 25 * base.DAMAGE,
         REGEN: 4 * base.REGEN,
