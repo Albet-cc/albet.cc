@@ -84,7 +84,7 @@ global.Tile = class Tile {
 
 global.tickIndex = 0;
 global.tickEvents = new EventEmitter();
-global.tickEvents.setMaxListeners(30);
+global.tickEvents.setMaxListeners(50);
 global.setSyncedTimeout = (callback, ticks = 0, ...args) => tickEvents.once(tickIndex + 1 + Math.round(ticks), () => callback(...args));
 global.syncedDelaysLoop = () => {
     tickEvents.emit(tickIndex);
