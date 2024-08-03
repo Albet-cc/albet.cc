@@ -12,7 +12,7 @@ let checkMazeForBlocks = (initX, initY, size, maze) => {
         maze[initY][initX] = size;
     },
     generateMaze = (size) => {
-        let maze = JSON.parse(JSON.stringify(Array(size).fill(Array(size).fill(true))));
+        let maze = Array(size).fill(() => Array(size).fill(true)).map(x => x());
         let activeLocsThatWeCantPlaceIn = 0;
         maze[0] = Array(size).fill(false);
         maze[size - 1] = Array(size).fill(false);
