@@ -486,38 +486,23 @@ class Gun extends EventEmitter {
 class antiNaN {
     constructor(me) {
         this.me = me;
-        this.nansInARow = 0;
-        this.data = { x: 1, y: 1, vx: 0, vy: 0, ax: 0, ay: 0 };
-        this.amNaN = me => [me.x, me.y, me.velocity.x, me.velocity.y, me.accel.x, me.accel.y].some(isNaN);
+        this.save = { x: 1, y: 1, vx: 0, vy: 0, ax: 0, ay: 0 };
     }
     update() {
-        if (this.amNaN(this.me)) {
-            this.nansInARow++;
-            if (this.nansInARow > 50) {
-                console.log("NaN instance found. (Repeated)\nDebug:", [
-                    ["x", isNaN(this.me.x)],
-                    ["y", isNaN(this.me.y)],
-                    ["velocity.x", isNaN(this.me.velocity.x)],
-                    ["velocity.y", isNaN(this.me.velocity.y)],
-                    ["accel.x", isNaN(this.me.accel.x)],
-                    ["accel.y", isNaN(this.me.accel.y)],
-                ].filter(entry => entry[1]).join(', '));
-            }
-            this.me.x = this.data.x;
-            this.me.y = this.data.y;
-            this.me.velocity.x = this.data.vx;
-            this.me.velocity.y = this.data.vy;
-            this.me.accel.x = this.data.ax;
-            this.me.accel.y = this.data.ay;
-            if (this.amNaN(this.me)) console.log("NaN instance is still NaN.");
+        if ([this.me.x, this.me.y, this.me.velocity.x, this.me.velocity.y, this.me.accel.x, this.me.accel.y].some(isNaN)) {
+            this.me.x = this.save.x;
+            this.me.y = this.save.y;
+            this.me.velocity.x = this.save.vx;
+            this.me.velocity.y = this.save.vy;
+            this.me.accel.x = this.save.ax;
+            this.me.accel.y = this.save.ay;
         } else {
-            this.data.x = this.me.x;
-            this.data.y = this.me.y;
-            this.data.vx = this.me.velocity.x;
-            this.data.vy = this.me.velocity.y;
-            this.data.ax = this.me.accel.x;
-            this.data.ay = this.me.accel.y;
-            if (this.nansInARow > 0) this.nansInARow--;
+            this.save.x = this.me.x ?? 0;
+            this.save.y = this.me.y ?? 0;
+            this.save.vx = this.me.velocity.x ?? 0;
+            this.save.vy = this.me.velocity.y ?? 0;
+            this.save.ax = this.me.accel.x ?? 0;
+            this.save.ay = this.me.accel.y ?? 0;
         }
     }
 }
