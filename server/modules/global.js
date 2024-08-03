@@ -91,7 +91,7 @@ global.syncedDelaysLoop = () => {
     tickIndex++;
 };
 
-function TO_SCREAMING_SNAKE_CASE(TEXT) {
+global.TO_SCREAMING_SNAKE_CASE = TEXT => {
     if (/^[A-Z_]*[A-Z]$/.test(TEXT)) {
         return TEXT;
     } else if (/[a-zA-Z]+/.test(TEXT)) {

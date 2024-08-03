@@ -1,13 +1,14 @@
 function simplecollide(my, n) {
     let difference = (1 + util.getDistance(my, n) / 2) * Config.runSpeed;
-    let pushability1 = (my.intangibility) ? 1 : my.pushability,
-        pushability2 = (n.intangibility) ? 1 : n.pushability,
+    let pushabilityMY = (my.intangibility) ? 1 : my.pushability,
+        pushabilityN = (n.intangibility) ? 1 : n.pushability,
         differenceX = 0.05 * (my.x - n.x) / difference,
-        differenceY = 0.05 * (my.y - n.y) / difference;
-    my.accel.x += pushability1 / (pushability2 + 0.3) * differenceX;
-    my.accel.y += pushability1 / (pushability2 + 0.3) * differenceY;
-    n.accel.x -= pushability1 / (pushability2 + 0.3) * differenceX;
-    n.accel.y -= pushability1 / (pushability2 + 0.3) * differenceY;
+        differenceY = 0.05 * (my.y - n.y) / difference,
+        sizeRatio = my.size / n.size;
+    my.accel.x += pushabilityMY / (pushabilityN + 0.3) * differenceX / sizeRatio;
+    my.accel.y += pushabilityMY / (pushabilityN + 0.3) * differenceY / sizeRatio;
+    n.accel.x -= pushabilityMY / (pushabilityN + 0.3) * differenceX * sizeRatio;
+    n.accel.y -= pushabilityMY / (pushabilityN + 0.3) * differenceY * sizeRatio;
 }
 
 function firmcollide(my, n, buffer = 0) {
