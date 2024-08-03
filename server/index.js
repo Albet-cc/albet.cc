@@ -178,7 +178,7 @@ function collide(collision) {
                         !instance.isDominator &&
                         !other.isDominator
                     )
-                        firmcollide(instance, other, 50);
+                        simplecollide(instance, other);
                 case "hardOnlyBosses":
                     if (instance.type === other.type && instance.type === "miniboss")
                         firmcollide(instance, other);
