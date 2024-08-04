@@ -295,7 +295,7 @@ function incoming(message, socket) {
                 socket.kick("Malformed command packet.");
                 return 1;
             }
-            if (target.x ** 2 + target.y ** 2 > (player.body.fov * 1.25) ** 2) {
+            if (player.body != null && target.x ** 2 + target.y ** 2 > (player.body.fov * 1.25) ** 2) {
                 socket.kick("Aimed beyond FOV.");
                 return 1;
             }
