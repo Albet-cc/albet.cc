@@ -408,7 +408,7 @@ function incoming(message, socket) {
                     player.body.skillUp(stat);
                 } while (limit-- && max && player.body.skill.points && player.body.skill.amount(stat) < player.body.skill.cap(stat))
             }
-            socket.timeout.set(commands);
+            socket.timeout.set({number, stat});
             break;
         case "L":
             // level up cheat
@@ -423,7 +423,7 @@ function incoming(message, socket) {
                 player.body.skill.maintain();
                 player.body.refreshBodyAttributes();
             }
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
         case "0":
             // testbed cheat
@@ -439,7 +439,7 @@ function incoming(message, socket) {
                     player.body.color.base = getTeamColor((Config.GROUPS || (Config.MODE == 'ffa' && !Config.TAG)) ? TEAM_RED : player.body.team);
                 }
             }
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
         case "1":
             //suicide squad
@@ -453,7 +453,7 @@ function incoming(message, socket) {
                 }
                 player.body.destroy();
             }
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
         case "A":
             if (player.body == null) return 1;
@@ -475,7 +475,7 @@ function incoming(message, socket) {
             } while (entity === socket.spectateEntity && possible.length > 1);
             socket.spectateEntity = entity;
             player.body.sendMessage(`You are now spectating ${entity.name.length ? entity.name : "An unnamed player"}! (${entity.label})`);
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
         case "H":
             if (player.body == null) return 1;
