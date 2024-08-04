@@ -55,7 +55,7 @@ function close(socket) {
 // Being kicked
 function kick(socket, reason = "No reason given.") {
     socket.log(`kicking: ${reason}`);
-    socket.lastWords("K");
+    socket.lastWords("K", reason);
 }
 
 function chatLoop() {
@@ -296,22 +296,12 @@ function incoming(message, socket) {
                 return 1;
             }
             if (player.body != null && target.x ** 2 + target.y ** 2 > (player.body.fov * 1.25) ** 2) {
-                socket.kick("Aimed beyond FOV.");
-                return 1;
+                if (socket.aimTooFarCounts++ > 10) {
+                    socket.kick("Aimed beyond FOV.");
+                    return 1;
+                }
             }
-            // Will not work out
-            // if (Config.SPACE_MODE && player.body) {
-            //     let spaceOffsetAngle = Math.atan2(
-            //         room.width / 2 - player.body.x,
-            //         room.height / 2 - player.body.y
-            //     );
-            //     let vecLength = Math.sqrt(Math.pow(m[0], 2) + Math.pow(m[1], 2));
-            //     vecAngle = Math.atan2(m[1], m[0]) - spaceOffsetAngle;
-            //     target = {
-            //         x: Math.cos(angle) * length,
-            //         y: Math.sin(angle) * length,
-            //     };
-            // }
+            socket.aimTooFarCounts = Math.max(0, socket.aimTooFarCounts - 1);
             // Put the new target in
             player.target = target;
             if (player.body) player.body.reverseTank = reverseTank;
@@ -326,7 +316,6 @@ function incoming(message, socket) {
                 player.command.mmb = (commands & 4) >> 2;
                 player.command.rmb = (commands & 8) >> 3;
             }
-            // Update the thingy
             socket.timeout.set(commands);
             break;
         case "t":
@@ -363,6 +352,7 @@ function incoming(message, socket) {
                 // Send a message.
                 if (sendMessage) player.body.sendMessage(given.charAt(0).toUpperCase() + given.slice(1) + (player.command[given] ? " enabled." : " disabled."));
             }
+            socket.timeout.set(commands);
             break;
         case "U":
             // upgrade request
@@ -382,6 +372,7 @@ function incoming(message, socket) {
             if (player.body != null) {
                 player.body.upgrade(upgrade, branchId); // Ask to upgrade
             }
+            socket.timeout.set(commands);
             break;
         case "x":
             // skill upgrade request
@@ -417,6 +408,7 @@ function incoming(message, socket) {
                     player.body.skillUp(stat);
                 } while (limit-- && max && player.body.skill.points && player.body.skill.amount(stat) < player.body.skill.cap(stat))
             }
+            socket.timeout.set(commands);
             break;
         case "L":
             // level up cheat
@@ -431,6 +423,7 @@ function incoming(message, socket) {
                 player.body.skill.maintain();
                 player.body.refreshBodyAttributes();
             }
+            socket.timeout.set(commands);
             break;
         case "0":
             // testbed cheat
@@ -446,6 +439,7 @@ function incoming(message, socket) {
                     player.body.color.base = getTeamColor((Config.GROUPS || (Config.MODE == 'ffa' && !Config.TAG)) ? TEAM_RED : player.body.team);
                 }
             }
+            socket.timeout.set(commands);
             break;
         case "1":
             //suicide squad
@@ -459,6 +453,7 @@ function incoming(message, socket) {
                 }
                 player.body.destroy();
             }
+            socket.timeout.set(commands);
             break;
         case "A":
             if (player.body == null) return 1;
@@ -480,6 +475,7 @@ function incoming(message, socket) {
             } while (entity === socket.spectateEntity && possible.length > 1);
             socket.spectateEntity = entity;
             player.body.sendMessage(`You are now spectating ${entity.name.length ? entity.name : "An unnamed player"}! (${entity.label})`);
+            socket.timeout.set(commands);
             break;
         case "H":
             if (player.body == null) return 1;
@@ -554,8 +550,8 @@ function incoming(message, socket) {
             } else {
                 player.body.sendMessage("There are no special tanks in this mode that you can control.");
             }
+            socket.timeout.set(commands);
             break;
-
         case "M":
             if (player.body == null) return 1;
             let abort, message = m[0], original = m[0];
@@ -598,9 +594,7 @@ function incoming(message, socket) {
             // do one tick of the chat loop so they don't need to wait 100ms to receive it.
             chatLoop();
 
-            // for (let i = 0; i < clients.length; i++) {
-            //     clients[i].talk("CHAT_MESSAGE_BOX", message);
-            // }
+            socket.timeout.set(commands);
             break;
     }
 }
@@ -1443,7 +1437,7 @@ setInterval(() => {
     logs.minimap.endTracking();
     let time = performance.now();
     for (let socket of clients) {
-        if (socket.timeout.check(time)) socket.lastWords('K', `Player was AFK for more than ${Config.maxHeartbeatInterval / 60000} minutes.`);
+        if (socket.timeout.check(time)) socket.kick(`Player was AFK for more than ${Config.maxHeartbeatInterval / 60000} minutes.`);
         if (time - socket.statuslastHeartbeat > Config.maxHeartbeatInterval) socket.kick("Lost heartbeat.");
     }
 }, 250);
@@ -1479,7 +1473,7 @@ const sockets = {
     connect: (socket, req) => {
         socket.lastWords = (...message) => {
             if (socket.readyState === socket.OPEN) {
-                socket.send(protocol.encode(message), { binary: true }, () => setTimeout(() => socket.close(), 1000));
+                socket.send(protocol.encode(message), { binary: true }, () => socket.close());
             }
         };
         socket.kick = (reason) => kick(socket, reason);
@@ -1536,7 +1530,7 @@ const sockets = {
         socket.timeout = {
             check: (time) => timer && time - timer > Config.maxHeartbeatInterval,
             set: (val) => {
-                if (mem !== val) {
+                if (util.deepEqual(mem, val)) {
                     mem = val;
                     timer = performance.now();
                 }
@@ -1598,6 +1592,7 @@ const sockets = {
             lastDowndate: undefined,
             fov: 2000,
         };
+        socket.aimTooFarCounts = 0;
         socket.seeAllPlayersOnMinimap = false;
         socket.lastExpensivePacket = performance.now();
         // Set up the viewer

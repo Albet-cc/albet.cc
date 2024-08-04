@@ -120,3 +120,34 @@ exports.flattenDefinition = (output, definition) => {
 
   return output;
 };
+
+// https://stackoverflow.com/a/25456134/10793061
+let deepEqual = (x, y) => {
+  if (x === y) {
+    return true;
+  }
+
+  if (!(typeof x == "object" && x != null && typeof y == "object" && y != null)) {
+    return false;
+  }
+
+  let xKeys = Object.keys(x);
+
+  if (xKeys.length != Object.keys(y).length) {
+    return false;
+  }
+
+  for (let prop of xKeys) {
+    if (!y.hasOwnProperty(prop)){
+      return false;
+    }
+  
+    if (!deepEqual(x[prop], y[prop])) {
+      return false;
+    }
+  }
+  
+  return true;
+};
+
+exports.deepEqual = deepEqual;

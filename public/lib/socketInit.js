@@ -1020,6 +1020,7 @@ const socketInit = port => {
             case 'K': // kicked
                 window.onbeforeunload = () => false;
                 if (m[0]) {
+                    global.canThrowSyncClockError = global.canThrowClosedMessage = false;
                     global.message = m[0];
                 }
                 break;
