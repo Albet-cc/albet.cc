@@ -352,7 +352,7 @@ function incoming(message, socket) {
                 // Send a message.
                 if (sendMessage) player.body.sendMessage(given.charAt(0).toUpperCase() + given.slice(1) + (player.command[given] ? " enabled." : " disabled."));
             }
-            socket.timeout.set(commands);
+            socket.timeout.set(given);
             break;
         case "U":
             // upgrade request
@@ -372,7 +372,7 @@ function incoming(message, socket) {
             if (player.body != null) {
                 player.body.upgrade(upgrade, branchId); // Ask to upgrade
             }
-            socket.timeout.set(commands);
+            socket.timeout.set({upgrade, branchId});
             break;
         case "x":
             // skill upgrade request
@@ -550,7 +550,7 @@ function incoming(message, socket) {
             } else {
                 player.body.sendMessage("There are no special tanks in this mode that you can control.");
             }
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
         case "M":
             if (player.body == null) return 1;
@@ -594,7 +594,7 @@ function incoming(message, socket) {
             // do one tick of the chat loop so they don't need to wait 100ms to receive it.
             chatLoop();
 
-            socket.timeout.set(commands);
+            socket.timeout.set(performance.now());
             break;
     }
 }
