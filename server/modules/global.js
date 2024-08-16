@@ -91,12 +91,13 @@ global.syncedDelaysLoop = () => {
     tickIndex++;
 };
 
-global.TO_SCREAMING_SNAKE_CASE = TEXT => {
-    if (/^[A-Z_]*[A-Z]$/.test(TEXT)) {
-        return TEXT;
-    } else if (/[a-zA-Z]+/.test(TEXT)) {
-        return TEXT.replace(/[A-Z]/g, _ => '_' + _).toUpperCase();
+const lowercaseRegex = /[a-z]/,
+    uppercaseRegexG = /[A-Z]/g;
+global.TO_SCREAMING_SNAKE_CASE(TEXT) {
+    if (lowercaseRegex.test(TEXT)) {
+        return TEXT.replace(uppercaseRegexG, _ => '_' + _).toUpperCase();
     }
+    return TEXT;
 }
 
 global.Config = new Proxy(new EventEmitter(), {
