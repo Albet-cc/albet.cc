@@ -93,7 +93,7 @@ global.syncedDelaysLoop = () => {
 
 const lowercaseRegex = /[a-z]/,
     uppercaseRegexG = /[A-Z]/g;
-global.TO_SCREAMING_SNAKE_CASE(TEXT) {
+global.TO_SCREAMING_SNAKE_CASE = TEXT => {
     if (lowercaseRegex.test(TEXT)) {
         return TEXT.replace(uppercaseRegexG, _ => '_' + _).toUpperCase();
     }
