@@ -1,3 +1,8 @@
+# This is Archived!
+
+Welp, it was a good run.
+Could've gone as good as it could've gone.
+
 # Open Source Arras
 
 <img alt="Logo" src="public/favicon.ico" width="120" />
